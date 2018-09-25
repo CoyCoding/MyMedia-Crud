@@ -28,139 +28,78 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.MovieListbox = new System.Windows.Forms.ListBox();
-            this.DirFirstNameTextBox = new System.Windows.Forms.TextBox();
-            this.FirstNameLabel = new System.Windows.Forms.Label();
-            this.DirLastNameTextBox = new System.Windows.Forms.TextBox();
-            this.DirLastNameLabel = new System.Windows.Forms.Label();
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
-            this.SearchByDirectorBtn = new System.Windows.Forms.Button();
-            this.SearchByDirectorBtnLabel = new System.Windows.Forms.Label();
-            this.SearchByDirectorHeader = new System.Windows.Forms.Label();
-            this.ActorFirstNameTextBox = new System.Windows.Forms.TextBox();
-            this.ActorLastNameTextBox = new System.Windows.Forms.TextBox();
-            this.ActorFirstNameLabel = new System.Windows.Forms.Label();
-            this.ActorLastNameLabel = new System.Windows.Forms.Label();
-            this.SearchByActorBtn = new System.Windows.Forms.Button();
-            this.SearchByActorBtnLabel = new System.Windows.Forms.Label();
-            this.SearchByActorHeader = new System.Windows.Forms.Label();
-            this.ShowAllMoviesBtn = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.ActorLastNameLabel = new System.Windows.Forms.Label();
+            this.ActorFirstNameLabel = new System.Windows.Forms.Label();
+            this.ActorLastNameTextBox = new System.Windows.Forms.TextBox();
+            this.ActorFirstNameTextBox = new System.Windows.Forms.TextBox();
+            this.SearchByActorHeader = new System.Windows.Forms.Label();
+            this.NavBar = new System.Windows.Forms.Panel();
+            this.DirectorDropDownBtn = new System.Windows.Forms.Button();
+            this.ActorDropDownBtn = new System.Windows.Forms.Button();
+            this.MovieDropdownBtn = new System.Windows.Forms.Button();
+            this.MoviePanel = new System.Windows.Forms.Panel();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.DropDownTimer = new System.Windows.Forms.Timer(this.components);
+            this.ActorPanel = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.ActorDropDownTimer = new System.Windows.Forms.Timer(this.components);
+            this.DirectorPanel = new System.Windows.Forms.Panel();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
+            this.DirectorDropDownTimer = new System.Windows.Forms.Timer(this.components);
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.runtimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.movieBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.searchByDirectorForm1 = new FormUI.SearchByDirectorForm();
+            this.searchByActorForm1 = new FormUI.SearchByActorForm();
+            this.NavBar.SuspendLayout();
+            this.MoviePanel.SuspendLayout();
+            this.ActorPanel.SuspendLayout();
+            this.DirectorPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.movieBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // MovieListbox
-            // 
-            this.MovieListbox.FormattingEnabled = true;
-            this.MovieListbox.Location = new System.Drawing.Point(12, 79);
-            this.MovieListbox.Name = "MovieListbox";
-            this.MovieListbox.Size = new System.Drawing.Size(317, 446);
-            this.MovieListbox.TabIndex = 0;
-            // 
-            // DirFirstNameTextBox
-            // 
-            this.DirFirstNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DirFirstNameTextBox.Location = new System.Drawing.Point(541, 134);
-            this.DirFirstNameTextBox.Name = "DirFirstNameTextBox";
-            this.DirFirstNameTextBox.Size = new System.Drawing.Size(183, 29);
-            this.DirFirstNameTextBox.TabIndex = 1;
-            // 
-            // FirstNameLabel
-            // 
-            this.FirstNameLabel.AutoSize = true;
-            this.FirstNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FirstNameLabel.Location = new System.Drawing.Point(403, 134);
-            this.FirstNameLabel.Name = "FirstNameLabel";
-            this.FirstNameLabel.Size = new System.Drawing.Size(101, 24);
-            this.FirstNameLabel.TabIndex = 2;
-            this.FirstNameLabel.Text = "First Name";
-            // 
-            // DirLastNameTextBox
-            // 
-            this.DirLastNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DirLastNameTextBox.Location = new System.Drawing.Point(541, 187);
-            this.DirLastNameTextBox.Name = "DirLastNameTextBox";
-            this.DirLastNameTextBox.Size = new System.Drawing.Size(183, 29);
-            this.DirLastNameTextBox.TabIndex = 1;
-            // 
-            // DirLastNameLabel
-            // 
-            this.DirLastNameLabel.AutoSize = true;
-            this.DirLastNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DirLastNameLabel.Location = new System.Drawing.Point(403, 186);
-            this.DirLastNameLabel.Name = "DirLastNameLabel";
-            this.DirLastNameLabel.Size = new System.Drawing.Size(99, 24);
-            this.DirLastNameLabel.TabIndex = 2;
-            this.DirLastNameLabel.Text = "Last Name";
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Trebuchet MS", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(12, -1);
+            this.button1.Location = new System.Drawing.Point(0, 0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(317, 73);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
             // 
-            // SearchByDirectorBtn
+            // button5
             // 
-            this.SearchByDirectorBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchByDirectorBtn.Location = new System.Drawing.Point(541, 232);
-            this.SearchByDirectorBtn.Name = "SearchByDirectorBtn";
-            this.SearchByDirectorBtn.Size = new System.Drawing.Size(183, 30);
-            this.SearchByDirectorBtn.TabIndex = 4;
-            this.SearchByDirectorBtn.Text = "Search";
-            this.SearchByDirectorBtn.UseVisualStyleBackColor = true;
-            this.SearchByDirectorBtn.Click += new System.EventHandler(this.SearchByDirectorBtn_Click);
+            this.button5.Location = new System.Drawing.Point(0, 0);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 0;
             // 
-            // SearchByDirectorBtnLabel
+            // button2
             // 
-            this.SearchByDirectorBtnLabel.AutoSize = true;
-            this.SearchByDirectorBtnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchByDirectorBtnLabel.Location = new System.Drawing.Point(403, 238);
-            this.SearchByDirectorBtnLabel.Name = "SearchByDirectorBtnLabel";
-            this.SearchByDirectorBtnLabel.Size = new System.Drawing.Size(113, 24);
-            this.SearchByDirectorBtnLabel.TabIndex = 5;
-            this.SearchByDirectorBtnLabel.Text = "Find Movies";
-            // 
-            // SearchByDirectorHeader
-            // 
-            this.SearchByDirectorHeader.AutoSize = true;
-            this.SearchByDirectorHeader.Location = new System.Drawing.Point(404, 95);
-            this.SearchByDirectorHeader.Name = "SearchByDirectorHeader";
-            this.SearchByDirectorHeader.Size = new System.Drawing.Size(133, 13);
-            this.SearchByDirectorHeader.TabIndex = 6;
-            this.SearchByDirectorHeader.Text = "Search Movies By Director";
-            // 
-            // ActorFirstNameTextBox
-            // 
-            this.ActorFirstNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ActorFirstNameTextBox.Location = new System.Drawing.Point(936, 134);
-            this.ActorFirstNameTextBox.Name = "ActorFirstNameTextBox";
-            this.ActorFirstNameTextBox.Size = new System.Drawing.Size(183, 29);
-            this.ActorFirstNameTextBox.TabIndex = 1;
-            // 
-            // ActorLastNameTextBox
-            // 
-            this.ActorLastNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ActorLastNameTextBox.Location = new System.Drawing.Point(936, 187);
-            this.ActorLastNameTextBox.Name = "ActorLastNameTextBox";
-            this.ActorLastNameTextBox.Size = new System.Drawing.Size(183, 29);
-            this.ActorLastNameTextBox.TabIndex = 1;
-            // 
-            // ActorFirstNameLabel
-            // 
-            this.ActorFirstNameLabel.AutoSize = true;
-            this.ActorFirstNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ActorFirstNameLabel.Location = new System.Drawing.Point(798, 134);
-            this.ActorFirstNameLabel.Name = "ActorFirstNameLabel";
-            this.ActorFirstNameLabel.Size = new System.Drawing.Size(101, 24);
-            this.ActorFirstNameLabel.TabIndex = 2;
-            this.ActorFirstNameLabel.Text = "First Name";
+            this.button2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Trebuchet MS", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button2.Location = new System.Drawing.Point(802, -1);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(317, 73);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "button1";
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // ActorLastNameLabel
             // 
@@ -172,26 +111,31 @@
             this.ActorLastNameLabel.TabIndex = 2;
             this.ActorLastNameLabel.Text = "Last Name";
             // 
-            // SearchByActorBtn
+            // ActorFirstNameLabel
             // 
-            this.SearchByActorBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchByActorBtn.Location = new System.Drawing.Point(936, 232);
-            this.SearchByActorBtn.Name = "SearchByActorBtn";
-            this.SearchByActorBtn.Size = new System.Drawing.Size(183, 30);
-            this.SearchByActorBtn.TabIndex = 4;
-            this.SearchByActorBtn.Text = "Search";
-            this.SearchByActorBtn.UseVisualStyleBackColor = true;
-            this.SearchByActorBtn.Click += new System.EventHandler(this.SearchByActorBtn_Click);
+            this.ActorFirstNameLabel.AutoSize = true;
+            this.ActorFirstNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ActorFirstNameLabel.Location = new System.Drawing.Point(798, 134);
+            this.ActorFirstNameLabel.Name = "ActorFirstNameLabel";
+            this.ActorFirstNameLabel.Size = new System.Drawing.Size(101, 24);
+            this.ActorFirstNameLabel.TabIndex = 2;
+            this.ActorFirstNameLabel.Text = "First Name";
             // 
-            // SearchByActorBtnLabel
+            // ActorLastNameTextBox
             // 
-            this.SearchByActorBtnLabel.AutoSize = true;
-            this.SearchByActorBtnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchByActorBtnLabel.Location = new System.Drawing.Point(798, 238);
-            this.SearchByActorBtnLabel.Name = "SearchByActorBtnLabel";
-            this.SearchByActorBtnLabel.Size = new System.Drawing.Size(113, 24);
-            this.SearchByActorBtnLabel.TabIndex = 5;
-            this.SearchByActorBtnLabel.Text = "Find Movies";
+            this.ActorLastNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ActorLastNameTextBox.Location = new System.Drawing.Point(936, 187);
+            this.ActorLastNameTextBox.Name = "ActorLastNameTextBox";
+            this.ActorLastNameTextBox.Size = new System.Drawing.Size(183, 29);
+            this.ActorLastNameTextBox.TabIndex = 5;
+            // 
+            // ActorFirstNameTextBox
+            // 
+            this.ActorFirstNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ActorFirstNameTextBox.Location = new System.Drawing.Point(936, 134);
+            this.ActorFirstNameTextBox.Name = "ActorFirstNameTextBox";
+            this.ActorFirstNameTextBox.Size = new System.Drawing.Size(183, 29);
+            this.ActorFirstNameTextBox.TabIndex = 4;
             // 
             // SearchByActorHeader
             // 
@@ -202,96 +146,443 @@
             this.SearchByActorHeader.TabIndex = 6;
             this.SearchByActorHeader.Text = "Search Movies By Actor";
             // 
-            // ShowAllMoviesBtn
+            // NavBar
             // 
-            this.ShowAllMoviesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ShowAllMoviesBtn.Location = new System.Drawing.Point(407, 495);
-            this.ShowAllMoviesBtn.Name = "ShowAllMoviesBtn";
-            this.ShowAllMoviesBtn.Size = new System.Drawing.Size(153, 30);
-            this.ShowAllMoviesBtn.TabIndex = 4;
-            this.ShowAllMoviesBtn.Text = "Show All Movies";
-            this.ShowAllMoviesBtn.UseVisualStyleBackColor = true;
-            this.ShowAllMoviesBtn.Click += new System.EventHandler(this.ShowAllMoviesBtn_Click);
+            this.NavBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NavBar.BackColor = System.Drawing.Color.Maroon;
+            this.NavBar.Controls.Add(this.DirectorDropDownBtn);
+            this.NavBar.Controls.Add(this.ActorDropDownBtn);
+            this.NavBar.Controls.Add(this.MovieDropdownBtn);
+            this.NavBar.Location = new System.Drawing.Point(0, 0);
+            this.NavBar.Margin = new System.Windows.Forms.Padding(0);
+            this.NavBar.Name = "NavBar";
+            this.NavBar.Size = new System.Drawing.Size(1133, 33);
+            this.NavBar.TabIndex = 1;
             // 
-            // button5
+            // DirectorDropDownBtn
             // 
-            this.button5.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Trebuchet MS", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button5.Location = new System.Drawing.Point(407, -1);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(317, 73);
-            this.button5.TabIndex = 3;
-            this.button5.Text = "button1";
-            this.button5.UseVisualStyleBackColor = false;
+            this.DirectorDropDownBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.DirectorDropDownBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+            this.DirectorDropDownBtn.FlatAppearance.BorderSize = 0;
+            this.DirectorDropDownBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DirectorDropDownBtn.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DirectorDropDownBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.DirectorDropDownBtn.Location = new System.Drawing.Point(404, 0);
+            this.DirectorDropDownBtn.Name = "DirectorDropDownBtn";
+            this.DirectorDropDownBtn.Size = new System.Drawing.Size(202, 33);
+            this.DirectorDropDownBtn.TabIndex = 0;
+            this.DirectorDropDownBtn.Text = "Directors";
+            this.DirectorDropDownBtn.UseVisualStyleBackColor = false;
+            this.DirectorDropDownBtn.Click += new System.EventHandler(this.DirectorDropDownBtn_Click);
             // 
-            // button2
+            // ActorDropDownBtn
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Trebuchet MS", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(802, -1);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(317, 73);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "button1";
-            this.button2.UseVisualStyleBackColor = false;
+            this.ActorDropDownBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.ActorDropDownBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+            this.ActorDropDownBtn.FlatAppearance.BorderSize = 0;
+            this.ActorDropDownBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ActorDropDownBtn.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ActorDropDownBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.ActorDropDownBtn.Location = new System.Drawing.Point(202, 0);
+            this.ActorDropDownBtn.Name = "ActorDropDownBtn";
+            this.ActorDropDownBtn.Size = new System.Drawing.Size(202, 33);
+            this.ActorDropDownBtn.TabIndex = 0;
+            this.ActorDropDownBtn.Text = "Actors";
+            this.ActorDropDownBtn.UseVisualStyleBackColor = false;
+            this.ActorDropDownBtn.Click += new System.EventHandler(this.ActorDropDownBtn_Click);
+            // 
+            // MovieDropdownBtn
+            // 
+            this.MovieDropdownBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.MovieDropdownBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+            this.MovieDropdownBtn.FlatAppearance.BorderSize = 0;
+            this.MovieDropdownBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MovieDropdownBtn.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MovieDropdownBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.MovieDropdownBtn.Location = new System.Drawing.Point(0, 0);
+            this.MovieDropdownBtn.Name = "MovieDropdownBtn";
+            this.MovieDropdownBtn.Size = new System.Drawing.Size(202, 33);
+            this.MovieDropdownBtn.TabIndex = 0;
+            this.MovieDropdownBtn.Text = "Movies";
+            this.MovieDropdownBtn.UseVisualStyleBackColor = false;
+            this.MovieDropdownBtn.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // MoviePanel
+            // 
+            this.MoviePanel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.MoviePanel.Controls.Add(this.button10);
+            this.MoviePanel.Controls.Add(this.button9);
+            this.MoviePanel.Controls.Add(this.button12);
+            this.MoviePanel.Controls.Add(this.button11);
+            this.MoviePanel.Location = new System.Drawing.Point(0, 33);
+            this.MoviePanel.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.MoviePanel.Name = "MoviePanel";
+            this.MoviePanel.Size = new System.Drawing.Size(202, 0);
+            this.MoviePanel.TabIndex = 3;
+            // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button10.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+            this.button10.FlatAppearance.BorderSize = 0;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button10.Location = new System.Drawing.Point(0, 33);
+            this.button10.Margin = new System.Windows.Forms.Padding(0);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(202, 33);
+            this.button10.TabIndex = 0;
+            this.button10.Text = "Movies";
+            this.button10.UseVisualStyleBackColor = false;
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button9.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button9.Location = new System.Drawing.Point(0, 0);
+            this.button9.Margin = new System.Windows.Forms.Padding(0);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(202, 33);
+            this.button9.TabIndex = 0;
+            this.button9.Text = "Movies";
+            this.button9.UseVisualStyleBackColor = false;
+            // 
+            // button12
+            // 
+            this.button12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button12.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+            this.button12.FlatAppearance.BorderSize = 0;
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button12.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button12.Location = new System.Drawing.Point(0, 99);
+            this.button12.Margin = new System.Windows.Forms.Padding(0);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(202, 33);
+            this.button12.TabIndex = 0;
+            this.button12.Text = "Movies";
+            this.button12.UseVisualStyleBackColor = false;
+            // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button11.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+            this.button11.FlatAppearance.BorderSize = 0;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button11.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button11.Location = new System.Drawing.Point(0, 66);
+            this.button11.Margin = new System.Windows.Forms.Padding(0);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(202, 33);
+            this.button11.TabIndex = 0;
+            this.button11.Text = "Movies";
+            this.button11.UseVisualStyleBackColor = false;
+            // 
+            // DropDownTimer
+            // 
+            this.DropDownTimer.Interval = 1;
+            this.DropDownTimer.Tick += new System.EventHandler(this.DropDownTimer_Tick_1);
+            // 
+            // ActorPanel
+            // 
+            this.ActorPanel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ActorPanel.Controls.Add(this.button3);
+            this.ActorPanel.Controls.Add(this.button4);
+            this.ActorPanel.Controls.Add(this.button6);
+            this.ActorPanel.Controls.Add(this.button7);
+            this.ActorPanel.Location = new System.Drawing.Point(202, 33);
+            this.ActorPanel.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.ActorPanel.Name = "ActorPanel";
+            this.ActorPanel.Size = new System.Drawing.Size(202, 0);
+            this.ActorPanel.TabIndex = 3;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button3.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button3.Location = new System.Drawing.Point(0, 33);
+            this.button3.Margin = new System.Windows.Forms.Padding(0);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(202, 33);
+            this.button3.TabIndex = 0;
+            this.button3.Text = "Actors";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button4.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button4.Location = new System.Drawing.Point(0, 0);
+            this.button4.Margin = new System.Windows.Forms.Padding(0);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(202, 33);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "Actors";
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button6.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button6.Location = new System.Drawing.Point(0, 99);
+            this.button6.Margin = new System.Windows.Forms.Padding(0);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(202, 33);
+            this.button6.TabIndex = 0;
+            this.button6.Text = "Actors";
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button7.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button7.Location = new System.Drawing.Point(0, 66);
+            this.button7.Margin = new System.Windows.Forms.Padding(0);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(202, 33);
+            this.button7.TabIndex = 0;
+            this.button7.Text = "Actors";
+            this.button7.UseVisualStyleBackColor = false;
+            // 
+            // ActorDropDownTimer
+            // 
+            this.ActorDropDownTimer.Interval = 1;
+            this.ActorDropDownTimer.Tick += new System.EventHandler(this.ActorDropDownTimer_Tick);
+            // 
+            // DirectorPanel
+            // 
+            this.DirectorPanel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.DirectorPanel.Controls.Add(this.button8);
+            this.DirectorPanel.Controls.Add(this.button13);
+            this.DirectorPanel.Controls.Add(this.button14);
+            this.DirectorPanel.Controls.Add(this.button15);
+            this.DirectorPanel.Location = new System.Drawing.Point(404, 33);
+            this.DirectorPanel.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.DirectorPanel.Name = "DirectorPanel";
+            this.DirectorPanel.Size = new System.Drawing.Size(202, 0);
+            this.DirectorPanel.TabIndex = 3;
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button8.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button8.Location = new System.Drawing.Point(0, 33);
+            this.button8.Margin = new System.Windows.Forms.Padding(0);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(202, 33);
+            this.button8.TabIndex = 0;
+            this.button8.Text = "Directors";
+            this.button8.UseVisualStyleBackColor = false;
+            // 
+            // button13
+            // 
+            this.button13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button13.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+            this.button13.FlatAppearance.BorderSize = 0;
+            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button13.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button13.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button13.Location = new System.Drawing.Point(0, 0);
+            this.button13.Margin = new System.Windows.Forms.Padding(0);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(202, 33);
+            this.button13.TabIndex = 0;
+            this.button13.Text = "Directors";
+            this.button13.UseVisualStyleBackColor = false;
+            // 
+            // button14
+            // 
+            this.button14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button14.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+            this.button14.FlatAppearance.BorderSize = 0;
+            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button14.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button14.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button14.Location = new System.Drawing.Point(0, 99);
+            this.button14.Margin = new System.Windows.Forms.Padding(0);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(202, 33);
+            this.button14.TabIndex = 0;
+            this.button14.Text = "Directors";
+            this.button14.UseVisualStyleBackColor = false;
+            // 
+            // button15
+            // 
+            this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button15.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+            this.button15.FlatAppearance.BorderSize = 0;
+            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button15.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button15.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button15.Location = new System.Drawing.Point(0, 66);
+            this.button15.Margin = new System.Windows.Forms.Padding(0);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(202, 33);
+            this.button15.TabIndex = 0;
+            this.button15.Text = "Directors";
+            this.button15.UseVisualStyleBackColor = false;
+            // 
+            // DirectorDropDownTimer
+            // 
+            this.DirectorDropDownTimer.Interval = 1;
+            this.DirectorDropDownTimer.Tick += new System.EventHandler(this.DirectorDropDownTimer_Tick);
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.titleDataGridViewTextBoxColumn,
+            this.runtimeDataGridViewTextBoxColumn,
+            this.yearDataGridViewTextBoxColumn});
+            this.dataGridView2.DataSource = this.movieBindingSource;
+            this.dataGridView2.Location = new System.Drawing.Point(12, 39);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView2.Size = new System.Drawing.Size(594, 486);
+            this.dataGridView2.TabIndex = 6;
+            // 
+            // titleDataGridViewTextBoxColumn
+            // 
+            this.titleDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
+            this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
+            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
+            this.titleDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // runtimeDataGridViewTextBoxColumn
+            // 
+            this.runtimeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.runtimeDataGridViewTextBoxColumn.DataPropertyName = "Runtime";
+            this.runtimeDataGridViewTextBoxColumn.FillWeight = 50F;
+            this.runtimeDataGridViewTextBoxColumn.HeaderText = "Runtime";
+            this.runtimeDataGridViewTextBoxColumn.Name = "runtimeDataGridViewTextBoxColumn";
+            this.runtimeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // yearDataGridViewTextBoxColumn
+            // 
+            this.yearDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.yearDataGridViewTextBoxColumn.DataPropertyName = "Year";
+            this.yearDataGridViewTextBoxColumn.FillWeight = 50F;
+            this.yearDataGridViewTextBoxColumn.HeaderText = "Year";
+            this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
+            this.yearDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // movieBindingSource
+            // 
+            this.movieBindingSource.DataSource = typeof(FormUI.Movie);
+            // 
+            // searchByDirectorForm1
+            // 
+            this.searchByDirectorForm1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.searchByDirectorForm1.Location = new System.Drawing.Point(615, 39);
+            this.searchByDirectorForm1.Name = "searchByDirectorForm1";
+            this.searchByDirectorForm1.Size = new System.Drawing.Size(515, 486);
+            this.searchByDirectorForm1.TabIndex = 5;
+            // 
+            // searchByActorForm1
+            // 
+            this.searchByActorForm1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.searchByActorForm1.Location = new System.Drawing.Point(0, 0);
+            this.searchByActorForm1.Name = "searchByActorForm1";
+            this.searchByActorForm1.Size = new System.Drawing.Size(784, 446);
+            this.searchByActorForm1.TabIndex = 0;
             // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1131, 537);
-            this.Controls.Add(this.SearchByActorHeader);
-            this.Controls.Add(this.SearchByActorBtnLabel);
-            this.Controls.Add(this.SearchByDirectorHeader);
-            this.Controls.Add(this.SearchByActorBtn);
-            this.Controls.Add(this.SearchByDirectorBtnLabel);
-            this.Controls.Add(this.ShowAllMoviesBtn);
-            this.Controls.Add(this.SearchByDirectorBtn);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.ActorLastNameLabel);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.ActorFirstNameLabel);
-            this.Controls.Add(this.DirLastNameLabel);
-            this.Controls.Add(this.ActorLastNameTextBox);
-            this.Controls.Add(this.FirstNameLabel);
-            this.Controls.Add(this.ActorFirstNameTextBox);
-            this.Controls.Add(this.DirLastNameTextBox);
-            this.Controls.Add(this.DirFirstNameTextBox);
-            this.Controls.Add(this.MovieListbox);
+            this.Controls.Add(this.searchByDirectorForm1);
+            this.Controls.Add(this.DirectorPanel);
+            this.Controls.Add(this.ActorPanel);
+            this.Controls.Add(this.MoviePanel);
+            this.Controls.Add(this.NavBar);
+            this.Controls.Add(this.dataGridView2);
             this.Name = "Dashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "My Media";
+            this.NavBar.ResumeLayout(false);
+            this.MoviePanel.ResumeLayout(false);
+            this.ActorPanel.ResumeLayout(false);
+            this.DirectorPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.movieBindingSource)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListBox MovieListbox;
-        private System.Windows.Forms.TextBox DirFirstNameTextBox;
-        private System.Windows.Forms.Label FirstNameLabel;
-        private System.Windows.Forms.TextBox DirLastNameTextBox;
-        private System.Windows.Forms.Label DirLastNameLabel;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button SearchByDirectorBtn;
-        private System.Windows.Forms.Label SearchByDirectorBtnLabel;
-        private System.Windows.Forms.Label SearchByDirectorHeader;
-        private System.Windows.Forms.TextBox ActorFirstNameTextBox;
-        private System.Windows.Forms.TextBox ActorLastNameTextBox;
-        private System.Windows.Forms.Label ActorFirstNameLabel;
-        private System.Windows.Forms.Label ActorLastNameLabel;
-        private System.Windows.Forms.Button SearchByActorBtn;
-        private System.Windows.Forms.Label SearchByActorBtnLabel;
-        private System.Windows.Forms.Label SearchByActorHeader;
-        private System.Windows.Forms.Button ShowAllMoviesBtn;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label ActorLastNameLabel;
+        private System.Windows.Forms.Label ActorFirstNameLabel;
+        private System.Windows.Forms.TextBox ActorLastNameTextBox;
+        private System.Windows.Forms.TextBox ActorFirstNameTextBox;
+        private System.Windows.Forms.Label SearchByActorHeader;
+        private SearchByActorForm searchByActorForm1;
+        private System.Windows.Forms.Panel NavBar;
+        private System.Windows.Forms.Button MovieDropdownBtn;
+        private System.Windows.Forms.Panel MoviePanel;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Timer DropDownTimer;
+        private System.Windows.Forms.Button ActorDropDownBtn;
+        private System.Windows.Forms.Panel ActorPanel;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Timer ActorDropDownTimer;
+        private System.Windows.Forms.Button DirectorDropDownBtn;
+        private System.Windows.Forms.Panel DirectorPanel;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Timer DirectorDropDownTimer;
+        private SearchByDirectorForm searchByDirectorForm1;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.BindingSource movieBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn runtimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn yearDataGridViewTextBoxColumn;
     }
 }
 
