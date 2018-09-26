@@ -81,5 +81,14 @@ namespace FormUI
                 return output;
             }
         }
+
+        public List<Director> GetDirectors()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
+            {
+                var output = connection.Query<Director>("dbo.spSelect_All_Directors").ToList();
+                return output;
+            }
+        }
     }
 }

@@ -36,7 +36,6 @@
             this.ActorFirstNameLabel = new System.Windows.Forms.Label();
             this.ActorLastNameTextBox = new System.Windows.Forms.TextBox();
             this.ActorFirstNameTextBox = new System.Windows.Forms.TextBox();
-            this.SearchByActorHeader = new System.Windows.Forms.Label();
             this.NavBar = new System.Windows.Forms.Panel();
             this.DirectorDropDownBtn = new System.Windows.Forms.Button();
             this.ActorDropDownBtn = new System.Windows.Forms.Button();
@@ -55,7 +54,7 @@
             this.ActorDropDownTimer = new System.Windows.Forms.Timer(this.components);
             this.DirectorPanel = new System.Windows.Forms.Panel();
             this.button8 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
+            this.AllDirectorsBtn = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.DirectorDropDownTimer = new System.Windows.Forms.Timer(this.components);
@@ -63,15 +62,25 @@
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.runtimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.searchByActorControl = new FormUI.SearchByActorForm();
+            this.searchByDirectorControl = new FormUI.SearchByDirectorForm();
             this.movieBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.searchByDirectorForm1 = new FormUI.SearchByDirectorForm();
-            this.searchByActorForm1 = new FormUI.SearchByActorForm();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.directorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Runtime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NavBar.SuspendLayout();
             this.MoviePanel.SuspendLayout();
             this.ActorPanel.SuspendLayout();
             this.DirectorPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.movieBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.directorBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -137,15 +146,6 @@
             this.ActorFirstNameTextBox.Size = new System.Drawing.Size(183, 29);
             this.ActorFirstNameTextBox.TabIndex = 4;
             // 
-            // SearchByActorHeader
-            // 
-            this.SearchByActorHeader.AutoSize = true;
-            this.SearchByActorHeader.Location = new System.Drawing.Point(799, 95);
-            this.SearchByActorHeader.Name = "SearchByActorHeader";
-            this.SearchByActorHeader.Size = new System.Drawing.Size(121, 13);
-            this.SearchByActorHeader.TabIndex = 6;
-            this.SearchByActorHeader.Text = "Search Movies By Actor";
-            // 
             // NavBar
             // 
             this.NavBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -187,7 +187,7 @@
             this.ActorDropDownBtn.Location = new System.Drawing.Point(202, 0);
             this.ActorDropDownBtn.Name = "ActorDropDownBtn";
             this.ActorDropDownBtn.Size = new System.Drawing.Size(202, 33);
-            this.ActorDropDownBtn.TabIndex = 0;
+            this.ActorDropDownBtn.TabIndex = 100;
             this.ActorDropDownBtn.Text = "Actors";
             this.ActorDropDownBtn.UseVisualStyleBackColor = false;
             this.ActorDropDownBtn.Click += new System.EventHandler(this.ActorDropDownBtn_Click);
@@ -219,7 +219,7 @@
             this.MoviePanel.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.MoviePanel.Name = "MoviePanel";
             this.MoviePanel.Size = new System.Drawing.Size(202, 0);
-            this.MoviePanel.TabIndex = 3;
+            this.MoviePanel.TabIndex = 0;
             // 
             // MoviesByActorBtn
             // 
@@ -233,9 +233,10 @@
             this.MoviesByActorBtn.Margin = new System.Windows.Forms.Padding(0);
             this.MoviesByActorBtn.Name = "MoviesByActorBtn";
             this.MoviesByActorBtn.Size = new System.Drawing.Size(202, 33);
-            this.MoviesByActorBtn.TabIndex = 0;
+            this.MoviesByActorBtn.TabIndex = 2;
             this.MoviesByActorBtn.Text = "By Actor";
             this.MoviesByActorBtn.UseVisualStyleBackColor = false;
+            this.MoviesByActorBtn.Click += new System.EventHandler(this.MoviesByActorBtn_Click);
             // 
             // AllMoviesBtn
             // 
@@ -249,7 +250,7 @@
             this.AllMoviesBtn.Margin = new System.Windows.Forms.Padding(0);
             this.AllMoviesBtn.Name = "AllMoviesBtn";
             this.AllMoviesBtn.Size = new System.Drawing.Size(202, 33);
-            this.AllMoviesBtn.TabIndex = 0;
+            this.AllMoviesBtn.TabIndex = 1;
             this.AllMoviesBtn.Text = "All Movies";
             this.AllMoviesBtn.UseVisualStyleBackColor = false;
             this.AllMoviesBtn.Click += new System.EventHandler(this.AllMoviesBtn_Click);
@@ -266,7 +267,7 @@
             this.MoviesByGenreBtn.Margin = new System.Windows.Forms.Padding(0);
             this.MoviesByGenreBtn.Name = "MoviesByGenreBtn";
             this.MoviesByGenreBtn.Size = new System.Drawing.Size(202, 33);
-            this.MoviesByGenreBtn.TabIndex = 0;
+            this.MoviesByGenreBtn.TabIndex = 4;
             this.MoviesByGenreBtn.Text = "By Genre";
             this.MoviesByGenreBtn.UseVisualStyleBackColor = false;
             // 
@@ -282,9 +283,10 @@
             this.MoviesByDirector.Margin = new System.Windows.Forms.Padding(0);
             this.MoviesByDirector.Name = "MoviesByDirector";
             this.MoviesByDirector.Size = new System.Drawing.Size(202, 33);
-            this.MoviesByDirector.TabIndex = 0;
+            this.MoviesByDirector.TabIndex = 3;
             this.MoviesByDirector.Text = "By Director";
             this.MoviesByDirector.UseVisualStyleBackColor = false;
+            this.MoviesByDirector.Click += new System.EventHandler(this.MoviesByDirector_Click);
             // 
             // DropDownTimer
             // 
@@ -302,7 +304,7 @@
             this.ActorPanel.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.ActorPanel.Name = "ActorPanel";
             this.ActorPanel.Size = new System.Drawing.Size(202, 0);
-            this.ActorPanel.TabIndex = 3;
+            this.ActorPanel.TabIndex = 100;
             // 
             // button3
             // 
@@ -377,14 +379,14 @@
             // 
             this.DirectorPanel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.DirectorPanel.Controls.Add(this.button8);
-            this.DirectorPanel.Controls.Add(this.button13);
+            this.DirectorPanel.Controls.Add(this.AllDirectorsBtn);
             this.DirectorPanel.Controls.Add(this.button14);
             this.DirectorPanel.Controls.Add(this.button15);
             this.DirectorPanel.Location = new System.Drawing.Point(404, 33);
             this.DirectorPanel.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.DirectorPanel.Name = "DirectorPanel";
             this.DirectorPanel.Size = new System.Drawing.Size(202, 0);
-            this.DirectorPanel.TabIndex = 3;
+            this.DirectorPanel.TabIndex = 100;
             // 
             // button8
             // 
@@ -402,21 +404,22 @@
             this.button8.Text = "Directors";
             this.button8.UseVisualStyleBackColor = false;
             // 
-            // button13
+            // AllDirectorsBtn
             // 
-            this.button13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button13.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
-            this.button13.FlatAppearance.BorderSize = 0;
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button13.Location = new System.Drawing.Point(0, 0);
-            this.button13.Margin = new System.Windows.Forms.Padding(0);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(202, 33);
-            this.button13.TabIndex = 0;
-            this.button13.Text = "Directors";
-            this.button13.UseVisualStyleBackColor = false;
+            this.AllDirectorsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.AllDirectorsBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+            this.AllDirectorsBtn.FlatAppearance.BorderSize = 0;
+            this.AllDirectorsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AllDirectorsBtn.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AllDirectorsBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.AllDirectorsBtn.Location = new System.Drawing.Point(0, 0);
+            this.AllDirectorsBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.AllDirectorsBtn.Name = "AllDirectorsBtn";
+            this.AllDirectorsBtn.Size = new System.Drawing.Size(202, 33);
+            this.AllDirectorsBtn.TabIndex = 0;
+            this.AllDirectorsBtn.Text = "All Directors";
+            this.AllDirectorsBtn.UseVisualStyleBackColor = false;
+            this.AllDirectorsBtn.Click += new System.EventHandler(this.AllDirectorsBtn_Click);
             // 
             // button14
             // 
@@ -460,11 +463,9 @@
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.titleDataGridViewTextBoxColumn,
-            this.runtimeDataGridViewTextBoxColumn,
-            this.yearDataGridViewTextBoxColumn});
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {});
             this.dataGridView2.DataSource = this.movieBindingSource;
             this.dataGridView2.Location = new System.Drawing.Point(12, 39);
             this.dataGridView2.Name = "dataGridView2";
@@ -485,7 +486,7 @@
             // 
             this.runtimeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.runtimeDataGridViewTextBoxColumn.DataPropertyName = "Runtime";
-            this.runtimeDataGridViewTextBoxColumn.FillWeight = 50F;
+            this.runtimeDataGridViewTextBoxColumn.FillWeight = 40F;
             this.runtimeDataGridViewTextBoxColumn.HeaderText = "Runtime";
             this.runtimeDataGridViewTextBoxColumn.Name = "runtimeDataGridViewTextBoxColumn";
             this.runtimeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -494,30 +495,94 @@
             // 
             this.yearDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.yearDataGridViewTextBoxColumn.DataPropertyName = "Year";
-            this.yearDataGridViewTextBoxColumn.FillWeight = 50F;
+            this.yearDataGridViewTextBoxColumn.FillWeight = 20F;
             this.yearDataGridViewTextBoxColumn.HeaderText = "Year";
             this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
             this.yearDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            this.firstNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            this.firstNameDataGridViewTextBoxColumn.ReadOnly = true;
+            ///
+            //
+            //
+            this.lastNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            this.lastNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // searchByActorControl
+            // 
+            this.searchByActorControl.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.searchByActorControl.Location = new System.Drawing.Point(612, 39);
+            this.searchByActorControl.Name = "searchByActorControl";
+            this.searchByActorControl.Size = new System.Drawing.Size(515, 486);
+            this.searchByActorControl.TabIndex = 7;
+            this.searchByActorControl.ActorSearch += new System.EventHandler(this.SearchByActor_Search);
+            // 
+            // searchByDirectorControl
+            // 
+            this.searchByDirectorControl.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.searchByDirectorControl.Location = new System.Drawing.Point(612, 39);
+            this.searchByDirectorControl.Name = "searchByDirectorControl";
+            this.searchByDirectorControl.Size = new System.Drawing.Size(515, 486);
+            this.searchByDirectorControl.TabIndex = 5;
+            this.searchByDirectorControl.DirectorSearch += new System.EventHandler(this.SearchByDirector_Search);
             // 
             // movieBindingSource
             // 
             this.movieBindingSource.DataSource = typeof(FormUI.Movie);
             // 
-            // searchByDirectorForm1
+            // idDataGridViewTextBoxColumn
             // 
-            this.searchByDirectorForm1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.searchByDirectorForm1.Location = new System.Drawing.Point(615, 39);
-            this.searchByDirectorForm1.Name = "searchByDirectorForm1";
-            this.searchByDirectorForm1.Size = new System.Drawing.Size(515, 486);
-            this.searchByDirectorForm1.TabIndex = 5;
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // searchByActorForm1
+            // directorBindingSource
             // 
-            this.searchByActorForm1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.searchByActorForm1.Location = new System.Drawing.Point(0, 0);
-            this.searchByActorForm1.Name = "searchByActorForm1";
-            this.searchByActorForm1.Size = new System.Drawing.Size(784, 446);
-            this.searchByActorForm1.TabIndex = 0;
+            this.directorBindingSource.DataSource = typeof(FormUI.Director);
+            // 
+            // FirstName
+            // 
+            this.FirstName.DataPropertyName = "FirstName";
+            this.FirstName.HeaderText = "FirstName";
+            this.FirstName.Name = "FirstName";
+            this.FirstName.ReadOnly = true;
+            // 
+            // LastName
+            // 
+            this.LastName.DataPropertyName = "LastName";
+            this.LastName.HeaderText = "LastName";
+            this.LastName.Name = "LastName";
+            this.LastName.ReadOnly = true;
+            // 
+            // Title
+            // 
+            this.Title.DataPropertyName = "Title";
+            this.Title.HeaderText = "Title";
+            this.Title.Name = "Title";
+            this.Title.ReadOnly = true;
+            // 
+            // Runtime
+            // 
+            this.Runtime.DataPropertyName = "Runtime";
+            this.Runtime.HeaderText = "Runtime";
+            this.Runtime.Name = "Runtime";
+            this.Runtime.ReadOnly = true;
+            // 
+            // Year
+            // 
+            this.Year.DataPropertyName = "Year";
+            this.Year.HeaderText = "Year";
+            this.Year.Name = "Year";
+            this.Year.ReadOnly = true;
             // 
             // Dashboard
             // 
@@ -526,12 +591,13 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1131, 537);
-            this.Controls.Add(this.searchByDirectorForm1);
             this.Controls.Add(this.DirectorPanel);
             this.Controls.Add(this.ActorPanel);
             this.Controls.Add(this.MoviePanel);
             this.Controls.Add(this.NavBar);
             this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.searchByActorControl);
+            this.Controls.Add(this.searchByDirectorControl);
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "My Media";
@@ -541,6 +607,7 @@
             this.DirectorPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.movieBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.directorBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -554,8 +621,7 @@
         private System.Windows.Forms.Label ActorFirstNameLabel;
         private System.Windows.Forms.TextBox ActorLastNameTextBox;
         private System.Windows.Forms.TextBox ActorFirstNameTextBox;
-        private System.Windows.Forms.Label SearchByActorHeader;
-        private SearchByActorForm searchByActorForm1;
+
         private System.Windows.Forms.Panel NavBar;
         private System.Windows.Forms.Button MovieDropdownBtn;
         private System.Windows.Forms.Panel MoviePanel;
@@ -574,16 +640,26 @@
         private System.Windows.Forms.Button DirectorDropDownBtn;
         private System.Windows.Forms.Panel DirectorPanel;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button AllDirectorsBtn;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Timer DirectorDropDownTimer;
-        private SearchByDirectorForm searchByDirectorForm1;
+        private SearchByDirectorForm searchByDirectorControl;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.BindingSource movieBindingSource;
+        private SearchByActorForm searchByActorControl;
         private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn runtimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn yearDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource movieBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Title;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Runtime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Year;
+        private System.Windows.Forms.BindingSource directorBindingSource;
     }
 }
 

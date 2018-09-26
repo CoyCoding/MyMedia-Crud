@@ -14,25 +14,32 @@ namespace FormUI
 {
     public partial class SearchByDirectorForm : UserControl
     {
-        public event EventHandler StatusUpdated;
+        public event EventHandler DirectorSearch;
 
         public SearchByDirectorForm()
         {
             InitializeComponent();
+
         }
 
-        private void FunctionThatRaisesEvent()
-        {
-            //Null check makes sure the main page is attached to the event
-            
-        }
 
         private void FindByDirBtn_Click(object sender, EventArgs e)
         {
-            if (this.StatusUpdated != null)
-                this.StatusUpdated(this, new EventArgs());
+            if (DirectorSearch != null)
+            {
+                DirectorSearch(this, new EventArgs());
+            }
         }
-     
+
+        public string FirstName()
+        {
+            return DirFirstNameTextBox.Text;
+        }
+
+        public string LastName()
+        {
+            return DirLastNameTextBox.Text;
+        }
     }
     
 }
