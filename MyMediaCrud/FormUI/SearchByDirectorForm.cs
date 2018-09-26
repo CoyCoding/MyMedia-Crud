@@ -12,16 +12,34 @@ using System.Windows.Forms;
 
 namespace FormUI
 {
-    public partial class SearchByDirectorForm : UserControl 
+    public partial class SearchByDirectorForm : UserControl
     {
+        public event EventHandler DirectorSearch;
+
         public SearchByDirectorForm()
         {
             InitializeComponent();
+
         }
+
 
         private void FindByDirBtn_Click(object sender, EventArgs e)
         {
-           Dashboard.dataGridView1.DataSource = Movies;
+            if (DirectorSearch != null)
+            {
+                DirectorSearch(this, new EventArgs());
+            }
+        }
+
+        public string FirstName()
+        {
+            return DirFirstNameTextBox.Text;
+        }
+
+        public string LastName()
+        {
+            return DirLastNameTextBox.Text;
         }
     }
+    
 }

@@ -94,7 +94,6 @@
       <DependentUpon>SearchByDirectorForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\Actor.datasource" />
     <None Include="Properties\DataSources\Director.datasource" />
     <None Include="Properties\DataSources\Movie.datasource" />
     <None Include="Properties\Settings.settings">

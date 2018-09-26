@@ -12,14 +12,19 @@ namespace FormUI
 {
     public partial class SearchByActorForm : UserControl
     {
+        public event EventHandler ActorSearch;
+
         public SearchByActorForm()
         {
             InitializeComponent();
         }
 
-        private void SearchByActorBtn_Click(object sender, EventArgs e)
+        private void FindByActorBtn_Click(object sender, EventArgs e)
         {
-
+            if (ActorSearch != null)
+            {
+                ActorSearch(this, new EventArgs());
+            }
         }
     }
 }

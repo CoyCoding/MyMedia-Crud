@@ -12,48 +12,23 @@ namespace FormUI
 {
     public partial class Dashboard : Form
     {
-        List<Movie> Movies = new List<Movie>();
-        bool MovieTabOpening = true;
-        bool ActorTabOpening = true;
-        bool DirectorTabOpening = true;
-
+        private List<Movie> Movies = new List<Movie>();
+        private List<Director> Directors = new List<Director>();
+        private List<Actor> Actors = new List<Actor>();
+        private bool MovieTabOpening = true;
+        private bool ActorTabOpening = true;
+        private bool DirectorTabOpening = true;
+        
         public Dashboard()
         {
-
-            InitializeComponent();
-            DataAccessSelect db = new DataAccessSelect();
-            Movies = db.GetMovies();
-            dataGridView2.DataSource = Movies;
-
-
+           InitializeComponent();
         }
 
-        //private void ShowAllMoviesBtn_Click(object sender, EventArgs e)
+        //private void UpdateList()
         //{
         //    DataAccessSelect db = new DataAccessSelect();
-        //    Movies = db.GetMovies();
-
+        //    dataGridView2.DataSource = Movies;
         //}
-
-        //private void SearchByDirectorBtn_Click(object sender, EventArgs e)
-        //{
-        //    DataAccessSelect db = new DataAccessSelect();
-        //    try
-        //    {
-        //        Movies = db.GetMovieByDirector(DirFirstNameTextBox.Text, DirLastNameTextBox.Text);
-        //        UpdateList();
-        //    }
-        //    catch
-        //    {
-        //        MessageBox.Show("No Director Entry was made");
-        //    }
-            
-        //}
-
-        private void UpdateList()
-        {
-
-        }
 
         //private void SearchByActorBtn_Click(object sender, EventArgs e)
         //{
@@ -69,7 +44,6 @@ namespace FormUI
         //        MessageBox.Show("No Actor Entry was made");
         //    }
         //}
-
 
         private void button3_Click(object sender, EventArgs e)
         { 
@@ -159,6 +133,66 @@ namespace FormUI
                 }
             }
         }
+
+        private void AllMoviesBtn_Click(object sender, EventArgs e)
+        {
+            DropDownTimer.Start();
+            dataGridView2.Columns.Clear();
+            DataAccessSelect db = new DataAccessSelect();
+            Movies = db.GetMovies();
+            dataGridView2.DataSource = Movies;
+            dataGridView2.Columns.Add(titleDataGridViewTextBoxColumn);
+            dataGridView2.Columns.Add(runtimeDataGridViewTextBoxColumn);
+            dataGridView2.Columns.Add(yearDataGridViewTextBoxColumn);
+
+
+        }
+
+        private void SearchByDirector_Search(object sender, EventArgs e)
+        {
+            try
+            {
+                dataGridView2.Columns.Clear();
+                dataGridView2.Columns.AddRange(titleDataGridViewTextBoxColumn, runtimeDataGridViewTextBoxColumn, yearDataGridViewTextBoxColumn);
+                DataAccessSelect db = new DataAccessSelect();
+                Movies = db.GetMovieByDirector(searchByDirectorControl.FirstName(), searchByDirectorControl.LastName());
+                dataGridView2.DataSource = Movies;
+            }
+            catch
+            {
+                MessageBox.Show("No Director Entry was made");
+            }
+        }
+
+        private void SearchByActor_Search(object sender, EventArgs e)
+        {
+            MessageBox.Show("Not ready");
+        }
+
+        private void MoviesByActorBtn_Click(object sender, EventArgs e)
+        {
+            DropDownTimer.Start();
+            searchByActorControl.BringToFront();
+        }
+
+        private void MoviesByDirector_Click(object sender, EventArgs e)
+        {
+            DropDownTimer.Start();
+            searchByDirectorControl.BringToFront();
+        }
+
+        private void AllDirectorsBtn_Click(object sender, EventArgs e)
+        {
+            DirectorDropDownTimer.Start();
+            searchByDirectorControl.BringToFront();
+            DataAccessSelect db = new DataAccessSelect();
+            dataGridView2.Columns.Clear();
+            Directors = db.GetDirectors();
+            dataGridView2.DataSource = Directors;
+            dataGridView2.Columns.Add(firstNameDataGridViewTextBoxColumn);
+            dataGridView2.Columns.Add(lastNameDataGridViewTextBoxColumn);
+        }
+
     }
    
 }
