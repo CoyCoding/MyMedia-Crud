@@ -22,63 +22,102 @@ namespace FormUI
         public Dashboard()
         {
            InitializeComponent();
+          
         }
-
-        //private void UpdateList()
-        //{
-        //    DataAccessSelect db = new DataAccessSelect();
-        //    dataGridView2.DataSource = Movies;
-        //}
-
-        //private void SearchByActorBtn_Click(object sender, EventArgs e)
-        //{
-        //    DataAccessSelect db = new DataAccessSelect();
-        //    try
-        //    {
-        //        Movies = db.GetMovieByActor(ActorFirstNameTextBox.Text, ActorLastNameTextBox.Text);
-        //        UpdateList();
-                
-        //    }
-        //    catch
-        //    {
-        //        MessageBox.Show("No Actor Entry was made");
-        //    }
-        //}
 
         private void button3_Click(object sender, EventArgs e)
         { 
-            DropDownTimer.Start();
+            MovieDropDownTimer.Start();
         }
 
-        private void DropDownTimer_Tick_1(object sender, EventArgs e)
-        {
-            if (!MovieTabOpening)
-            {
-                MoviePanel.Height -= 11;
-                if (MoviePanel.Height <= 0)
-                {
-                    MoviePanel.Height = 0;
-                    MovieTabOpening = true;
-                    DropDownTimer.Stop();
-                }
-            }
-            else if (MovieTabOpening)
-            {
-                MoviePanel.Height += 11;
-                if (MoviePanel.Height >= 132)
-                {
-                    MoviePanel.Height = 132;
-                    MovieTabOpening = false;
-                    DropDownTimer.Stop();
-                }
-            }
-
-
-        }
-
+      
         private void ActorDropDownBtn_Click(object sender, EventArgs e)
         {
             ActorDropDownTimer.Start();
+            DropDownTimers timer = new DropDownTimers();
+
+            // DataAccessSelect db = new DataAccessSelect();
+            // var test2 = Movies.First(Movie => Movie.id == 2);
+            // MessageBox.Show();
+        }
+
+        private void DirectorDropDownBtn_Click(object sender, EventArgs e)
+        {
+            DirectorDropDownTimer.Start();
+        }
+
+        private void AllMoviesBtn_Click(object sender, EventArgs e)
+        {
+            MovieDropDownTimer.Start();
+            DataAccessSelect db = new DataAccessSelect();
+            Movies = db.GetAllMovies();
+            LoadMoviesToGrid();
+            searchMoviesControl.Visible = true;
+
+
+        }
+
+        private void MoviesSearch_Event(object sender, EventArgs e)
+        {
+            try
+            {
+                
+                DataAccessSelect db = new DataAccessSelect();
+                Movies = db.SearchMovies(searchMoviesControl.BuildMovieSearchFromTextBoxes());
+                LoadMoviesToGrid();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }         
+        }
+
+        private void SearchByActor_Search(object sender, EventArgs e)
+        {
+            MessageBox.Show("Not ready");
+        }
+
+        private void MoviesByActorBtn_Click(object sender, EventArgs e)
+        {
+            MovieDropDownTimer.Start();
+            //searchByActorControl.BringToFront();
+            
+        }
+
+        private void MoviesByDirector_Click(object sender, EventArgs e)
+        {
+            MovieDropDownTimer.Start();
+            LoadMoviesToGrid();
+           // searchMoviesControl.BringToFront();
+        }
+
+        private void AllDirectorsBtn_Click(object sender, EventArgs e)
+        {
+            DirectorDropDownTimer.Start();
+            //searchMoviesControl.BringToFront();
+            dataGridView2.Columns.Clear();
+            DataAccessSelect db = new DataAccessSelect();
+            Directors = db.GetDirectors();
+            dataGridView2.DataSource = Directors;
+            LoadDirectorsToGrid();
+        }
+
+        private void SelectRowBtn_Click(object sender, EventArgs e)
+        {
+            //dataGridView2.
+            //MessageBox.Show("test");       
+            if (dataGridView2.SelectedRows.Count == 1)
+            {
+                foreach (DataGridViewCell cell in dataGridView2.SelectedCells)
+
+                {
+                    MessageBox.Show(cell.Value.ToString());
+                    //...
+                }
+                //foreach(DataGrid cell in dataGridView2.SelectedRows)
+                //MessageBox.Show(cell.ToString());
+            }
+
         }
 
         private void ActorDropDownTimer_Tick(object sender, EventArgs e)
@@ -96,18 +135,39 @@ namespace FormUI
             else if (ActorTabOpening)
             {
                 ActorPanel.Height += 11;
-                if (ActorPanel.Height >= 132)
+                if (ActorPanel.Height >= 99)
                 {
-                    ActorPanel.Height = 132;
+                    ActorPanel.Height = 99;
                     ActorTabOpening = false;
                     ActorDropDownTimer.Stop();
                 }
             }
         }
 
-        private void DirectorDropDownBtn_Click(object sender, EventArgs e)
+        private void MovieDropDownTimer_Tick(object sender, EventArgs e)
         {
-            DirectorDropDownTimer.Start();
+            if (!MovieTabOpening)
+            {
+                MoviePanel.Height -= 11;
+                if (MoviePanel.Height <= 0)
+                {
+                    MoviePanel.Height = 0;
+                    MovieTabOpening = true;
+                    MovieDropDownTimer.Stop();
+                }
+            }
+            else if (MovieTabOpening)
+            {
+                MoviePanel.Height += 11;
+                if (MoviePanel.Height >= 99)
+                {
+                    MoviePanel.Height = 99;
+                    MovieTabOpening = false;
+                    MovieDropDownTimer.Stop();
+                }
+            }
+
+
         }
 
         private void DirectorDropDownTimer_Tick(object sender, EventArgs e)
@@ -134,63 +194,28 @@ namespace FormUI
             }
         }
 
-        private void AllMoviesBtn_Click(object sender, EventArgs e)
+        private void LoadMoviesToGrid()
         {
-            DropDownTimer.Start();
-            dataGridView2.Columns.Clear();
-            DataAccessSelect db = new DataAccessSelect();
-            Movies = db.GetMovies();
             dataGridView2.DataSource = Movies;
+            dataGridView2.Columns.Clear();
+            dataGridView2.Columns.Add(idDataGridViewTextBoxColumn);
             dataGridView2.Columns.Add(titleDataGridViewTextBoxColumn);
             dataGridView2.Columns.Add(runtimeDataGridViewTextBoxColumn);
             dataGridView2.Columns.Add(yearDataGridViewTextBoxColumn);
-
-
+            idDataGridViewTextBoxColumn.Visible = false;
         }
 
-        private void SearchByDirector_Search(object sender, EventArgs e)
+        private void LoadDirectorsToGrid()
         {
-            try
-            {
-                dataGridView2.Columns.Clear();
-                dataGridView2.Columns.AddRange(titleDataGridViewTextBoxColumn, runtimeDataGridViewTextBoxColumn, yearDataGridViewTextBoxColumn);
-                DataAccessSelect db = new DataAccessSelect();
-                Movies = db.GetMovieByDirector(searchByDirectorControl.FirstName(), searchByDirectorControl.LastName());
-                dataGridView2.DataSource = Movies;
-            }
-            catch
-            {
-                MessageBox.Show("No Director Entry was made");
-            }
-        }
-
-        private void SearchByActor_Search(object sender, EventArgs e)
-        {
-            MessageBox.Show("Not ready");
-        }
-
-        private void MoviesByActorBtn_Click(object sender, EventArgs e)
-        {
-            DropDownTimer.Start();
-            searchByActorControl.BringToFront();
-        }
-
-        private void MoviesByDirector_Click(object sender, EventArgs e)
-        {
-            DropDownTimer.Start();
-            searchByDirectorControl.BringToFront();
-        }
-
-        private void AllDirectorsBtn_Click(object sender, EventArgs e)
-        {
-            DirectorDropDownTimer.Start();
-            searchByDirectorControl.BringToFront();
-            DataAccessSelect db = new DataAccessSelect();
-            dataGridView2.Columns.Clear();
-            Directors = db.GetDirectors();
-            dataGridView2.DataSource = Directors;
+            dataGridView2.Columns.Add(idDataGridViewTextBoxColumn);
             dataGridView2.Columns.Add(firstNameDataGridViewTextBoxColumn);
             dataGridView2.Columns.Add(lastNameDataGridViewTextBoxColumn);
+            idDataGridViewTextBoxColumn.Visible = false;
+        }
+
+        private void ShowAllActorsBtn_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

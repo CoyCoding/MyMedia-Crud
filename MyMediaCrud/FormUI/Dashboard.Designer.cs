@@ -29,27 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.BindingSource movieBindingSource;
             this.button1 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.ActorLastNameLabel = new System.Windows.Forms.Label();
-            this.ActorFirstNameLabel = new System.Windows.Forms.Label();
-            this.ActorLastNameTextBox = new System.Windows.Forms.TextBox();
-            this.ActorFirstNameTextBox = new System.Windows.Forms.TextBox();
             this.NavBar = new System.Windows.Forms.Panel();
+            this.SelectRowBtn = new System.Windows.Forms.Button();
             this.DirectorDropDownBtn = new System.Windows.Forms.Button();
             this.ActorDropDownBtn = new System.Windows.Forms.Button();
             this.MovieDropdownBtn = new System.Windows.Forms.Button();
             this.MoviePanel = new System.Windows.Forms.Panel();
-            this.MoviesByActorBtn = new System.Windows.Forms.Button();
-            this.AllMoviesBtn = new System.Windows.Forms.Button();
-            this.MoviesByGenreBtn = new System.Windows.Forms.Button();
-            this.MoviesByDirector = new System.Windows.Forms.Button();
-            this.DropDownTimer = new System.Windows.Forms.Timer(this.components);
+            this.EditMoviesBtn = new System.Windows.Forms.Button();
+            this.ViewMoviesBtn = new System.Windows.Forms.Button();
+            this.AddMoviesBtn = new System.Windows.Forms.Button();
+            this.MovieDropDownTimer = new System.Windows.Forms.Timer(this.components);
             this.ActorPanel = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.ViewActorsBtn = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.ActorDropDownTimer = new System.Windows.Forms.Timer(this.components);
             this.DirectorPanel = new System.Windows.Forms.Panel();
@@ -64,23 +60,20 @@
             this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.searchByActorControl = new FormUI.SearchByActorForm();
-            this.searchByDirectorControl = new FormUI.SearchByDirectorForm();
-            this.movieBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.directorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Runtime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.searchMoviesControl = new FormUI.SearchMoviesControl();
+            movieBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(movieBindingSource)).BeginInit();
             this.NavBar.SuspendLayout();
             this.MoviePanel.SuspendLayout();
             this.ActorPanel.SuspendLayout();
             this.DirectorPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.movieBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.directorBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -110,47 +103,14 @@
             this.button2.Text = "button1";
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // ActorLastNameLabel
-            // 
-            this.ActorLastNameLabel.AutoSize = true;
-            this.ActorLastNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ActorLastNameLabel.Location = new System.Drawing.Point(798, 186);
-            this.ActorLastNameLabel.Name = "ActorLastNameLabel";
-            this.ActorLastNameLabel.Size = new System.Drawing.Size(99, 24);
-            this.ActorLastNameLabel.TabIndex = 2;
-            this.ActorLastNameLabel.Text = "Last Name";
-            // 
-            // ActorFirstNameLabel
-            // 
-            this.ActorFirstNameLabel.AutoSize = true;
-            this.ActorFirstNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ActorFirstNameLabel.Location = new System.Drawing.Point(798, 134);
-            this.ActorFirstNameLabel.Name = "ActorFirstNameLabel";
-            this.ActorFirstNameLabel.Size = new System.Drawing.Size(101, 24);
-            this.ActorFirstNameLabel.TabIndex = 2;
-            this.ActorFirstNameLabel.Text = "First Name";
-            // 
-            // ActorLastNameTextBox
-            // 
-            this.ActorLastNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ActorLastNameTextBox.Location = new System.Drawing.Point(936, 187);
-            this.ActorLastNameTextBox.Name = "ActorLastNameTextBox";
-            this.ActorLastNameTextBox.Size = new System.Drawing.Size(183, 29);
-            this.ActorLastNameTextBox.TabIndex = 5;
-            // 
-            // ActorFirstNameTextBox
-            // 
-            this.ActorFirstNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ActorFirstNameTextBox.Location = new System.Drawing.Point(936, 134);
-            this.ActorFirstNameTextBox.Name = "ActorFirstNameTextBox";
-            this.ActorFirstNameTextBox.Size = new System.Drawing.Size(183, 29);
-            this.ActorFirstNameTextBox.TabIndex = 4;
-            // 
             // NavBar
             // 
+            this.NavBar.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuBar;
             this.NavBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.NavBar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.NavBar.BackColor = System.Drawing.Color.Maroon;
+            this.NavBar.Controls.Add(this.SelectRowBtn);
             this.NavBar.Controls.Add(this.DirectorDropDownBtn);
             this.NavBar.Controls.Add(this.ActorDropDownBtn);
             this.NavBar.Controls.Add(this.MovieDropdownBtn);
@@ -159,6 +119,23 @@
             this.NavBar.Name = "NavBar";
             this.NavBar.Size = new System.Drawing.Size(1133, 33);
             this.NavBar.TabIndex = 1;
+            // 
+            // SelectRowBtn
+            // 
+            this.SelectRowBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.SelectRowBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+            this.SelectRowBtn.FlatAppearance.BorderSize = 0;
+            this.SelectRowBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SelectRowBtn.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectRowBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.SelectRowBtn.Location = new System.Drawing.Point(606, 0);
+            this.SelectRowBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.SelectRowBtn.Name = "SelectRowBtn";
+            this.SelectRowBtn.Size = new System.Drawing.Size(202, 33);
+            this.SelectRowBtn.TabIndex = 0;
+            this.SelectRowBtn.Text = "Test Button";
+            this.SelectRowBtn.UseVisualStyleBackColor = false;
+            this.SelectRowBtn.Click += new System.EventHandler(this.SelectRowBtn_Click);
             // 
             // DirectorDropDownBtn
             // 
@@ -211,95 +188,78 @@
             // MoviePanel
             // 
             this.MoviePanel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.MoviePanel.Controls.Add(this.MoviesByActorBtn);
-            this.MoviePanel.Controls.Add(this.AllMoviesBtn);
-            this.MoviePanel.Controls.Add(this.MoviesByGenreBtn);
-            this.MoviePanel.Controls.Add(this.MoviesByDirector);
+            this.MoviePanel.Controls.Add(this.EditMoviesBtn);
+            this.MoviePanel.Controls.Add(this.ViewMoviesBtn);
+            this.MoviePanel.Controls.Add(this.AddMoviesBtn);
             this.MoviePanel.Location = new System.Drawing.Point(0, 33);
             this.MoviePanel.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.MoviePanel.Name = "MoviePanel";
-            this.MoviePanel.Size = new System.Drawing.Size(202, 0);
+            this.MoviePanel.Size = new System.Drawing.Size(202, 99);
             this.MoviePanel.TabIndex = 0;
             // 
-            // MoviesByActorBtn
+            // EditMoviesBtn
             // 
-            this.MoviesByActorBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.MoviesByActorBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
-            this.MoviesByActorBtn.FlatAppearance.BorderSize = 0;
-            this.MoviesByActorBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MoviesByActorBtn.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MoviesByActorBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MoviesByActorBtn.Location = new System.Drawing.Point(0, 33);
-            this.MoviesByActorBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.MoviesByActorBtn.Name = "MoviesByActorBtn";
-            this.MoviesByActorBtn.Size = new System.Drawing.Size(202, 33);
-            this.MoviesByActorBtn.TabIndex = 2;
-            this.MoviesByActorBtn.Text = "By Actor";
-            this.MoviesByActorBtn.UseVisualStyleBackColor = false;
-            this.MoviesByActorBtn.Click += new System.EventHandler(this.MoviesByActorBtn_Click);
+            this.EditMoviesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.EditMoviesBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+            this.EditMoviesBtn.FlatAppearance.BorderSize = 0;
+            this.EditMoviesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EditMoviesBtn.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditMoviesBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.EditMoviesBtn.Location = new System.Drawing.Point(0, 33);
+            this.EditMoviesBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.EditMoviesBtn.Name = "EditMoviesBtn";
+            this.EditMoviesBtn.Size = new System.Drawing.Size(202, 33);
+            this.EditMoviesBtn.TabIndex = 2;
+            this.EditMoviesBtn.Text = "Edit Movies";
+            this.EditMoviesBtn.UseVisualStyleBackColor = false;
+            this.EditMoviesBtn.Click += new System.EventHandler(this.MoviesByActorBtn_Click);
             // 
-            // AllMoviesBtn
+            // ViewMoviesBtn
             // 
-            this.AllMoviesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.AllMoviesBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
-            this.AllMoviesBtn.FlatAppearance.BorderSize = 0;
-            this.AllMoviesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AllMoviesBtn.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AllMoviesBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.AllMoviesBtn.Location = new System.Drawing.Point(0, 0);
-            this.AllMoviesBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.AllMoviesBtn.Name = "AllMoviesBtn";
-            this.AllMoviesBtn.Size = new System.Drawing.Size(202, 33);
-            this.AllMoviesBtn.TabIndex = 1;
-            this.AllMoviesBtn.Text = "All Movies";
-            this.AllMoviesBtn.UseVisualStyleBackColor = false;
-            this.AllMoviesBtn.Click += new System.EventHandler(this.AllMoviesBtn_Click);
+            this.ViewMoviesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ViewMoviesBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+            this.ViewMoviesBtn.FlatAppearance.BorderSize = 0;
+            this.ViewMoviesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ViewMoviesBtn.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ViewMoviesBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.ViewMoviesBtn.Location = new System.Drawing.Point(0, 0);
+            this.ViewMoviesBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.ViewMoviesBtn.Name = "ViewMoviesBtn";
+            this.ViewMoviesBtn.Size = new System.Drawing.Size(202, 33);
+            this.ViewMoviesBtn.TabIndex = 1;
+            this.ViewMoviesBtn.Text = "View Movies";
+            this.ViewMoviesBtn.UseVisualStyleBackColor = false;
+            this.ViewMoviesBtn.Click += new System.EventHandler(this.AllMoviesBtn_Click);
             // 
-            // MoviesByGenreBtn
+            // AddMoviesBtn
             // 
-            this.MoviesByGenreBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.MoviesByGenreBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
-            this.MoviesByGenreBtn.FlatAppearance.BorderSize = 0;
-            this.MoviesByGenreBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MoviesByGenreBtn.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MoviesByGenreBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MoviesByGenreBtn.Location = new System.Drawing.Point(0, 99);
-            this.MoviesByGenreBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.MoviesByGenreBtn.Name = "MoviesByGenreBtn";
-            this.MoviesByGenreBtn.Size = new System.Drawing.Size(202, 33);
-            this.MoviesByGenreBtn.TabIndex = 4;
-            this.MoviesByGenreBtn.Text = "By Genre";
-            this.MoviesByGenreBtn.UseVisualStyleBackColor = false;
+            this.AddMoviesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.AddMoviesBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+            this.AddMoviesBtn.FlatAppearance.BorderSize = 0;
+            this.AddMoviesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddMoviesBtn.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddMoviesBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.AddMoviesBtn.Location = new System.Drawing.Point(0, 66);
+            this.AddMoviesBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.AddMoviesBtn.Name = "AddMoviesBtn";
+            this.AddMoviesBtn.Size = new System.Drawing.Size(202, 33);
+            this.AddMoviesBtn.TabIndex = 3;
+            this.AddMoviesBtn.Text = "Add Movies";
+            this.AddMoviesBtn.UseVisualStyleBackColor = false;
+            this.AddMoviesBtn.Click += new System.EventHandler(this.MoviesByDirector_Click);
             // 
-            // MoviesByDirector
+            // MovieDropDownTimer
             // 
-            this.MoviesByDirector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.MoviesByDirector.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
-            this.MoviesByDirector.FlatAppearance.BorderSize = 0;
-            this.MoviesByDirector.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MoviesByDirector.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MoviesByDirector.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MoviesByDirector.Location = new System.Drawing.Point(0, 66);
-            this.MoviesByDirector.Margin = new System.Windows.Forms.Padding(0);
-            this.MoviesByDirector.Name = "MoviesByDirector";
-            this.MoviesByDirector.Size = new System.Drawing.Size(202, 33);
-            this.MoviesByDirector.TabIndex = 3;
-            this.MoviesByDirector.Text = "By Director";
-            this.MoviesByDirector.UseVisualStyleBackColor = false;
-            this.MoviesByDirector.Click += new System.EventHandler(this.MoviesByDirector_Click);
-            // 
-            // DropDownTimer
-            // 
-            this.DropDownTimer.Interval = 1;
-            this.DropDownTimer.Tick += new System.EventHandler(this.DropDownTimer_Tick_1);
+            this.MovieDropDownTimer.Interval = 1;
+            this.MovieDropDownTimer.Tick += new System.EventHandler(this.MovieDropDownTimer_Tick);
             // 
             // ActorPanel
             // 
             this.ActorPanel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ActorPanel.Controls.Add(this.button3);
-            this.ActorPanel.Controls.Add(this.button4);
-            this.ActorPanel.Controls.Add(this.button6);
+            this.ActorPanel.Controls.Add(this.ViewActorsBtn);
             this.ActorPanel.Controls.Add(this.button7);
+            this.ActorPanel.ForeColor = System.Drawing.Color.Black;
             this.ActorPanel.Location = new System.Drawing.Point(202, 33);
             this.ActorPanel.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.ActorPanel.Name = "ActorPanel";
@@ -319,40 +279,25 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(202, 33);
             this.button3.TabIndex = 0;
-            this.button3.Text = "Actors";
+            this.button3.Text = "Edit Actors";
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // ViewActorsBtn
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button4.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button4.Location = new System.Drawing.Point(0, 0);
-            this.button4.Margin = new System.Windows.Forms.Padding(0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(202, 33);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "Actors";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button6.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button6.Location = new System.Drawing.Point(0, 99);
-            this.button6.Margin = new System.Windows.Forms.Padding(0);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(202, 33);
-            this.button6.TabIndex = 0;
-            this.button6.Text = "Actors";
-            this.button6.UseVisualStyleBackColor = false;
+            this.ViewActorsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ViewActorsBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+            this.ViewActorsBtn.FlatAppearance.BorderSize = 0;
+            this.ViewActorsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ViewActorsBtn.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ViewActorsBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.ViewActorsBtn.Location = new System.Drawing.Point(0, 0);
+            this.ViewActorsBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.ViewActorsBtn.Name = "ViewActorsBtn";
+            this.ViewActorsBtn.Size = new System.Drawing.Size(202, 33);
+            this.ViewActorsBtn.TabIndex = 0;
+            this.ViewActorsBtn.Text = "View Actors";
+            this.ViewActorsBtn.UseVisualStyleBackColor = false;
+            this.ViewActorsBtn.Click += new System.EventHandler(this.ShowAllActorsBtn_Click);
             // 
             // button7
             // 
@@ -367,7 +312,7 @@
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(202, 33);
             this.button7.TabIndex = 0;
-            this.button7.Text = "Actors";
+            this.button7.Text = "Add Actors";
             this.button7.UseVisualStyleBackColor = false;
             // 
             // ActorDropDownTimer
@@ -462,17 +407,24 @@
             // 
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AllowUserToResizeRows = false;
+            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {});
-            this.dataGridView2.DataSource = this.movieBindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(12, 39);
+            this.dataGridView2.DataSource = movieBindingSource;
+            this.dataGridView2.Location = new System.Drawing.Point(0, 33);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.Size = new System.Drawing.Size(594, 486);
-            this.dataGridView2.TabIndex = 6;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView2.Size = new System.Drawing.Size(606, 505);
+            this.dataGridView2.TabIndex = 300;
             // 
             // titleDataGridViewTextBoxColumn
             // 
@@ -507,36 +459,14 @@
             this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
             this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
             this.firstNameDataGridViewTextBoxColumn.ReadOnly = true;
-            ///
-            //
-            //
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
             this.lastNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
             this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
             this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
             this.lastNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // searchByActorControl
-            // 
-            this.searchByActorControl.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.searchByActorControl.Location = new System.Drawing.Point(612, 39);
-            this.searchByActorControl.Name = "searchByActorControl";
-            this.searchByActorControl.Size = new System.Drawing.Size(515, 486);
-            this.searchByActorControl.TabIndex = 7;
-            this.searchByActorControl.ActorSearch += new System.EventHandler(this.SearchByActor_Search);
-            // 
-            // searchByDirectorControl
-            // 
-            this.searchByDirectorControl.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.searchByDirectorControl.Location = new System.Drawing.Point(612, 39);
-            this.searchByDirectorControl.Name = "searchByDirectorControl";
-            this.searchByDirectorControl.Size = new System.Drawing.Size(515, 486);
-            this.searchByDirectorControl.TabIndex = 5;
-            this.searchByDirectorControl.DirectorSearch += new System.EventHandler(this.SearchByDirector_Search);
-            // 
-            // movieBindingSource
-            // 
-            this.movieBindingSource.DataSource = typeof(FormUI.Movie);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -544,10 +474,6 @@
             this.idDataGridViewTextBoxColumn.HeaderText = "id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // directorBindingSource
-            // 
-            this.directorBindingSource.DataSource = typeof(FormUI.Director);
             // 
             // FirstName
             // 
@@ -584,11 +510,21 @@
             this.Year.Name = "Year";
             this.Year.ReadOnly = true;
             // 
+            // searchMoviesControl
+            // 
+            this.searchMoviesControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchMoviesControl.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.searchMoviesControl.Location = new System.Drawing.Point(606, 33);
+            this.searchMoviesControl.Name = "searchMoviesControl";
+            this.searchMoviesControl.Size = new System.Drawing.Size(527, 505);
+            this.searchMoviesControl.TabIndex = 301;
+            this.searchMoviesControl.Visible = false;
+            this.searchMoviesControl.MovieSearch_Event += new System.EventHandler(this.MoviesSearch_Event);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1131, 537);
             this.Controls.Add(this.DirectorPanel);
@@ -596,18 +532,17 @@
             this.Controls.Add(this.MoviePanel);
             this.Controls.Add(this.NavBar);
             this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.searchByActorControl);
-            this.Controls.Add(this.searchByDirectorControl);
+            this.Controls.Add(this.searchMoviesControl);
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "My Media";
+            this.TransparencyKey = System.Drawing.Color.PaleGreen;
+            ((System.ComponentModel.ISupportInitialize)(movieBindingSource)).EndInit();
             this.NavBar.ResumeLayout(false);
             this.MoviePanel.ResumeLayout(false);
             this.ActorPanel.ResumeLayout(false);
             this.DirectorPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.movieBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.directorBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -617,24 +552,19 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label ActorLastNameLabel;
-        private System.Windows.Forms.Label ActorFirstNameLabel;
-        private System.Windows.Forms.TextBox ActorLastNameTextBox;
-        private System.Windows.Forms.TextBox ActorFirstNameTextBox;
+
 
         private System.Windows.Forms.Panel NavBar;
         private System.Windows.Forms.Button MovieDropdownBtn;
         private System.Windows.Forms.Panel MoviePanel;
-        private System.Windows.Forms.Button AllMoviesBtn;
-        private System.Windows.Forms.Button MoviesByActorBtn;
-        private System.Windows.Forms.Button MoviesByDirector;
-        private System.Windows.Forms.Button MoviesByGenreBtn;
-        private System.Windows.Forms.Timer DropDownTimer;
+        private System.Windows.Forms.Button ViewMoviesBtn;
+        private System.Windows.Forms.Button EditMoviesBtn;
+        private System.Windows.Forms.Button AddMoviesBtn;
+        private System.Windows.Forms.Timer MovieDropDownTimer;
         private System.Windows.Forms.Button ActorDropDownBtn;
         private System.Windows.Forms.Panel ActorPanel;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button ViewActorsBtn;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Timer ActorDropDownTimer;
         private System.Windows.Forms.Button DirectorDropDownBtn;
@@ -644,22 +574,20 @@
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Timer DirectorDropDownTimer;
-        private SearchByDirectorForm searchByDirectorControl;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private SearchByActorForm searchByActorControl;
         private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn runtimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn yearDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource movieBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Title;
         private System.Windows.Forms.DataGridViewTextBoxColumn Runtime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Year;
-        private System.Windows.Forms.BindingSource directorBindingSource;
+        private System.Windows.Forms.Button SelectRowBtn;
+        private SearchMoviesControl searchMoviesControl;
     }
 }
 

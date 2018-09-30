@@ -61,19 +61,30 @@
     <Compile Include="DataModels\Director.cs" />
     <Compile Include="DataAccess\Helper.cs" />
     <Compile Include="DataModels\Movie.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="DropDownTimers.cs" />
+    <Compile Include="Exceptions\IncorrectMovieRuntimeFormat.cs" />
+    <Compile Include="Exceptions\IncorrectMovieYearFormat.cs" />
+    <Compile Include="MovieSearchVeifier.cs" />
+    <Compile Include="MediaDatabase.cs" />
+    <Compile Include="DataModels\MovieSearch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SearchByActorForm.cs">
+    <Compile Include="UserControls\SearchByActorForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SearchByActorForm.Designer.cs">
+    <Compile Include="UserControls\SearchByActorForm.Designer.cs">
       <DependentUpon>SearchByActorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SearchByDirectorForm.cs">
+    <Compile Include="UserControls\SearchMoviesControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SearchByDirectorForm.Designer.cs">
-      <DependentUpon>SearchByDirectorForm.cs</DependentUpon>
+    <Compile Include="UserControls\SearchMoviesControl.Designer.cs">
+      <DependentUpon>SearchMoviesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ViewMoviesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ViewMoviesControl.Designer.cs">
+      <DependentUpon>ViewMoviesControl.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
@@ -87,11 +98,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="SearchByActorForm.resx">
+    <EmbeddedResource Include="UserControls\SearchByActorForm.resx">
       <DependentUpon>SearchByActorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SearchByDirectorForm.resx">
-      <DependentUpon>SearchByDirectorForm.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\SearchMoviesControl.resx">
+      <DependentUpon>SearchMoviesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ViewMoviesControl.resx">
+      <DependentUpon>ViewMoviesControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Director.datasource" />
