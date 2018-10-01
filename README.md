@@ -1,11 +1,13 @@
 # MyMedia-Crud
 
-This is the start to a CRUD application for my owned movies and video games.
+This is the start to a CRUD application for movies.
 
-Still rough as I brainstormed and built the database, Stored procedures, and application in the same day. 
+As of 9/30-
 
-Only features Select all movies and Select all movies by an actors/director by first and or last name.
+It selects all and can search all movies by all movie properties
 
-However the Stored procedures are set up for when I implement Insert and updates.
+Has proper form validation on all search properties 
 
-Working more on UI to have everything set up for stored procedures to just connect.
+Stored procedures are done, but working on making a clean UI
+
+
