@@ -11,17 +11,18 @@ namespace FormUI
 
     public class MovieSearch
     {
-        public MovieSearch(string title, int? year, TimeSpan? runtime, 
-                           string actorFirstName, string actorLastName, string directorFirstName,  string directorLastName)
-        {
-            Title = title;
-            Year = year;
-            Runtime = runtime;
-            ActorFirstName = actorFirstName;
-            ActorLastName = actorLastName;
-            DirectorFirstName = directorFirstName;
-            DirectorLastName = directorLastName;    
-        }
+
+        //public MovieSearch(string title, int? year, TimeSpan? runtime, 
+        //                   string actorFirstName, string actorLastName, string directorFirstName,  string directorLastName)
+        //{
+        //    Title = title;
+        //    Year = year;
+        //    Runtime = runtime;
+        //    ActorFirstName = actorFirstName;
+        //    ActorLastName = actorLastName;
+        //    DirectorFirstName = directorFirstName;
+        //    DirectorLastName = directorLastName;    
+        //}
 
         public string Title { get; set; }
 

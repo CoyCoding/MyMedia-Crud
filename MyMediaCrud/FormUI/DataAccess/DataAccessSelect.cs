@@ -15,8 +15,8 @@ namespace FormUI
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
             {
-                var output = connection.Query<Movie>("dbo.spSelect_All_Movies").ToList();
-                return output;
+                var output = connection.Query<Movie>("dbo.spSelect_All_Movies");
+                return output.ToList();
             }
         }
 

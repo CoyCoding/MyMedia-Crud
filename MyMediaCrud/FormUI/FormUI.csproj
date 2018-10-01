@@ -62,32 +62,35 @@
     <Compile Include="DataAccess\Helper.cs" />
     <Compile Include="DataModels\Movie.cs" />
     <Compile Include="DropDownTimers.cs" />
+    <Compile Include="UserControls\EditMoviesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\EditMoviesControl.Designer.cs">
+      <DependentUpon>EditMoviesControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Exceptions\IncorrectMovieRuntimeFormat.cs" />
     <Compile Include="Exceptions\IncorrectMovieYearFormat.cs" />
-    <Compile Include="MovieSearchVeifier.cs" />
+    <Compile Include="DataModels\MovieSearchFormValidator.cs" />
     <Compile Include="MediaDatabase.cs" />
     <Compile Include="DataModels\MovieSearch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserControls\SearchByActorForm.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\SearchByActorForm.Designer.cs">
-      <DependentUpon>SearchByActorForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\SearchMoviesControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\SearchMoviesControl.Designer.cs">
       <DependentUpon>SearchMoviesControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ViewMoviesControl.cs">
+    <Compile Include="UserControls\GridViewMoviesControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\ViewMoviesControl.Designer.cs">
-      <DependentUpon>ViewMoviesControl.cs</DependentUpon>
+    <Compile Include="UserControls\GridViewMoviesControl.Designer.cs">
+      <DependentUpon>GridViewMoviesControl.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\EditMoviesControl.resx">
+      <DependentUpon>EditMoviesControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -98,14 +101,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserControls\SearchByActorForm.resx">
-      <DependentUpon>SearchByActorForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\SearchMoviesControl.resx">
       <DependentUpon>SearchMoviesControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\ViewMoviesControl.resx">
-      <DependentUpon>ViewMoviesControl.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\GridViewMoviesControl.resx">
+      <DependentUpon>GridViewMoviesControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Director.datasource" />

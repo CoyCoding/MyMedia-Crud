@@ -14,15 +14,10 @@ namespace FormUI
 
         public TimeSpan Runtime { get; set; }
        
-        public int Year { get; set; }     
+        public int Year { get; set; }
         
-        public string Info
-        {
-            get
-            {
-                return $"{ Title } { Runtime } { Year }";
-            }
-        }
-
+        public Director Director
+        { get;  set; }
+        
     }
 }

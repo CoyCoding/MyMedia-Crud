@@ -50,6 +50,7 @@
             // 
             this.ActorlNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ActorlNameLabel.AutoSize = true;
+            this.ActorlNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.ActorlNameLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ActorlNameLabel.Location = new System.Drawing.Point(81, 259);
             this.ActorlNameLabel.Name = "ActorlNameLabel";
@@ -61,6 +62,7 @@
             // 
             this.ActorfNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ActorfNameLabel.AutoSize = true;
+            this.ActorfNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.ActorfNameLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ActorfNameLabel.Location = new System.Drawing.Point(78, 211);
             this.ActorfNameLabel.Name = "ActorfNameLabel";
@@ -104,11 +106,12 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(229, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 13);
+            this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Find Movie:";
+            this.label1.Text = "Find Movies:";
             // 
             // YearTextBox
             // 
@@ -126,6 +129,7 @@
             // 
             this.YearLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.YearLabel.AutoSize = true;
+            this.YearLabel.BackColor = System.Drawing.Color.Transparent;
             this.YearLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.YearLabel.Location = new System.Drawing.Point(133, 115);
             this.YearLabel.Name = "YearLabel";
@@ -147,6 +151,7 @@
             // 
             this.MovieTileLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.MovieTileLabel.AutoSize = true;
+            this.MovieTileLabel.BackColor = System.Drawing.Color.Transparent;
             this.MovieTileLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MovieTileLabel.Location = new System.Drawing.Point(133, 67);
             this.MovieTileLabel.Name = "MovieTileLabel";
@@ -170,6 +175,7 @@
             // 
             this.RuntimeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.RuntimeLabel.AutoSize = true;
+            this.RuntimeLabel.BackColor = System.Drawing.Color.Transparent;
             this.RuntimeLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RuntimeLabel.Location = new System.Drawing.Point(96, 163);
             this.RuntimeLabel.Name = "RuntimeLabel";
@@ -191,6 +197,7 @@
             // 
             this.DirectorfNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.DirectorfNameLabel.AutoSize = true;
+            this.DirectorfNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.DirectorfNameLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DirectorfNameLabel.Location = new System.Drawing.Point(51, 307);
             this.DirectorfNameLabel.Name = "DirectorfNameLabel";
@@ -202,6 +209,7 @@
             // 
             this.DirectorlNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.DirectorlNameLabel.AutoSize = true;
+            this.DirectorlNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.DirectorlNameLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DirectorlNameLabel.Location = new System.Drawing.Point(54, 355);
             this.DirectorlNameLabel.Name = "DirectorlNameLabel";
@@ -224,6 +232,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DirectorlNameTextBox);
             this.Controls.Add(this.ActorlNameTextBox);

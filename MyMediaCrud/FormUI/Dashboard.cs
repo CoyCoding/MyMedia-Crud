@@ -22,7 +22,6 @@ namespace FormUI
         public Dashboard()
         {
            InitializeComponent();
-          
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -48,6 +47,7 @@ namespace FormUI
 
         private void AllMoviesBtn_Click(object sender, EventArgs e)
         {
+            editMoviesControl1.Hide();
             MovieDropDownTimer.Start();
             DataAccessSelect db = new DataAccessSelect();
             Movies = db.GetAllMovies();
@@ -80,7 +80,8 @@ namespace FormUI
         private void MoviesByActorBtn_Click(object sender, EventArgs e)
         {
             MovieDropDownTimer.Start();
-            //searchByActorControl.BringToFront();
+            searchMoviesControl.Hide();
+            editMoviesControl1.Show();
             
         }
 
@@ -103,9 +104,7 @@ namespace FormUI
         }
 
         private void SelectRowBtn_Click(object sender, EventArgs e)
-        {
-            //dataGridView2.
-            //MessageBox.Show("test");       
+        {     
             if (dataGridView2.SelectedRows.Count == 1)
             {
                 foreach (DataGridViewCell cell in dataGridView2.SelectedCells)
@@ -200,6 +199,7 @@ namespace FormUI
             dataGridView2.Columns.Clear();
             dataGridView2.Columns.Add(idDataGridViewTextBoxColumn);
             dataGridView2.Columns.Add(titleDataGridViewTextBoxColumn);
+            dataGridView2.Columns.Add(directorDataGridViewTextBoxColumn);
             dataGridView2.Columns.Add(runtimeDataGridViewTextBoxColumn);
             dataGridView2.Columns.Add(yearDataGridViewTextBoxColumn);
             idDataGridViewTextBoxColumn.Visible = false;
@@ -218,6 +218,16 @@ namespace FormUI
 
         }
 
+        private void dataGridView2_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (editMoviesControl1.Visible == true && dataGridView2.SelectedRows.Count == 1)
+            {
+                DataGridViewRow selectedRow = dataGridView2.SelectedRows[0];
+                Movie movie = (Movie)selectedRow.DataBoundItem;
+                editMoviesControl1.SetTextBoxes(movie);
+            }
+        }
     }
    
 }
