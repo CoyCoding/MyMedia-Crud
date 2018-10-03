@@ -12,6 +12,8 @@ namespace FormUI
 {
     public partial class EditMoviesControl : UserControl
     {
+        public event EventHandler MovieUpdate_Event;
+
         public EditMoviesControl()
         {
             InitializeComponent();
@@ -22,10 +24,14 @@ namespace FormUI
             MovieTitleTextBox.Text = movie.Title;
             RuntimeTextBox.Text = movie.Runtime.ToString();
             YearTextBox.Text = movie.Year.ToString();
-
         }
- 
-        
-            
+
+        private void UpdateMovieBtn_Click(object sender, EventArgs e)
+        {
+            if (MovieUpdate_Event != null)
+            {
+                MovieUpdate_Event(this, new EventArgs());
+            }
+        }
     }
 }

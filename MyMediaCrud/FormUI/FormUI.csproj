@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.2</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.2</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dapper, Version=1.50.5.0, Culture=neutral, processorArchitecture=MSIL">
@@ -50,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="VisablityController.cs" />
     <Compile Include="DataModels\Actor.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
@@ -61,7 +64,6 @@
     <Compile Include="DataModels\Director.cs" />
     <Compile Include="DataAccess\Helper.cs" />
     <Compile Include="DataModels\Movie.cs" />
-    <Compile Include="DropDownTimers.cs" />
     <Compile Include="UserControls\EditMoviesControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

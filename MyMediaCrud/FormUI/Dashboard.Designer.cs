@@ -184,7 +184,7 @@
             this.MovieDropdownBtn.TabIndex = 0;
             this.MovieDropdownBtn.Text = "Movies";
             this.MovieDropdownBtn.UseVisualStyleBackColor = false;
-            this.MovieDropdownBtn.Click += new System.EventHandler(this.button3_Click);
+            this.MovieDropdownBtn.Click += new System.EventHandler(this.MovieDropDownBtn_Click);
             // 
             // MoviePanel
             // 
@@ -213,7 +213,7 @@
             this.EditMoviesBtn.TabIndex = 2;
             this.EditMoviesBtn.Text = "Edit Movies";
             this.EditMoviesBtn.UseVisualStyleBackColor = false;
-            this.EditMoviesBtn.Click += new System.EventHandler(this.MoviesByActorBtn_Click);
+            this.EditMoviesBtn.Click += new System.EventHandler(this.EditMoviesBtn_Click);
             // 
             // ViewMoviesBtn
             // 
@@ -428,7 +428,7 @@
             this.dataGridView2.DataSource = movieBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
@@ -567,8 +567,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button2;
-
-
         private System.Windows.Forms.Panel NavBar;
         private System.Windows.Forms.Button MovieDropdownBtn;
         private System.Windows.Forms.Panel MoviePanel;
@@ -600,6 +598,12 @@
         private System.Windows.Forms.Button SelectRowBtn;
         private SearchMoviesControl searchMoviesControl;
         private EditMoviesControl editMoviesControl1;
+        //private System.Collections.Generic.List<Movie> Movies;
+        //private System.Collections.Generic.List<Director> Directors;
+        //private System.Collections.Generic.List<Actor> Actors;
+        //private System.Collections.Generic.List<System.Windows.Forms.UserControl> UserControlList;
+       
+
     }
 }
 

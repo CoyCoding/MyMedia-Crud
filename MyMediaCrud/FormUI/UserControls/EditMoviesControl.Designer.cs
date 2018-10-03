@@ -129,6 +129,7 @@
             this.UpdateMovieBtn.TabIndex = 11;
             this.UpdateMovieBtn.Text = "Update";
             this.UpdateMovieBtn.UseVisualStyleBackColor = true;
+            this.UpdateMovieBtn.Click += new System.EventHandler(this.UpdateMovieBtn_Click);
             // 
             // button1
             // 
