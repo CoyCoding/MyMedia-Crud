@@ -46,29 +46,21 @@ namespace FormUI
 
             MovieDropDownTimer.Start();
             ActiveUserControl.ActiveUserControl = searchMoviesControl;
-            DataAccess db = new DataAccess();
-            Movies = db.GetAllMovies();
-            LoadMoviesToGrid();
+            LoadAllMoviesToGrid();
         }
 
         private void MovieUpdate_Event(object sender, EventArgs e)
         {
+            try { 
             Movie editedMovie = editMoviesControl1.BuildMovieFromTextBoxes();
             DataAccess db = new DataAccess();
             db.UpdateMovie(editedMovie);
-            foreach(Movie movie in Movies)
+            RefreshGridWith(editedMovie);
+             }
+            catch (Exception ex)
             {
-                if(movie.id == editedMovie.id)
-                {
-                    movie.Title = editedMovie.Title;
-                    movie.Runtime = editedMovie.Runtime;
-                    movie.Year = editedMovie.Year;
-                    movie.Director = editedMovie.Director;
-                    dataGridView2.Refresh();
-                    break;
-                }
+                MessageBox.Show(ex.Message);
             }
-            
         }
 
         private void MoviesSearch_Event(object sender, EventArgs e)
@@ -90,8 +82,6 @@ namespace FormUI
         {
             MessageBox.Show("Not ready");
         }
-
-
 
         private void MoviesByDirector_Click(object sender, EventArgs e)
         {
@@ -246,10 +236,33 @@ namespace FormUI
         private void EditMoviesBtn_Click(object sender, EventArgs e)
         {
             MovieDropDownTimer.Start();
+            LoadAllMoviesToGrid();
             ActiveUserControl.ActiveUserControl = editMoviesControl1;
             // ActiveUserControl.SetActiveControl(editMoviesControl1);
         }
        
+        private void LoadAllMoviesToGrid()
+        {
+            DataAccess db = new DataAccess();
+            Movies = db.GetAllMovies();
+            LoadMoviesToGrid();
+        }
+
+        private void RefreshGridWith(Movie editedMovie)
+        {
+            foreach (Movie movie in Movies)
+            {
+                if (movie.id == editedMovie.id)
+                {
+                    if (editedMovie.Title != null)    { movie.Title = editedMovie.Title;}
+                    if (editedMovie.Runtime != null)  { movie.Runtime = editedMovie.Runtime; }
+                    if (editedMovie.Year != null)     { movie.Year = editedMovie.Year; }
+                    if (editedMovie.Director != null) { movie.Director = editedMovie.Director; }
+                    dataGridView2.Refresh();
+                    break;
+                }
+            }
+        }
     }
    
 }

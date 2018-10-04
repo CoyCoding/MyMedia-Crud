@@ -71,17 +71,21 @@ namespace FormUI
 
         public Movie BuildMovieFromTextBoxes()
         {
-            Movie editedMovie = new Movie
+            if(selectedMovie == null)
             {
-                id = selectedMovie.id,
-                Title = GetMovieTitleFromTextBox(),
-                Year = GetYearFromTextBox(),
-                Runtime = GetMovieRuntimeFromTextBox(),
-                Director = new Director(GetDirectorFromTextBox())
-                //Director = GetDirectorFromTextBox()
-            };
+                throw new Exception();
+            }
+                Movie editedMovie = new Movie
+                {
+                    id = selectedMovie.id,
+                    Title = GetMovieTitleFromTextBox(),
+                    Year = GetYearFromTextBox(),
+                    Runtime = GetMovieRuntimeFromTextBox(),
+                    Director = new Director(GetDirectorFromTextBox())
+                };
 
-            return editedMovie;
+                return editedMovie;
+           
         }
 
         public void SetSelectedMovie(Movie movie)

@@ -11,9 +11,16 @@ namespace FormUI
     {
         public Director(string fullName)
         {
-            var directorArr = CapitalizeFirstLetters(fullName);
-            FirstName = directorArr[0];
-            LastName = directorArr[1];
+            if (fullName == "" || fullName == null)
+            {
+
+            }
+            else
+            {
+                var directorArr = CapitalizeFirstLetters(fullName);
+                FirstName = directorArr[0];
+                LastName = directorArr[1];
+            }
         }
 
         public Director() { }
