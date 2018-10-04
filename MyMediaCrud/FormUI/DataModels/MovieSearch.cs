@@ -8,21 +8,10 @@ namespace FormUI
 {
     // This Class holds information from SearchMoviesControl
     // It will then be passed to DataAccess for a SQL query
+    // This Class will be deleted when Movies can do the same thing
 
     public class MovieSearch
     {
-
-        //public MovieSearch(string title, int? year, TimeSpan? runtime, 
-        //                   string actorFirstName, string actorLastName, string directorFirstName,  string directorLastName)
-        //{
-        //    Title = title;
-        //    Year = year;
-        //    Runtime = runtime;
-        //    ActorFirstName = actorFirstName;
-        //    ActorLastName = actorLastName;
-        //    DirectorFirstName = directorFirstName;
-        //    DirectorLastName = directorLastName;    
-        //}
 
         public string Title { get; set; }
 

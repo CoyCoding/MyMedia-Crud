@@ -46,9 +46,29 @@ namespace FormUI
 
             MovieDropDownTimer.Start();
             ActiveUserControl.ActiveUserControl = searchMoviesControl;
-            DataAccessSelect db = new DataAccessSelect();
+            DataAccess db = new DataAccess();
             Movies = db.GetAllMovies();
             LoadMoviesToGrid();
+        }
+
+        private void MovieUpdate_Event(object sender, EventArgs e)
+        {
+            Movie editedMovie = editMoviesControl1.BuildMovieFromTextBoxes();
+            DataAccess db = new DataAccess();
+            db.UpdateMovie(editedMovie);
+            foreach(Movie movie in Movies)
+            {
+                if(movie.id == editedMovie.id)
+                {
+                    movie.Title = editedMovie.Title;
+                    movie.Runtime = editedMovie.Runtime;
+                    movie.Year = editedMovie.Year;
+                    movie.Director = editedMovie.Director;
+                    dataGridView2.Refresh();
+                    break;
+                }
+            }
+            
         }
 
         private void MoviesSearch_Event(object sender, EventArgs e)
@@ -56,7 +76,7 @@ namespace FormUI
             try
             {
                 
-                DataAccessSelect db = new DataAccessSelect();
+                DataAccess db = new DataAccess();
                 Movies = db.SearchMovies(searchMoviesControl.BuildMovieSearchFromTextBoxes());
                 LoadMoviesToGrid();
             }
@@ -84,23 +104,25 @@ namespace FormUI
             DirectorDropDownTimer.Start();
             //searchMoviesControl.BringToFront();
             dataGridView2.Columns.Clear();
-            DataAccessSelect db = new DataAccessSelect();
+            DataAccess db = new DataAccess();
             Directors = db.GetDirectors();
             dataGridView2.DataSource = Directors;
             LoadDirectorsToGrid();
         }
 
         private void SelectRowBtn_Click(object sender, EventArgs e)
-        {
+        { 
 
-            //if (dataGridView2.SelectedRows.Count == 1)
-            //{
-            //    foreach (DataGridViewCell cell in dataGridView2.SelectedCells)
+            if (dataGridView2.SelectedRows.Count == 1)
+            {
+                
+                foreach (DataGridViewCell cell in dataGridView2.SelectedCells)
 
-            //    {
-            //        MessageBox.Show(cell.Value.ToString());
-            //    }
-            //}
+                {
+                    MessageBox.Show(cell.Value.ToString());
+                    
+                }
+            }
 
         }
 
@@ -207,7 +229,7 @@ namespace FormUI
 
         private void ShowAllActorsBtn_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void dataGridView2_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -217,7 +239,7 @@ namespace FormUI
             {
                 DataGridViewRow selectedRow = dataGridView2.SelectedRows[0];
                 Movie movie = (Movie)selectedRow.DataBoundItem;
-                editMoviesControl1.SetTextBoxes(movie);
+                editMoviesControl1.SetSelectedMovie(movie);
             }
         }
 

@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccess\DataAccessUpdate.cs" />
     <Compile Include="VisablityController.cs" />
     <Compile Include="DataModels\Actor.cs" />
     <Compile Include="Dashboard.cs">
@@ -60,7 +61,7 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataAccess\DataAccessSelect.cs" />
+    <Compile Include="DataAccess\DataAccess.cs" />
     <Compile Include="DataModels\Director.cs" />
     <Compile Include="DataAccess\Helper.cs" />
     <Compile Include="DataModels\Movie.cs" />

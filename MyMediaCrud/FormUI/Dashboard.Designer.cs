@@ -522,6 +522,7 @@
             this.editMoviesControl1.Size = new System.Drawing.Size(527, 505);
             this.editMoviesControl1.TabIndex = 302;
             this.editMoviesControl1.Visible = false;
+            this.editMoviesControl1.MovieUpdate_Event += new System.EventHandler(this.MovieUpdate_Event);
             // 
             // searchMoviesControl
             // 

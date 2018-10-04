@@ -7,6 +7,11 @@ using System.Text.RegularExpressions;
 
 namespace FormUI
 {
+    //
+    // This Class Validates that User Entered Textbox values are valid inputs
+    // These valid inputs are based on both the Object and sql propertys.
+    //
+
     public static class MovieSearchFormValidator
     {
         public static bool IsValidMovieRuntime(string timeSpan)

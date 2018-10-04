@@ -14,8 +14,7 @@ namespace FormUI
 {
     public partial class SearchMoviesControl : UserControl
     {
-        MovieSearch movieSearch = new MovieSearch();
-
+        
         public event EventHandler MovieSearch_Event;
 
         public SearchMoviesControl()
@@ -30,17 +29,20 @@ namespace FormUI
                 MovieSearch_Event(this, new EventArgs());
             }
         }
-
+        
         public MovieSearch BuildMovieSearchFromTextBoxes()
         {
-            movieSearch.Title = GetMovieTitleFromTextBox();
-            movieSearch.Year = GetYearFromTextBox();
-            movieSearch.Runtime = GetMovieRuntimeFromTextBox();
-            movieSearch.ActorFirstName = GetActorFirstNameFromTextBox();
-            movieSearch.ActorLastName = GetActorLastNameFromTextBox();
-            movieSearch.DirectorFirstName = GetDirectorFirstNameFromTextBox();
-            movieSearch.DirectorLastName = GetDirectorLastNameFromTextBox();
-                                                    
+            MovieSearch movieSearch = new MovieSearch
+            {
+                Title = GetMovieTitleFromTextBox(),
+                Year = GetYearFromTextBox(),
+                Runtime = GetMovieRuntimeFromTextBox(),
+                ActorFirstName = GetActorFirstNameFromTextBox(),
+                ActorLastName = GetActorLastNameFromTextBox(),
+                DirectorFirstName = GetDirectorFirstNameFromTextBox(),
+                DirectorLastName = GetDirectorLastNameFromTextBox()
+            };
+
             return movieSearch;
         }
 

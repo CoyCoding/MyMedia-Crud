@@ -9,6 +9,15 @@ namespace FormUI
 {
     public class Director
     {
+        public Director(string fullName)
+        {
+            var directorArr = CapitalizeFirstLetters(fullName);
+            FirstName = directorArr[0];
+            LastName = directorArr[1];
+        }
+
+        public Director() { }
+
         public int id { get; set; }
 
         public string FirstName { get; set; }
@@ -44,5 +53,19 @@ namespace FormUI
             }
         }
 
+        private string[] CapitalizeFirstLetters(string fullName)
+        {
+            
+            fullName = fullName.ToLower().Trim();
+            var fullNameArr = fullName.Split(' ');
+
+            for(int i = 0; i < fullNameArr.Length; i++)
+            {
+                var nameChars = fullNameArr[i].ToCharArray();
+                nameChars[0] = char.ToUpper(nameChars[0]);
+                fullNameArr[i] = new string(nameChars);
+            }
+            return fullNameArr;
+        }
     }
 }
