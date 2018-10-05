@@ -17,6 +17,8 @@ namespace FormUI
         
         public event EventHandler MovieSearch_Event;
 
+        public event EventHandler MovieSearchEdit_Event;
+
         public SearchMoviesControl()
         {
             InitializeComponent();
@@ -109,6 +111,14 @@ namespace FormUI
         private string GetDirectorLastNameFromTextBox()
         {
             return DirectorlNameTextBox.Text;
+        }
+
+        private void EditMovieBtn_Click(object sender, EventArgs e)
+        {
+            if (MovieSearchEdit_Event != null)
+            {
+                MovieSearchEdit_Event(this, new EventArgs());
+            }
         }
     }
     

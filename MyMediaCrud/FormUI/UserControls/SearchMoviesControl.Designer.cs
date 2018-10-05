@@ -44,6 +44,7 @@
             this.DirectorfNameLabel = new System.Windows.Forms.Label();
             this.DirectorlNameLabel = new System.Windows.Forms.Label();
             this.DirectorlNameTextBox = new System.Windows.Forms.TextBox();
+            this.EditSelectedMovieBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ActorlNameLabel
@@ -227,6 +228,18 @@
             this.DirectorlNameTextBox.Size = new System.Drawing.Size(183, 31);
             this.DirectorlNameTextBox.TabIndex = 5;
             // 
+            // EditSelectedMovieBtn
+            // 
+            this.EditSelectedMovieBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.EditSelectedMovieBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditSelectedMovieBtn.Location = new System.Drawing.Point(65, 401);
+            this.EditSelectedMovieBtn.Name = "EditSelectedMovieBtn";
+            this.EditSelectedMovieBtn.Size = new System.Drawing.Size(183, 30);
+            this.EditSelectedMovieBtn.TabIndex = 6;
+            this.EditSelectedMovieBtn.Text = "Edit Selected Movie";
+            this.EditSelectedMovieBtn.UseVisualStyleBackColor = true;
+            this.EditSelectedMovieBtn.Click += new System.EventHandler(this.EditMovieBtn_Click);
+            // 
             // SearchMoviesControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -246,6 +259,7 @@
             this.Controls.Add(this.DirectorfNameLabel);
             this.Controls.Add(this.ActorfNameLabel);
             this.Controls.Add(this.YearTextBox);
+            this.Controls.Add(this.EditSelectedMovieBtn);
             this.Controls.Add(this.SearchMoviesBtn);
             this.Controls.Add(this.DirectorfNameTextBox);
             this.Controls.Add(this.ActorfNameTextBox);
@@ -274,5 +288,6 @@
         private System.Windows.Forms.Label DirectorfNameLabel;
         private System.Windows.Forms.Label DirectorlNameLabel;
         private System.Windows.Forms.TextBox DirectorlNameTextBox;
+        private System.Windows.Forms.Button EditSelectedMovieBtn;
     }
 }

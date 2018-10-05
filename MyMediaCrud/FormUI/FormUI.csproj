@@ -53,6 +53,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess\DataAccessUpdate.cs" />
+    <Compile Include="UserControls\DataGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\DataGrid.Designer.cs">
+      <DependentUpon>DataGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="VisablityController.cs" />
     <Compile Include="DataModels\Actor.cs" />
     <Compile Include="Dashboard.cs">
@@ -83,14 +89,11 @@
     <Compile Include="UserControls\SearchMoviesControl.Designer.cs">
       <DependentUpon>SearchMoviesControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\GridViewMoviesControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\GridViewMoviesControl.Designer.cs">
-      <DependentUpon>GridViewMoviesControl.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\DataGrid.resx">
+      <DependentUpon>DataGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\EditMoviesControl.resx">
       <DependentUpon>EditMoviesControl.cs</DependentUpon>
@@ -106,9 +109,6 @@
     </Compile>
     <EmbeddedResource Include="UserControls\SearchMoviesControl.resx">
       <DependentUpon>SearchMoviesControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\GridViewMoviesControl.resx">
-      <DependentUpon>GridViewMoviesControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Director.datasource" />

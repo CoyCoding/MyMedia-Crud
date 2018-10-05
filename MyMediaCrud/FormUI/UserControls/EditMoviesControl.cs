@@ -13,6 +13,7 @@ namespace FormUI
     public partial class EditMoviesControl : UserControl
     {
         private Movie selectedMovie;
+
         public event EventHandler MovieUpdate_Event;
 
         public EditMoviesControl()

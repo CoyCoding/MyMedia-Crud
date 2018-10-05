@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.BindingSource movieBindingSource;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -48,17 +43,15 @@
             this.AddMoviesBtn = new System.Windows.Forms.Button();
             this.MovieDropDownTimer = new System.Windows.Forms.Timer(this.components);
             this.ActorPanel = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.EditActorsBtn = new System.Windows.Forms.Button();
             this.ViewActorsBtn = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.AddActorsBtn = new System.Windows.Forms.Button();
             this.ActorDropDownTimer = new System.Windows.Forms.Timer(this.components);
             this.DirectorPanel = new System.Windows.Forms.Panel();
-            this.button8 = new System.Windows.Forms.Button();
+            this.EditDirectorsBtn = new System.Windows.Forms.Button();
             this.AllDirectorsBtn = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
+            this.AddDirectorsBtn = new System.Windows.Forms.Button();
             this.DirectorDropDownTimer = new System.Windows.Forms.Timer(this.components);
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.directorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.runtimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,13 +61,11 @@
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.editMoviesControl1 = new FormUI.EditMoviesControl();
             this.searchMoviesControl = new FormUI.SearchMoviesControl();
-            movieBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(movieBindingSource)).BeginInit();
+            this.dataGrid1 = new FormUI.DataGrid();
             this.NavBar.SuspendLayout();
             this.MoviePanel.SuspendLayout();
             this.ActorPanel.SuspendLayout();
             this.DirectorPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -149,7 +140,7 @@
             this.DirectorDropDownBtn.Location = new System.Drawing.Point(404, 0);
             this.DirectorDropDownBtn.Name = "DirectorDropDownBtn";
             this.DirectorDropDownBtn.Size = new System.Drawing.Size(202, 33);
-            this.DirectorDropDownBtn.TabIndex = 0;
+            this.DirectorDropDownBtn.TabIndex = 98;
             this.DirectorDropDownBtn.Text = "Directors";
             this.DirectorDropDownBtn.UseVisualStyleBackColor = false;
             this.DirectorDropDownBtn.Click += new System.EventHandler(this.DirectorDropDownBtn_Click);
@@ -165,7 +156,7 @@
             this.ActorDropDownBtn.Location = new System.Drawing.Point(202, 0);
             this.ActorDropDownBtn.Name = "ActorDropDownBtn";
             this.ActorDropDownBtn.Size = new System.Drawing.Size(202, 33);
-            this.ActorDropDownBtn.TabIndex = 100;
+            this.ActorDropDownBtn.TabIndex = 3;
             this.ActorDropDownBtn.Text = "Actors";
             this.ActorDropDownBtn.UseVisualStyleBackColor = false;
             this.ActorDropDownBtn.Click += new System.EventHandler(this.ActorDropDownBtn_Click);
@@ -181,7 +172,7 @@
             this.MovieDropdownBtn.Location = new System.Drawing.Point(0, 0);
             this.MovieDropdownBtn.Name = "MovieDropdownBtn";
             this.MovieDropdownBtn.Size = new System.Drawing.Size(202, 33);
-            this.MovieDropdownBtn.TabIndex = 0;
+            this.MovieDropdownBtn.TabIndex = 100;
             this.MovieDropdownBtn.Text = "Movies";
             this.MovieDropdownBtn.UseVisualStyleBackColor = false;
             this.MovieDropdownBtn.Click += new System.EventHandler(this.MovieDropDownBtn_Click);
@@ -196,7 +187,7 @@
             this.MoviePanel.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.MoviePanel.Name = "MoviePanel";
             this.MoviePanel.Size = new System.Drawing.Size(202, 99);
-            this.MoviePanel.TabIndex = 0;
+            this.MoviePanel.TabIndex = 99;
             // 
             // EditMoviesBtn
             // 
@@ -210,7 +201,7 @@
             this.EditMoviesBtn.Margin = new System.Windows.Forms.Padding(0);
             this.EditMoviesBtn.Name = "EditMoviesBtn";
             this.EditMoviesBtn.Size = new System.Drawing.Size(202, 33);
-            this.EditMoviesBtn.TabIndex = 2;
+            this.EditMoviesBtn.TabIndex = 3;
             this.EditMoviesBtn.Text = "Edit Movies";
             this.EditMoviesBtn.UseVisualStyleBackColor = false;
             this.EditMoviesBtn.Click += new System.EventHandler(this.EditMoviesBtn_Click);
@@ -227,10 +218,10 @@
             this.ViewMoviesBtn.Margin = new System.Windows.Forms.Padding(0);
             this.ViewMoviesBtn.Name = "ViewMoviesBtn";
             this.ViewMoviesBtn.Size = new System.Drawing.Size(202, 33);
-            this.ViewMoviesBtn.TabIndex = 1;
-            this.ViewMoviesBtn.Text = "View Movies";
+            this.ViewMoviesBtn.TabIndex = 2;
+            this.ViewMoviesBtn.Text = "Search Movies";
             this.ViewMoviesBtn.UseVisualStyleBackColor = false;
-            this.ViewMoviesBtn.Click += new System.EventHandler(this.AllMoviesBtn_Click);
+            this.ViewMoviesBtn.Click += new System.EventHandler(this.SearchMoviesBtn_Click);
             // 
             // AddMoviesBtn
             // 
@@ -244,10 +235,10 @@
             this.AddMoviesBtn.Margin = new System.Windows.Forms.Padding(0);
             this.AddMoviesBtn.Name = "AddMoviesBtn";
             this.AddMoviesBtn.Size = new System.Drawing.Size(202, 33);
-            this.AddMoviesBtn.TabIndex = 3;
+            this.AddMoviesBtn.TabIndex = 4;
             this.AddMoviesBtn.Text = "Add Movies";
             this.AddMoviesBtn.UseVisualStyleBackColor = false;
-            this.AddMoviesBtn.Click += new System.EventHandler(this.MoviesByDirector_Click);
+            this.AddMoviesBtn.Click += new System.EventHandler(this.AddMovies_Click);
             // 
             // MovieDropDownTimer
             // 
@@ -257,31 +248,32 @@
             // ActorPanel
             // 
             this.ActorPanel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ActorPanel.Controls.Add(this.button3);
+            this.ActorPanel.Controls.Add(this.EditActorsBtn);
             this.ActorPanel.Controls.Add(this.ViewActorsBtn);
-            this.ActorPanel.Controls.Add(this.button7);
+            this.ActorPanel.Controls.Add(this.AddActorsBtn);
             this.ActorPanel.ForeColor = System.Drawing.Color.Black;
             this.ActorPanel.Location = new System.Drawing.Point(202, 33);
             this.ActorPanel.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.ActorPanel.Name = "ActorPanel";
-            this.ActorPanel.Size = new System.Drawing.Size(202, 0);
-            this.ActorPanel.TabIndex = 100;
+            this.ActorPanel.Size = new System.Drawing.Size(202, 99);
+            this.ActorPanel.TabIndex = 0;
             // 
-            // button3
+            // EditActorsBtn
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button3.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button3.Location = new System.Drawing.Point(0, 33);
-            this.button3.Margin = new System.Windows.Forms.Padding(0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(202, 33);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "Edit Actors";
-            this.button3.UseVisualStyleBackColor = false;
+            this.EditActorsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.EditActorsBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+            this.EditActorsBtn.FlatAppearance.BorderSize = 0;
+            this.EditActorsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EditActorsBtn.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditActorsBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.EditActorsBtn.Location = new System.Drawing.Point(0, 33);
+            this.EditActorsBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.EditActorsBtn.Name = "EditActorsBtn";
+            this.EditActorsBtn.Size = new System.Drawing.Size(202, 33);
+            this.EditActorsBtn.TabIndex = 2;
+            this.EditActorsBtn.Text = "Edit Actors";
+            this.EditActorsBtn.UseVisualStyleBackColor = false;
+            this.EditActorsBtn.Click += new System.EventHandler(this.EditActorsBtn_Click);
             // 
             // ViewActorsBtn
             // 
@@ -295,26 +287,27 @@
             this.ViewActorsBtn.Margin = new System.Windows.Forms.Padding(0);
             this.ViewActorsBtn.Name = "ViewActorsBtn";
             this.ViewActorsBtn.Size = new System.Drawing.Size(202, 33);
-            this.ViewActorsBtn.TabIndex = 0;
-            this.ViewActorsBtn.Text = "View Actors";
+            this.ViewActorsBtn.TabIndex = 1;
+            this.ViewActorsBtn.Text = "Search Actors";
             this.ViewActorsBtn.UseVisualStyleBackColor = false;
             this.ViewActorsBtn.Click += new System.EventHandler(this.ShowAllActorsBtn_Click);
             // 
-            // button7
+            // AddActorsBtn
             // 
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button7.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button7.Location = new System.Drawing.Point(0, 66);
-            this.button7.Margin = new System.Windows.Forms.Padding(0);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(202, 33);
-            this.button7.TabIndex = 0;
-            this.button7.Text = "Add Actors";
-            this.button7.UseVisualStyleBackColor = false;
+            this.AddActorsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.AddActorsBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+            this.AddActorsBtn.FlatAppearance.BorderSize = 0;
+            this.AddActorsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddActorsBtn.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddActorsBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.AddActorsBtn.Location = new System.Drawing.Point(0, 66);
+            this.AddActorsBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.AddActorsBtn.Name = "AddActorsBtn";
+            this.AddActorsBtn.Size = new System.Drawing.Size(202, 33);
+            this.AddActorsBtn.TabIndex = 3;
+            this.AddActorsBtn.Text = "Add Actors";
+            this.AddActorsBtn.UseVisualStyleBackColor = false;
+            this.AddActorsBtn.Click += new System.EventHandler(this.AddActorsBtn_Click);
             // 
             // ActorDropDownTimer
             // 
@@ -324,31 +317,31 @@
             // DirectorPanel
             // 
             this.DirectorPanel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.DirectorPanel.Controls.Add(this.button8);
+            this.DirectorPanel.Controls.Add(this.EditDirectorsBtn);
             this.DirectorPanel.Controls.Add(this.AllDirectorsBtn);
-            this.DirectorPanel.Controls.Add(this.button14);
-            this.DirectorPanel.Controls.Add(this.button15);
+            this.DirectorPanel.Controls.Add(this.AddDirectorsBtn);
             this.DirectorPanel.Location = new System.Drawing.Point(404, 33);
             this.DirectorPanel.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.DirectorPanel.Name = "DirectorPanel";
-            this.DirectorPanel.Size = new System.Drawing.Size(202, 0);
-            this.DirectorPanel.TabIndex = 100;
+            this.DirectorPanel.Size = new System.Drawing.Size(202, 99);
+            this.DirectorPanel.TabIndex = 0;
             // 
-            // button8
+            // EditDirectorsBtn
             // 
-            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button8.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button8.Location = new System.Drawing.Point(0, 33);
-            this.button8.Margin = new System.Windows.Forms.Padding(0);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(202, 33);
-            this.button8.TabIndex = 0;
-            this.button8.Text = "Directors";
-            this.button8.UseVisualStyleBackColor = false;
+            this.EditDirectorsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.EditDirectorsBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+            this.EditDirectorsBtn.FlatAppearance.BorderSize = 0;
+            this.EditDirectorsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EditDirectorsBtn.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditDirectorsBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.EditDirectorsBtn.Location = new System.Drawing.Point(0, 33);
+            this.EditDirectorsBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.EditDirectorsBtn.Name = "EditDirectorsBtn";
+            this.EditDirectorsBtn.Size = new System.Drawing.Size(202, 33);
+            this.EditDirectorsBtn.TabIndex = 2;
+            this.EditDirectorsBtn.Text = "Edit Directors";
+            this.EditDirectorsBtn.UseVisualStyleBackColor = false;
+            this.EditDirectorsBtn.Click += new System.EventHandler(this.EditDirectorsBtn_Click);
             // 
             // AllDirectorsBtn
             // 
@@ -362,100 +355,32 @@
             this.AllDirectorsBtn.Margin = new System.Windows.Forms.Padding(0);
             this.AllDirectorsBtn.Name = "AllDirectorsBtn";
             this.AllDirectorsBtn.Size = new System.Drawing.Size(202, 33);
-            this.AllDirectorsBtn.TabIndex = 0;
-            this.AllDirectorsBtn.Text = "All Directors";
+            this.AllDirectorsBtn.TabIndex = 1;
+            this.AllDirectorsBtn.Text = "Search Directors";
             this.AllDirectorsBtn.UseVisualStyleBackColor = false;
             this.AllDirectorsBtn.Click += new System.EventHandler(this.AllDirectorsBtn_Click);
             // 
-            // button14
+            // AddDirectorsBtn
             // 
-            this.button14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button14.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
-            this.button14.FlatAppearance.BorderSize = 0;
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button14.Location = new System.Drawing.Point(0, 99);
-            this.button14.Margin = new System.Windows.Forms.Padding(0);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(202, 33);
-            this.button14.TabIndex = 0;
-            this.button14.Text = "Directors";
-            this.button14.UseVisualStyleBackColor = false;
-            // 
-            // button15
-            // 
-            this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button15.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
-            this.button15.FlatAppearance.BorderSize = 0;
-            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button15.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button15.Location = new System.Drawing.Point(0, 66);
-            this.button15.Margin = new System.Windows.Forms.Padding(0);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(202, 33);
-            this.button15.TabIndex = 0;
-            this.button15.Text = "Directors";
-            this.button15.UseVisualStyleBackColor = false;
+            this.AddDirectorsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.AddDirectorsBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+            this.AddDirectorsBtn.FlatAppearance.BorderSize = 0;
+            this.AddDirectorsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddDirectorsBtn.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddDirectorsBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.AddDirectorsBtn.Location = new System.Drawing.Point(0, 66);
+            this.AddDirectorsBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.AddDirectorsBtn.Name = "AddDirectorsBtn";
+            this.AddDirectorsBtn.Size = new System.Drawing.Size(202, 33);
+            this.AddDirectorsBtn.TabIndex = 3;
+            this.AddDirectorsBtn.Text = "Add Directors";
+            this.AddDirectorsBtn.UseVisualStyleBackColor = false;
+            this.AddDirectorsBtn.Click += new System.EventHandler(this.AddDirectorsBtn_Click);
             // 
             // DirectorDropDownTimer
             // 
             this.DirectorDropDownTimer.Interval = 1;
             this.DirectorDropDownTimer.Tick += new System.EventHandler(this.DirectorDropDownTimer_Tick);
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AllowUserToResizeRows = false;
-            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.DataSource = movieBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView2.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.dataGridView2.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 33);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView2.RowHeadersVisible = false;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(606, 505);
-            this.dataGridView2.TabIndex = 300;
-            this.dataGridView2.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_RowEnter);
             // 
             // titleDataGridViewTextBoxColumn
             // 
@@ -520,7 +445,7 @@
             this.editMoviesControl1.Location = new System.Drawing.Point(606, 33);
             this.editMoviesControl1.Name = "editMoviesControl1";
             this.editMoviesControl1.Size = new System.Drawing.Size(527, 505);
-            this.editMoviesControl1.TabIndex = 302;
+            this.editMoviesControl1.TabIndex = 0;
             this.editMoviesControl1.Visible = false;
             this.editMoviesControl1.MovieUpdate_Event += new System.EventHandler(this.MovieUpdate_Event);
             // 
@@ -532,9 +457,22 @@
             this.searchMoviesControl.Location = new System.Drawing.Point(606, 33);
             this.searchMoviesControl.Name = "searchMoviesControl";
             this.searchMoviesControl.Size = new System.Drawing.Size(527, 505);
-            this.searchMoviesControl.TabIndex = 301;
+            this.searchMoviesControl.TabIndex = 0;
             this.searchMoviesControl.Visible = false;
             this.searchMoviesControl.MovieSearch_Event += new System.EventHandler(this.MoviesSearch_Event);
+            this.searchMoviesControl.MovieSearchEdit_Event += new System.EventHandler(this.MovieSearchEdit_Event);
+            // 
+            // dataGrid1
+            // 
+            this.dataGrid1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGrid1.Location = new System.Drawing.Point(0, 32);
+            this.dataGrid1.Movies = null;
+            this.dataGrid1.Name = "dataGrid1";
+            this.dataGrid1.Size = new System.Drawing.Size(606, 505);
+            this.dataGrid1.TabIndex = 100;
+            this.dataGrid1.SelectedRowChange_Event += new System.EventHandler(this.SelectedRowChange_Event);
             // 
             // Dashboard
             // 
@@ -547,18 +485,16 @@
             this.Controls.Add(this.ActorPanel);
             this.Controls.Add(this.MoviePanel);
             this.Controls.Add(this.NavBar);
-            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.searchMoviesControl);
+            this.Controls.Add(this.dataGrid1);
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "My Media";
             this.TransparencyKey = System.Drawing.Color.PaleGreen;
-            ((System.ComponentModel.ISupportInitialize)(movieBindingSource)).EndInit();
             this.NavBar.ResumeLayout(false);
             this.MoviePanel.ResumeLayout(false);
             this.ActorPanel.ResumeLayout(false);
             this.DirectorPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -577,18 +513,16 @@
         private System.Windows.Forms.Timer MovieDropDownTimer;
         private System.Windows.Forms.Button ActorDropDownBtn;
         private System.Windows.Forms.Panel ActorPanel;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button EditActorsBtn;
         private System.Windows.Forms.Button ViewActorsBtn;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button AddActorsBtn;
         private System.Windows.Forms.Timer ActorDropDownTimer;
         private System.Windows.Forms.Button DirectorDropDownBtn;
         private System.Windows.Forms.Panel DirectorPanel;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button EditDirectorsBtn;
         private System.Windows.Forms.Button AllDirectorsBtn;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button AddDirectorsBtn;
         private System.Windows.Forms.Timer DirectorDropDownTimer;
-        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn directorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn runtimeDataGridViewTextBoxColumn;
@@ -599,12 +533,7 @@
         private System.Windows.Forms.Button SelectRowBtn;
         private SearchMoviesControl searchMoviesControl;
         private EditMoviesControl editMoviesControl1;
-        //private System.Collections.Generic.List<Movie> Movies;
-        //private System.Collections.Generic.List<Director> Directors;
-        //private System.Collections.Generic.List<Actor> Actors;
-        //private System.Collections.Generic.List<System.Windows.Forms.UserControl> UserControlList;
-       
-
+        private DataGrid dataGrid1;
     }
 }
 
