@@ -31,6 +31,11 @@ namespace FormUI
         }
 
         public List<Actor> Actors { get; set; }
-        
+
+        public override string ToString()
+        {
+            return $"{Title} {Runtime} {Year} {Director}";
+        }
+
     }
 }

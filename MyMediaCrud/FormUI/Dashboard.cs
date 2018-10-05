@@ -189,9 +189,16 @@ namespace FormUI
             try
             {
                 Movie editedMovie = editMoviesControl1.BuildMovieFromTextBoxes();
-                DataAccess db = new DataAccess();
-                db.UpdateMovie(editedMovie);
-                dataGrid1.RefreshGridWith(editedMovie);
+
+                if (IsUpdateConfirmedDialogResult(GetSelectedMovie(), editedMovie))
+                {
+                    
+                    DataAccess db = new DataAccess();
+                    db.UpdateMovie(editedMovie);
+                    dataGrid1.RefreshGridWith(editedMovie);
+                }
+             
+
             }
             catch (Exception ex)
             {
@@ -246,12 +253,27 @@ namespace FormUI
         private void SelectedRowChange_Event(object sender, EventArgs e)
         {
             if (editMoviesControl1.Visible == true)
-            {              
-                var selectedRow = dataGrid1.GetSelectedRow();
-                Movie movie = (Movie)selectedRow.DataBoundItem;
-                editMoviesControl1.SetSelectedMovie(movie);
+            {
+                editMoviesControl1.SetSelectedMovie(GetSelectedMovie());
             }
         }
+
+        private Movie GetSelectedMovie()
+        {
+            return (Movie)dataGrid1.GetSelectedRow().DataBoundItem;
+        }
+
+        private bool IsUpdateConfirmedDialogResult(object original, object update)
+        {
+            DialogResult confirm = MessageBox.Show($"Confirm Update of:\nOriginal: { original.ToString() }\nUpdate: { update.ToString() }",
+             "Confirm", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+
+            if (confirm == DialogResult.Yes)
+                return true;
+            else
+                return false;
+        }
     }
+
 }  
 
