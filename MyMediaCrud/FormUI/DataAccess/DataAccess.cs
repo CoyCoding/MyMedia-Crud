@@ -75,5 +75,43 @@ namespace FormUI
                          });
             }
         }
+
+        public void AddMovieWithDirector(Movie movie)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
+            {
+                connection.Query<Movie>("dbo.spAdd_Movie @Title, " +
+                                                        "@Runtime, " +
+                                                        "@Year, " +
+                                                        "@FirstName," +
+                                                        "@LastName",
+                         new
+                         {
+                             movie.Title,
+                             movie.Runtime,
+                             movie.Year,
+                             movie.Director.FirstName,
+                             movie.Director.LastName
+
+                         });
+            }
+        }
+
+        public void AddMovie(Movie movie)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
+            {
+                connection.Query<Movie>("dbo.spCreate_New_Movie @Title, " +
+                                                               "@Runtime, " +
+                                                               "@Year", 
+
+                         new
+                         {
+                             movie.Title,
+                             movie.Runtime,
+                             movie.Year
+                         });
+            }
+        }
     }
 }

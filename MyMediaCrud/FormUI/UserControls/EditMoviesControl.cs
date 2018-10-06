@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace FormUI
 {
-    public partial class EditMoviesControl : UserControl
+    public partial class EditMoviesControl :  UserControl
     {
         private Movie selectedMovie;
 
@@ -55,7 +55,7 @@ namespace FormUI
 
         private int? GetYearFromTextBox()
         {
-
+           
             if (MovieSearchFormValidator.IsValidMovieYear(YearTextBox.Text))
             {
                 return int.Parse(YearTextBox.Text);
@@ -76,6 +76,10 @@ namespace FormUI
 
         private string GetMovieTitleFromTextBox()
         {
+            if(MovieTitleTextBox.Text == "")
+            {
+                throw new Exception("Movie must have a title");
+            }
             return MovieTitleTextBox.Text;
         }
 
@@ -86,21 +90,45 @@ namespace FormUI
 
         public Movie BuildMovieFromTextBoxes()
         {
-            if(selectedMovie == null)
+            if(CurrentUsage == (int)ControlUsage.ADD_MOVIE)
+            {
+                return BuildMovieForAdd();
+            }
+            else if (selectedMovie != null 
+                && CurrentUsage == (int)ControlUsage.EDIT_MOVIE)
+            {
+                return BuildMovieForEdit();
+            }
+            else
             {
                 throw new Exception();
-            }
-                Movie editedMovie = new Movie
-                {
-                    id = selectedMovie.id,
-                    Title = GetMovieTitleFromTextBox(),
-                    Year = GetYearFromTextBox(),
-                    Runtime = GetMovieRuntimeFromTextBox(),
-                    Director = new Director(GetDirectorFromTextBox())
-                };
+            } 
+        }
 
-                return editedMovie;
-           
+        private Movie BuildMovieForAdd()
+        {
+            Movie editedMovie = new Movie
+            {
+                Title = GetMovieTitleFromTextBox(),
+                Year = GetYearFromTextBox(),
+                Runtime = GetMovieRuntimeFromTextBox(),
+                Director = new Director(GetDirectorFromTextBox())
+            };
+            return editedMovie;
+        }
+
+        private Movie BuildMovieForEdit()
+        {
+            Movie editedMovie = new Movie
+            {
+                id = selectedMovie.id,
+                Title = GetMovieTitleFromTextBox(),
+                Year = GetYearFromTextBox(),
+                Runtime = GetMovieRuntimeFromTextBox(),
+                Director = new Director(GetDirectorFromTextBox())
+            };
+
+            return editedMovie;
         }
 
         public void SetSelectedMovie(Movie movie)
@@ -135,7 +163,12 @@ namespace FormUI
 
         private void AddMovieBtn_Click(object sender, EventArgs e)
         {
+            if (MovieAdd_Event != null)
+            {
 
+                MovieAdd_Event(this, new EventArgs());
+            }
+            
         }
 
         public int GetCurrentUsage()

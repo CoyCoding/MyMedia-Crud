@@ -277,6 +277,50 @@ namespace FormUI
             else
                 return false;
         }
+
+        private bool IsAddDataConfirmedDialogResult(object dataModel)
+        {
+            DialogResult confirm = MessageBox.Show($"Confirm the addtion of {dataModel.GetType()}:\nOriginal: { dataModel.ToString()}",
+             "Confirm", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+
+            if (confirm == DialogResult.Yes)
+                return true;
+            else
+                return false;
+        }
+
+        private void MovieAdd_Event(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                Movie editedMovie = editMoviesControl1.BuildMovieFromTextBoxes();
+                if(editedMovie.IsMovieInfoNull() && editedMovie.IsDirectorInfoNull())
+                {
+                    throw new Exception("no fields filled out");
+                }
+                else if(editedMovie.IsMovieInfoNull())
+                {
+                    throw new Exception("No movie info given");
+                }
+                else if (editedMovie.IsDirectorInfoNull())
+                {
+                    DataAccess db = new DataAccess();
+                    db.AddMovie(editedMovie);
+                }
+                else if (IsAddDataConfirmedDialogResult(editedMovie))
+                {
+                    MessageBox.Show($"{editedMovie} fake added");
+                    DataAccess db = new DataAccess();
+                    db.AddMovieWithDirector(editedMovie);
+                    dataGrid1.RefreshGridWith(editedMovie);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 
 }  

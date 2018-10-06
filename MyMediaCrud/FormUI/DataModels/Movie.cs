@@ -10,11 +10,7 @@ namespace FormUI
     {
         private Director _Director;
 
-        private int _id;
-
-        private int? _Year;
-
-        public int id { get; set; }
+        public int? id { get; set; }
 
         public string Title { get; set; }
 
@@ -41,5 +37,14 @@ namespace FormUI
             return $"{Title} {Runtime} {Year} {Director}";
         }
 
+        public bool IsMovieInfoNull()
+        {
+            return (Title == "" && Runtime == null && Year == null);        
+        }
+
+        public bool IsDirectorInfoNull()
+        {
+            return Director.FirstName == null || Director.LastName == null;
+        }
     }
 }

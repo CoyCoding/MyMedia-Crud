@@ -448,6 +448,7 @@
             this.editMoviesControl1.TabIndex = 0;
             this.editMoviesControl1.Visible = false;
             this.editMoviesControl1.MovieUpdate_Event += new System.EventHandler(this.MovieUpdate_Event);
+            this.editMoviesControl1.MovieAdd_Event += new System.EventHandler(this.MovieAdd_Event); 
             // 
             // searchMoviesControl
             // 
