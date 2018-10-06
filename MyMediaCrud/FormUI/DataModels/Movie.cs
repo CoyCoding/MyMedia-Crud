@@ -10,13 +10,17 @@ namespace FormUI
     {
         private Director _Director;
 
+        private int _id;
+
+        private int? _Year;
+
         public int id { get; set; }
 
         public string Title { get; set; }
 
         public TimeSpan? Runtime { get; set; }
        
-        public int? Year { get; set; }
+        public int? Year  { get; set; }
         
         public Director Director
         {

@@ -55,7 +55,7 @@ namespace FormUI
 
         public static bool IsDefaultYearValue(string year)
         {
-            if ((year == "" || year == "YYYY"))
+            if (year == null )
             {
                 return true;
             }

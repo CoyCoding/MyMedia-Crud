@@ -40,6 +40,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.DirectorTextBox = new System.Windows.Forms.TextBox();
             this.DirectorLabel = new System.Windows.Forms.Label();
+            this.AddMovieBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // EditMovieLabel
@@ -176,12 +177,25 @@
             this.DirectorLabel.TabIndex = 5;
             this.DirectorLabel.Text = "Director";
             // 
+            // AddMovieBtn
+            // 
+            this.AddMovieBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.AddMovieBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddMovieBtn.Location = new System.Drawing.Point(270, 262);
+            this.AddMovieBtn.Name = "AddMovieBtn";
+            this.AddMovieBtn.Size = new System.Drawing.Size(183, 30);
+            this.AddMovieBtn.TabIndex = 11;
+            this.AddMovieBtn.Text = "Add";
+            this.AddMovieBtn.UseVisualStyleBackColor = true;
+            this.AddMovieBtn.Click += new System.EventHandler(this.AddMovieBtn_Click);
+            // 
             // EditMoviesControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.AddMovieBtn);
             this.Controls.Add(this.UpdateMovieBtn);
             this.Controls.Add(this.DirectorLabel);
             this.Controls.Add(this.RuntimeLabel);
@@ -213,5 +227,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox DirectorTextBox;
         private System.Windows.Forms.Label DirectorLabel;
+        private System.Windows.Forms.Button AddMovieBtn;
     }
 }

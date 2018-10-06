@@ -52,13 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfirmUpdateForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ConfirmUpdateForm.Designer.cs">
-      <DependentUpon>ConfirmUpdateForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataAccess\DataAccessUpdate.cs" />
+    <Compile Include="ControlUsage.cs" />
+    <Compile Include="MovieRuntimeValidation.cs" />
     <Compile Include="UserControls\DataGrid.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -95,9 +90,6 @@
     <Compile Include="UserControls\SearchMoviesControl.Designer.cs">
       <DependentUpon>SearchMoviesControl.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ConfirmUpdateForm.resx">
-      <DependentUpon>ConfirmUpdateForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>

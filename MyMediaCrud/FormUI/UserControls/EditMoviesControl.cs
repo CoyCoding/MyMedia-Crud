@@ -16,6 +16,10 @@ namespace FormUI
 
         public event EventHandler MovieUpdate_Event;
 
+        public event EventHandler MovieAdd_Event;
+
+        private int CurrentUsage;
+
         public EditMoviesControl()
         {
             InitializeComponent();
@@ -23,15 +27,25 @@ namespace FormUI
         
         private void SetTextBoxes(Movie movie)
         {
-            MovieTitleTextBox.Text = movie.Title.Trim();
-            RuntimeTextBox.Text = movie.Runtime.ToString().Trim();
-            YearTextBox.Text = movie.Year.ToString().Trim();
-            DirectorTextBox.Text = movie.Director.ToString().Trim();
+            if (movie != null)
+            {
+                MovieTitleTextBox.Text = movie.Title.Trim();
+                RuntimeTextBox.Text = movie.Runtime.ToString().Trim();
+                YearTextBox.Text = movie.Year.ToString().Trim();
+                DirectorTextBox.Text = movie.Director.ToString().Trim();
+            }
+            else
+            {
+                MovieTitleTextBox.Text = "";
+                RuntimeTextBox.Text = "";
+                YearTextBox.Text = "";
+                DirectorTextBox.Text = "";
+            }
         }
 
         private void UpdateMovieBtn_Click(object sender, EventArgs e)
         {
-
+            if(RuntimeTextBox.Text == "HH:mm") { RuntimeTextBox.Text = "0"; }
             if (MovieUpdate_Event != null)
             {
 
@@ -93,6 +107,40 @@ namespace FormUI
         {
             selectedMovie = movie;
             SetTextBoxes(selectedMovie);
+        }
+
+        public void SetControlAsEdit()
+        {
+            if (CurrentUsage != (int)ControlUsage.EDIT_MOVIE)
+            {
+                CurrentUsage = (int)ControlUsage.EDIT_MOVIE;
+                EditMovieLabel.Text = "Edit Movie";
+                UpdateMovieBtn.Visible = true;
+                AddMovieBtn.Visible = false;
+            }
+
+        }
+
+        public void SetControlAsAdd()
+        {
+            if (CurrentUsage != (int)ControlUsage.ADD_MOVIE)
+            { 
+                CurrentUsage = (int)ControlUsage.ADD_MOVIE;
+                EditMovieLabel.Text = "Add Movie";
+                AddMovieBtn.Visible = true;
+                UpdateMovieBtn.Visible = false;
+                SetTextBoxes(null);
+            }
+        }
+
+        private void AddMovieBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public int GetCurrentUsage()
+        {
+            return CurrentUsage;
         }
     }
 }

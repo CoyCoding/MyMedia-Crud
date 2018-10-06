@@ -43,6 +43,7 @@ namespace FormUI
             MovieDropDownTimer.Start();
             ActiveUserControl.ActiveUserControl = editMoviesControl1;
             dataGrid1.LoadAllMoviesToGrid();
+            editMoviesControl1.SetControlAsEdit();
             SelectedRowChange_Event(sender, e);
         }
 
@@ -50,6 +51,8 @@ namespace FormUI
         {
             MovieDropDownTimer.Start();
             dataGrid1.LoadAllMoviesToGrid();
+            ActiveUserControl.ActiveUserControl = editMoviesControl1;
+            editMoviesControl1.SetControlAsAdd();
         }
 
         #endregion
@@ -252,7 +255,8 @@ namespace FormUI
 
         private void SelectedRowChange_Event(object sender, EventArgs e)
         {
-            if (editMoviesControl1.Visible == true)
+            if (editMoviesControl1.Visible == true && editMoviesControl1.GetCurrentUsage() 
+                == (int)ControlUsage.EDIT_MOVIE)
             {
                 editMoviesControl1.SetSelectedMovie(GetSelectedMovie());
             }
