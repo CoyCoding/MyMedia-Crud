@@ -9,10 +9,10 @@ namespace FormUI
 {
     //
     // This Class Validates that User Entered Textbox values are valid inputs
-    // These valid inputs are based on both the Object and sql properties.
+    // These valid inputs are based on both the Object and sql propertys.
     //
 
-    public abstract class MovieSearchFormValidator
+    public static class MovieSearchFormValidator
     {
         public static bool IsValidMovieRuntime(string timeSpan)
         {
@@ -33,7 +33,7 @@ namespace FormUI
             return false;
         }
 
-        private static void IsRuntimeCorrectFormat(string timeSpan)
+        public static void IsRuntimeCorrectFormat(string timeSpan)
         {
             Regex timeSpanFormat = new Regex(@"(^\d{1,2})(\:\d{2}){1,2}|^$");
 
@@ -55,7 +55,7 @@ namespace FormUI
 
         public static bool IsDefaultYearValue(string year)
         {
-            if (year == null || year == "YYYY")
+            if ((year == "" || year == "YYYY"))
             {
                 return true;
             }

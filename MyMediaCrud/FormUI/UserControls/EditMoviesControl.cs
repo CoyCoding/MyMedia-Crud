@@ -55,28 +55,41 @@ namespace FormUI
 
         private int? GetYearFromTextBox()
         {
-           
-            if (MovieSearchFormValidator.IsValidMovieYear(YearTextBox.Text))
+            if (CurrentUsage == (int)ControlUsage.ADD_MOVIE && YearTextBox.Text == ""
+                 || CurrentUsage == (int)ControlUsage.ADD_MOVIE && YearTextBox.Text == "YYYY")
             {
-                return int.Parse(YearTextBox.Text);
+                throw new IncorrectMovieYearFormat();
             }
-            return null;
-
+            else if (CurrentUsage == (int)ControlUsage.EDIT_MOVIE && YearTextBox.Text == ""
+                     || CurrentUsage == (int)ControlUsage.EDIT_MOVIE && YearTextBox.Text == "YYYY")
+            {
+                return null;
+            }
+            else
+                MovieSearchFormValidator.IsValidMovieYear(YearTextBox.Text);
+                return int.Parse(YearTextBox.Text);
         }
 
         private TimeSpan? GetMovieRuntimeFromTextBox()
         {
-            if (MovieSearchFormValidator.IsValidMovieRuntime(RuntimeTextBox.Text))
+            if (CurrentUsage == (int)ControlUsage.ADD_MOVIE && RuntimeTextBox.Text == ""
+                || CurrentUsage == (int)ControlUsage.ADD_MOVIE && RuntimeTextBox.Text == "HH:mm")
             {
-                return TimeSpan.Parse(RuntimeTextBox.Text);
+                throw new IncorrectMovieRuntimeFormat();
             }
-            return null;
-
+            else if (CurrentUsage == (int)ControlUsage.EDIT_MOVIE && RuntimeTextBox.Text == ""
+                     || CurrentUsage == (int)ControlUsage.EDIT_MOVIE && RuntimeTextBox.Text == "HH:mm")
+            {
+                return null;
+            }
+            else
+                MovieSearchFormValidator.IsRuntimeCorrectFormat(RuntimeTextBox.Text);
+                return TimeSpan.Parse(RuntimeTextBox.Text);
         }
 
         private string GetMovieTitleFromTextBox()
         {
-            if(MovieTitleTextBox.Text == "")
+            if (CurrentUsage == (int)ControlUsage.ADD_MOVIE && MovieTitleTextBox.Text == "")
             {
                 throw new Exception("Movie must have a title");
             }
