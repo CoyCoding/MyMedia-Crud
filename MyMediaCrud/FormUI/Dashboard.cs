@@ -66,17 +66,26 @@ namespace FormUI
 
         private void ShowAllActorsBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("ShowAllActorsBtn not ready");
+            ActorDropDownTimer.Start();
+            ActiveUserControl.ActiveUserControl = actorUserControl;
+            //dataGrid1.LoadAllActorsToGrid();
+            actorUserControl.SetControlAsSearch();
         }
 
         private void EditActorsBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("EditActorsBtn not ready");
+            ActorDropDownTimer.Start();
+            ActiveUserControl.ActiveUserControl = actorUserControl;
+            //dataGrid1.LoadAllActorsToGrid();
+            actorUserControl.SetControlAsEdit();
         }
 
         private void AddActorsBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("AddActorsBtn not ready");
+            ActorDropDownTimer.Start();
+            ActiveUserControl.ActiveUserControl = actorUserControl;
+            //dataGrid1.LoadAllActorsToGrid();
+            actorUserControl.SetControlAsAdd();
         }
 
         #endregion
@@ -202,12 +211,31 @@ namespace FormUI
                 Movie originaMovie = (Movie)dataGrid1.GetSelectedGridObject();
                 if (IsUpdateConfirmedDialogResult(originaMovie, editedMovie))
                 {
-                    
                     DataAccess db = new DataAccess();
                     db.UpdateMovie(editedMovie);
                     dataGrid1.RefreshGridWith(editedMovie);
                 }
              
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void MovieDelete_Event(object sender, EventArgs e)
+        {
+            try
+            {
+                Movie originaMovie = (Movie)dataGrid1.GetSelectedGridObject();
+                if (IsDeleteConfirmedDialogResult(originaMovie))
+                {
+                    DataAccess db = new DataAccess();
+                    db.DeleteMovie(originaMovie);
+                    dataGrid1.PopulateGridWithMovies(); 
+                }
+
 
             }
             catch (Exception ex)
@@ -297,7 +325,6 @@ namespace FormUI
                 Director orginalDirector = (Director)dataGrid1.GetSelectedGridObject();
                 if (IsUpdateConfirmedDialogResult(orginalDirector, editedDirector ))
                 {
-
                     DataAccess db = new DataAccess();
                     db.UpdateDirector(editedDirector);
                     dataGrid1.RefreshGridWith(editedDirector);
@@ -310,6 +337,27 @@ namespace FormUI
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void DeleteDirector_Event(object sender, EventArgs e)
+        {
+            try
+            {
+                Director orginalDirector = (Director)dataGrid1.GetSelectedGridObject();
+                if (IsDeleteConfirmedDialogResult(orginalDirector))
+                {
+
+                    DataAccess db = new DataAccess();
+                    db.DeleteDirector(orginalDirector);
+                    dataGrid1.LoadAllDirectorsToGrid();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
 
         private void AddDirector_Event(object sender, EventArgs e)
         {
@@ -330,10 +378,7 @@ namespace FormUI
             
         }
 
-        private void DeleteDirector_Event(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+        
         #endregion
 
         private void SelectedRowChange_Event(object sender, EventArgs e)
@@ -344,7 +389,7 @@ namespace FormUI
                 editMoviesControl1.SetSelectedMovie((Movie)dataGrid1.GetSelectedGridObject());
             }
             else if (directorsUserControl.Visible == true && 
-                     directorsUserControl.GetCurrentUsage() == (int)DirectorControlUsage.EDIT_DIR)
+                     directorsUserControl.GetCurrentUsage() == (int)ControlUsage.EDIT)
             {
                 directorsUserControl.SetSelectedDirector((Director)dataGrid1.GetSelectedGridObject());
             }
@@ -365,8 +410,19 @@ namespace FormUI
 
         private bool IsAddDataConfirmedDialogResult(object dataModel)
         {
-            DialogResult confirm = MessageBox.Show($"Confirm the addtion of:\n{ dataModel.ToString()}",
+            DialogResult confirm = MessageBox.Show($"Confirm the addtion of:\n{ dataModel.ToString() }",
              "Confirm", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+
+            if (confirm == DialogResult.Yes)
+                return true;
+            else
+                return false;
+        }
+
+        private bool IsDeleteConfirmedDialogResult(object dataModel)
+        {
+            DialogResult confirm = MessageBox.Show($"Confirm deletion of:\n{ dataModel.ToString() }",
+                "Confirm 1", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
 
             if (confirm == DialogResult.Yes)
                 return true;

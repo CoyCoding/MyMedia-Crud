@@ -14,6 +14,7 @@ namespace FormUI
     {
         public event EventHandler MovieUpdate_Event;
         public event EventHandler MovieAdd_Event;
+        public event EventHandler MovieDelete_Event;
         private int CurrentUsage;
         private Movie selectedMovie;
 
@@ -184,6 +185,14 @@ namespace FormUI
         public int GetCurrentUsage()
         {
             return CurrentUsage;
+        }
+
+        private void DeleteSelectedMovieBtn_Click(object sender, EventArgs e)
+        {
+            if(MovieDelete_Event != null)
+            {
+                MovieDelete_Event(this, new EventArgs());
+            }
         }
     }
 }

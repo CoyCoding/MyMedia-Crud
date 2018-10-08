@@ -63,6 +63,7 @@
             this.editMoviesControl1 = new FormUI.EditMoviesControl();
             this.searchMoviesControl = new FormUI.SearchMoviesControl();
             this.dataGrid1 = new FormUI.DataGrid();
+            this.actorUserControl = new FormUI.ActorUserControl();
             this.NavBar.SuspendLayout();
             this.MoviePanel.SuspendLayout();
             this.ActorPanel.SuspendLayout();
@@ -451,8 +452,6 @@
             this.directorsUserControl.UpdateDirector_Event += new System.EventHandler(this.UpdateDirector_Event);
             this.directorsUserControl.AddDirector_Event += new System.EventHandler(this.AddDirector_Event);
             this.directorsUserControl.DeleteDirector_Event += new System.EventHandler(this.DeleteDirector_Event);
-            
-
             // 
             // editMoviesControl1
             // 
@@ -464,6 +463,7 @@
             this.editMoviesControl1.Visible = false;
             this.editMoviesControl1.MovieUpdate_Event += new System.EventHandler(this.MovieUpdate_Event);
             this.editMoviesControl1.MovieAdd_Event += new System.EventHandler(this.MovieAdd_Event);
+            this.editMoviesControl1.MovieDelete_Event += new System.EventHandler(this.MovieDelete_Event);
             // 
             // searchMoviesControl
             // 
@@ -491,12 +491,21 @@
             this.dataGrid1.TabIndex = 100;
             this.dataGrid1.SelectedRowChange_Event += new System.EventHandler(this.SelectedRowChange_Event);
             // 
+            // actorUserControl
+            // 
+            this.actorUserControl.Location = new System.Drawing.Point(606, 32);
+            this.actorUserControl.Name = "actorUserControl";
+            this.actorUserControl.Size = new System.Drawing.Size(524, 505);
+            this.actorUserControl.TabIndex = 102;
+            this.actorUserControl.Visible = false;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1131, 537);
+            this.Controls.Add(this.actorUserControl);
             this.Controls.Add(this.directorsUserControl);
             this.Controls.Add(this.editMoviesControl1);
             this.Controls.Add(this.DirectorPanel);
@@ -553,6 +562,7 @@
         private EditMoviesControl editMoviesControl1;
         private DataGrid dataGrid1;
         private DirectorsUserControl directorsUserControl;
+        private ActorUserControl actorUserControl;
     }
 }
 

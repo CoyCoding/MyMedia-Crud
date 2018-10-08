@@ -14,5 +14,4 @@ C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\bin\Debug\Dapper.xml
 C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\obj\Debug\FormUI.csproj.CopyComplete
 C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\obj\Debug\FormUI.exe
 C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\obj\Debug\FormUI.pdb
-C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\obj\Debug\FormUI.csprojAssemblyReference.cache
 C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\obj\Debug\FormUI.ActorUserControl.resources

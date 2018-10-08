@@ -10,6 +10,7 @@ namespace FormUI
 {
     public class DataAccess
     {
+        #region DataAccess Movies
 
         public List<Movie> GetAllMovies()
         {
@@ -17,15 +18,6 @@ namespace FormUI
             {
                 var output = connection.Query<Movie>("dbo.spSelect_All_Movies");
                 return output.ToList();
-            }
-        }
-
-        public List<Director> GetDirectors()
-        {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
-            {
-                var output = connection.Query<Director>("dbo.spSelect_All_Directors").ToList();
-                return output;
             }
         }
 
@@ -114,6 +106,31 @@ namespace FormUI
             }
         }
 
+        public void DeleteMovie(Movie movie)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
+            {
+                connection.Query<Movie>("dbo.spDelete_Movie_And_FK @id",
+                    new
+                    {
+                        movie.id
+                    });
+            }
+        }
+
+        #endregion
+
+        #region DataAccess Director
+
+        public List<Director> GetDirectors()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
+            {
+                var output = connection.Query<Director>("dbo.spSelect_All_Directors").ToList();
+                return output;
+            }
+        }
+
         public List<Director> SearchDirectors(Director director)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
@@ -131,7 +148,7 @@ namespace FormUI
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
             {
-                connection.Query<Movie>("dbo.spUpdate_Director @id, " +
+                connection.Query<Director>("dbo.spUpdate_Director @id, " +
                                                               "@FirstName," +
                                                               "@LastName",
                          new
@@ -148,7 +165,7 @@ namespace FormUI
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
             {
-                connection.Query<Movie>("dbo.spAdd_Director @FirstName, " +
+                connection.Query<Director>("dbo.spAdd_Director @FirstName, " +
                                                               "@LastName",
                          new
                          {
@@ -157,5 +174,18 @@ namespace FormUI
                          });
             }
         }
+
+        public void DeleteDirector(Director director){
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
+            {
+                connection.Query<Director>("dbo.spDelete_Director_And_FK @id",
+                    new
+                    {
+                        director.id
+                    });
+            }
+        }
+
+        #endregion
     }
 }

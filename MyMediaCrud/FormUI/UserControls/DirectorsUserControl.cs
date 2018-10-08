@@ -41,8 +41,8 @@ namespace FormUI
         public Director BuildDirectorFromTextBoxes()
         {
             Director searchableDirector;
-            if (CurrentUsage == (int)DirectorControlUsage.SEARCH_DIR || 
-                CurrentUsage == (int)DirectorControlUsage.ADD_DIR)
+            if (CurrentUsage == (int)ControlUsage.SEARCH || 
+                CurrentUsage == (int)ControlUsage.ADD)
             {
                 searchableDirector = new Director
                 {
@@ -125,9 +125,9 @@ namespace FormUI
 
         public void SetControlAsAdd()
         {
-            if (CurrentUsage != (int)DirectorControlUsage.ADD_DIR)
+            if (CurrentUsage != (int)ControlUsage.ADD)
             {
-                CurrentUsage = (int)DirectorControlUsage.ADD_DIR;
+                CurrentUsage = (int)ControlUsage.ADD;
                 SearchActorDirlabel.Text = "Add Director:";
                 AddDirectorBtn.Visible = true;
                 UpdateDirectorBtn.Visible = false;
@@ -138,9 +138,9 @@ namespace FormUI
 
         public void SetControlAsEdit()
         {
-            if (CurrentUsage != (int)DirectorControlUsage.EDIT_DIR)
+            if (CurrentUsage != (int)ControlUsage.EDIT)
             {
-                CurrentUsage = (int)DirectorControlUsage.EDIT_DIR;
+                CurrentUsage = (int)ControlUsage.EDIT;
                 SearchActorDirlabel.Text = "Edit Director:";
                 AddDirectorBtn.Visible = false;
                 UpdateDirectorBtn.Visible = true;
@@ -151,9 +151,9 @@ namespace FormUI
 
         public void SetControlAsSearch()
         {
-            if(CurrentUsage != (int)DirectorControlUsage.SEARCH_DIR)
+            if(CurrentUsage != (int)ControlUsage.SEARCH)
             {
-                CurrentUsage = (int)DirectorControlUsage.SEARCH_DIR;
+                CurrentUsage = (int)ControlUsage.SEARCH;
                 SearchActorDirlabel.Text = "Search Director:";
                 AddDirectorBtn.Visible    = false;
                 UpdateDirectorBtn.Visible = false;

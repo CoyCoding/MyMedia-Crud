@@ -36,8 +36,8 @@
             this.MovieTitleTextBox = new System.Windows.Forms.TextBox();
             this.YearTextBox = new System.Windows.Forms.TextBox();
             this.UpdateMovieBtn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.DeleteSelectedMovieBtn = new System.Windows.Forms.Button();
+            this.AddActorToMovieBtn = new System.Windows.Forms.Button();
             this.DirectorTextBox = new System.Windows.Forms.TextBox();
             this.DirectorLabel = new System.Windows.Forms.Label();
             this.AddMovieBtn = new System.Windows.Forms.Button();
@@ -132,27 +132,28 @@
             this.UpdateMovieBtn.UseVisualStyleBackColor = true;
             this.UpdateMovieBtn.Click += new System.EventHandler(this.UpdateMovieBtn_Click);
             // 
-            // button1
+            // DeleteSelectedMovieBtn
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(270, 424);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(183, 30);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = true;
+            this.DeleteSelectedMovieBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.DeleteSelectedMovieBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteSelectedMovieBtn.Location = new System.Drawing.Point(270, 424);
+            this.DeleteSelectedMovieBtn.Name = "DeleteSelectedMovieBtn";
+            this.DeleteSelectedMovieBtn.Size = new System.Drawing.Size(183, 30);
+            this.DeleteSelectedMovieBtn.TabIndex = 11;
+            this.DeleteSelectedMovieBtn.Text = " Delete Selected";
+            this.DeleteSelectedMovieBtn.UseVisualStyleBackColor = true;
+            this.DeleteSelectedMovieBtn.Click += new System.EventHandler(this.DeleteSelectedMovieBtn_Click);
             // 
-            // button2
+            // AddActorToMovieBtn
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(66, 424);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(183, 30);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Search";
-            this.button2.UseVisualStyleBackColor = true;
+            this.AddActorToMovieBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.AddActorToMovieBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddActorToMovieBtn.Location = new System.Drawing.Point(66, 424);
+            this.AddActorToMovieBtn.Name = "AddActorToMovieBtn";
+            this.AddActorToMovieBtn.Size = new System.Drawing.Size(183, 30);
+            this.AddActorToMovieBtn.TabIndex = 11;
+            this.AddActorToMovieBtn.Text = "Add Actor";
+            this.AddActorToMovieBtn.UseVisualStyleBackColor = true;
             // 
             // DirectorTextBox
             // 
@@ -193,8 +194,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.AddActorToMovieBtn);
+            this.Controls.Add(this.DeleteSelectedMovieBtn);
             this.Controls.Add(this.AddMovieBtn);
             this.Controls.Add(this.UpdateMovieBtn);
             this.Controls.Add(this.DirectorLabel);
@@ -223,8 +224,8 @@
         private System.Windows.Forms.TextBox MovieTitleTextBox;
         private System.Windows.Forms.TextBox YearTextBox;
         private System.Windows.Forms.Button UpdateMovieBtn;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button DeleteSelectedMovieBtn;
+        private System.Windows.Forms.Button AddActorToMovieBtn;
         private System.Windows.Forms.TextBox DirectorTextBox;
         private System.Windows.Forms.Label DirectorLabel;
         private System.Windows.Forms.Button AddMovieBtn;

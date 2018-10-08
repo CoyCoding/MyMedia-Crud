@@ -28,36 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.DeleteDirectorBtn = new System.Windows.Forms.Button();
-            this.AddDirectorBtn = new System.Windows.Forms.Button();
+            this.DeleteBtn = new System.Windows.Forms.Button();
+            this.AddBtn = new System.Windows.Forms.Button();
             this.LastNameTextBox = new System.Windows.Forms.TextBox();
             this.LastNameLabel = new System.Windows.Forms.Label();
             this.FirstNameLabel = new System.Windows.Forms.Label();
             this.FirstNameTextBox = new System.Windows.Forms.TextBox();
-            this.SearchActorDirlabel = new System.Windows.Forms.Label();
+            this.HeaderLabel = new System.Windows.Forms.Label();
+            this.GenderLabel = new System.Windows.Forms.Label();
+            this.MaleRadioButton = new System.Windows.Forms.RadioButton();
+            this.FemaleRadioButton = new System.Windows.Forms.RadioButton();
+            this.SearchBtn = new System.Windows.Forms.Button();
+            this.UpdateBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // DeleteDirectorBtn
+            // DeleteBtn
             // 
-            this.DeleteDirectorBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.DeleteDirectorBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteDirectorBtn.Location = new System.Drawing.Point(262, 417);
-            this.DeleteDirectorBtn.Name = "DeleteDirectorBtn";
-            this.DeleteDirectorBtn.Size = new System.Drawing.Size(183, 30);
-            this.DeleteDirectorBtn.TabIndex = 16;
-            this.DeleteDirectorBtn.Text = "Delete";
-            this.DeleteDirectorBtn.UseVisualStyleBackColor = true;
+            this.DeleteBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.DeleteBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteBtn.Location = new System.Drawing.Point(262, 417);
+            this.DeleteBtn.Name = "DeleteBtn";
+            this.DeleteBtn.Size = new System.Drawing.Size(183, 30);
+            this.DeleteBtn.TabIndex = 16;
+            this.DeleteBtn.Text = "Delete";
+            this.DeleteBtn.UseVisualStyleBackColor = true;
             // 
-            // AddDirectorBtn
+            // AddBtn
             // 
-            this.AddDirectorBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.AddDirectorBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddDirectorBtn.Location = new System.Drawing.Point(262, 199);
-            this.AddDirectorBtn.Name = "AddDirectorBtn";
-            this.AddDirectorBtn.Size = new System.Drawing.Size(183, 30);
-            this.AddDirectorBtn.TabIndex = 17;
-            this.AddDirectorBtn.Text = "Add";
-            this.AddDirectorBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.AddBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddBtn.Location = new System.Drawing.Point(262, 249);
+            this.AddBtn.Name = "AddBtn";
+            this.AddBtn.Size = new System.Drawing.Size(183, 30);
+            this.AddBtn.TabIndex = 17;
+            this.AddBtn.Text = "Add";
+            this.AddBtn.UseVisualStyleBackColor = true;
             // 
             // LastNameTextBox
             // 
@@ -103,26 +108,87 @@
             this.FirstNameTextBox.Size = new System.Drawing.Size(183, 31);
             this.FirstNameTextBox.TabIndex = 14;
             // 
-            // SearchActorDirlabel
+            // HeaderLabel
             // 
-            this.SearchActorDirlabel.AutoSize = true;
-            this.SearchActorDirlabel.Location = new System.Drawing.Point(173, 52);
-            this.SearchActorDirlabel.Name = "SearchActorDirlabel";
-            this.SearchActorDirlabel.Size = new System.Drawing.Size(126, 13);
-            this.SearchActorDirlabel.TabIndex = 11;
-            this.SearchActorDirlabel.Text = "Search for Actor/Director";
+            this.HeaderLabel.AutoSize = true;
+            this.HeaderLabel.Location = new System.Drawing.Point(209, 43);
+            this.HeaderLabel.Name = "HeaderLabel";
+            this.HeaderLabel.Size = new System.Drawing.Size(32, 13);
+            this.HeaderLabel.TabIndex = 11;
+            this.HeaderLabel.Text = "Actor";
+            // 
+            // GenderLabel
+            // 
+            this.GenderLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.GenderLabel.AutoSize = true;
+            this.GenderLabel.BackColor = System.Drawing.Color.Transparent;
+            this.GenderLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GenderLabel.Location = new System.Drawing.Point(70, 202);
+            this.GenderLabel.Name = "GenderLabel";
+            this.GenderLabel.Size = new System.Drawing.Size(86, 24);
+            this.GenderLabel.TabIndex = 12;
+            this.GenderLabel.Text = "Gender ";
+            // 
+            // MaleRadioButton
+            // 
+            this.MaleRadioButton.AutoSize = true;
+            this.MaleRadioButton.Location = new System.Drawing.Point(262, 209);
+            this.MaleRadioButton.Name = "MaleRadioButton";
+            this.MaleRadioButton.Size = new System.Drawing.Size(48, 17);
+            this.MaleRadioButton.TabIndex = 20;
+            this.MaleRadioButton.TabStop = true;
+            this.MaleRadioButton.Text = "Male";
+            this.MaleRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // FemaleRadioButton
+            // 
+            this.FemaleRadioButton.AutoSize = true;
+            this.FemaleRadioButton.Location = new System.Drawing.Point(386, 209);
+            this.FemaleRadioButton.Name = "FemaleRadioButton";
+            this.FemaleRadioButton.Size = new System.Drawing.Size(59, 17);
+            this.FemaleRadioButton.TabIndex = 20;
+            this.FemaleRadioButton.TabStop = true;
+            this.FemaleRadioButton.Text = "Female";
+            this.FemaleRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // SearchBtn
+            // 
+            this.SearchBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.SearchBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchBtn.Location = new System.Drawing.Point(262, 285);
+            this.SearchBtn.Name = "SearchBtn";
+            this.SearchBtn.Size = new System.Drawing.Size(183, 30);
+            this.SearchBtn.TabIndex = 17;
+            this.SearchBtn.Text = "Search";
+            this.SearchBtn.UseVisualStyleBackColor = true;
+            // 
+            // UpdateBtn
+            // 
+            this.UpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.UpdateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateBtn.Location = new System.Drawing.Point(262, 321);
+            this.UpdateBtn.Name = "UpdateBtn";
+            this.UpdateBtn.Size = new System.Drawing.Size(183, 30);
+            this.UpdateBtn.TabIndex = 17;
+            this.UpdateBtn.Text = "Update";
+            this.UpdateBtn.UseVisualStyleBackColor = true;
             // 
             // ActorUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.DeleteDirectorBtn);
-            this.Controls.Add(this.AddDirectorBtn);
+            this.Controls.Add(this.FemaleRadioButton);
+            this.Controls.Add(this.MaleRadioButton);
+            this.Controls.Add(this.DeleteBtn);
+            this.Controls.Add(this.UpdateBtn);
+            this.Controls.Add(this.SearchBtn);
+            this.Controls.Add(this.AddBtn);
+            this.Controls.Add(this.GenderLabel);
             this.Controls.Add(this.LastNameTextBox);
             this.Controls.Add(this.LastNameLabel);
             this.Controls.Add(this.FirstNameLabel);
             this.Controls.Add(this.FirstNameTextBox);
-            this.Controls.Add(this.SearchActorDirlabel);
+            this.Controls.Add(this.HeaderLabel);
             this.Name = "ActorUserControl";
             this.Size = new System.Drawing.Size(515, 505);
             this.ResumeLayout(false);
@@ -132,12 +198,17 @@
 
         #endregion
 
-        private System.Windows.Forms.Button DeleteDirectorBtn;
-        private System.Windows.Forms.Button AddDirectorBtn;
+        private System.Windows.Forms.Button DeleteBtn;
+        private System.Windows.Forms.Button AddBtn;
         private System.Windows.Forms.TextBox LastNameTextBox;
         private System.Windows.Forms.Label LastNameLabel;
         private System.Windows.Forms.Label FirstNameLabel;
         private System.Windows.Forms.TextBox FirstNameTextBox;
-        private System.Windows.Forms.Label SearchActorDirlabel;
+        private System.Windows.Forms.Label HeaderLabel;
+        private System.Windows.Forms.Label GenderLabel;
+        private System.Windows.Forms.RadioButton MaleRadioButton;
+        private System.Windows.Forms.RadioButton FemaleRadioButton;
+        private System.Windows.Forms.Button SearchBtn;
+        private System.Windows.Forms.Button UpdateBtn;
     }
 }

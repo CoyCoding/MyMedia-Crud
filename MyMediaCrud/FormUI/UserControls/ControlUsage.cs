@@ -11,11 +11,11 @@ namespace FormUI
         EDIT_MOVIE = 1,
         ADD_MOVIE
     }
-    public enum DirectorControlUsage
+    public enum ControlUsage
     {
-        SEARCH_DIR =1,
-        EDIT_DIR,
-        ADD_DIR,
+        SEARCH =1,
+        EDIT,
+        ADD,
     }
     public enum ActorControlUsage
     {
