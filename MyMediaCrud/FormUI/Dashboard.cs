@@ -50,8 +50,8 @@ namespace FormUI
         private void AddMovies_Click(object sender, EventArgs e)
         {
             MovieDropDownTimer.Start();
-            dataGrid1.LoadAllMoviesToGrid();
             ActiveUserControl.ActiveUserControl = editMoviesControl1;
+            dataGrid1.LoadAllMoviesToGrid();
             editMoviesControl1.SetControlAsAdd();
         }
 
@@ -90,21 +90,26 @@ namespace FormUI
 
         private void AllDirectorsBtn_Click(object sender, EventArgs e)
         {
-            //DirectorDropDownTimer.Start();
-            //DataAccess db = new DataAccess();
-            //Directors = db.GetDirectors();
-            //dataGrid1.dataGridView.DataSource = Directors;
-            //PopulateGridWithDirectors();
+            DirectorDropDownTimer.Start();
+            ActiveUserControl.ActiveUserControl = directorsUserControl;
+            dataGrid1.LoadAllDirectorsToGrid();
+            directorsUserControl.SetControlAsSearch();
         }
 
         private void EditDirectorsBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("EditDirectorsBtn not ready");
+            DirectorDropDownTimer.Start();
+            ActiveUserControl.ActiveUserControl = directorsUserControl;
+            dataGrid1.LoadAllDirectorsToGrid();
+            directorsUserControl.SetControlAsEdit();
         }
 
         private void AddDirectorsBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("AddDirectorsBtn not ready");
+            DirectorDropDownTimer.Start();
+            ActiveUserControl.ActiveUserControl = directorsUserControl;
+            dataGrid1.LoadAllDirectorsToGrid();
+            directorsUserControl.SetControlAsAdd();
         }
 
         #endregion
@@ -250,13 +255,14 @@ namespace FormUI
         private void MovieSearchEdit_Event(object sender, EventArgs e)
         {
             ActiveUserControl.ActiveUserControl = editMoviesControl1;
+            editMoviesControl1.SetControlAsEdit();
             SelectedRowChange_Event(sender, e);
         }
 
         private void SelectedRowChange_Event(object sender, EventArgs e)
         {
             if (editMoviesControl1.Visible == true && editMoviesControl1.GetCurrentUsage() 
-                == (int)ControlUsage.EDIT_MOVIE)
+                == (int)MovieControlUsage.EDIT_MOVIE)
             {
                 editMoviesControl1.SetSelectedMovie(GetSelectedMovie());
             }
@@ -315,6 +321,20 @@ namespace FormUI
                     db.AddMovieWithDirector(editedMovie);
                     dataGrid1.RefreshGridWith(editedMovie);
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void SearchDirector_Event(object sender, EventArgs e)
+        {
+            try
+            {
+                DataAccess db = new DataAccess();
+                dataGrid1.Directors = db.SearchDirectors(directorsUserControl.BuildDirectorFromTextBoxes());
+                dataGrid1.PopulateGridWithDirectors();
             }
             catch (Exception ex)
             {

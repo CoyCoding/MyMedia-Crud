@@ -13,6 +13,7 @@ namespace FormUI
     public partial class DataGrid : UserControl
     {
         public List<Movie> Movies { get; set; }
+        public List<Director> Directors { get; set; }
 
         public event EventHandler SelectedRowChange_Event;
 
@@ -51,6 +52,7 @@ namespace FormUI
 
         private void PopulateGrid()
         {
+            dataGridView.Columns.Clear();
             dataGridView.DataSource = Movies;
             dataGridView.Columns.Clear();
             dataGridView.Columns.Add(idDataGridViewTextBoxColumn);
@@ -59,26 +61,52 @@ namespace FormUI
             dataGridView.Columns.Add(runtimeDataGridViewTextBoxColumn);
             dataGridView.Columns.Add(yearDataGridViewTextBoxColumn);
             idDataGridViewTextBoxColumn.Visible = false;
-        } 
+        }
 
         #endregion
 
-        private void PopulateGridWithDirectors(List<Director> directors)
+
+        #region Populate Director Grid Logic
+
+        public void LoadAllDirectorsToGrid()
         {
-            if (dataGridView.DataSource.GetType().ToString() == directors.ToString())
+            DataAccess db = new DataAccess();
+            Directors = db.GetDirectors();
+            PopulateGridWithDirectors();
+        }
+
+        public void PopulateGridWithDirectors()
+        {
+            if (dataGridView.DataSource == null)
             {
-                dataGridView.DataSource = directors;
+                AddDirectorColumns();
             }
             else
             {
-                dataGridView.DataSource = directors;
-                dataGridView.Columns.Clear();
-                dataGridView.Columns.Add(idDataGridViewTextBoxColumn);
-                dataGridView.Columns.Add(firstNameDataGridViewTextBoxColumn);
-                dataGridView.Columns.Add(lastNameDataGridViewTextBoxColumn);
-                idDataGridViewTextBoxColumn.Visible = false;
+                if (dataGridView.DataSource.GetType().ToString() == Directors.ToString())
+                {
+                    dataGridView.DataSource = Directors;
+                }
+                else
+                {
+                    AddDirectorColumns();
+                }
             }
         }
+
+        private void AddDirectorColumns()
+        {
+            dataGridView.Columns.Clear();
+            dataGridView.DataSource = Directors;
+            dataGridView.Columns.Clear();
+            dataGridView.Columns.Add(idDataGridViewTextBoxColumn);
+            dataGridView.Columns.Add(firstNameDataGridViewTextBoxColumn);
+            dataGridView.Columns.Add(lastNameDataGridViewTextBoxColumn);
+            idDataGridViewTextBoxColumn.Visible = false;
+        }
+
+        #endregion
+
 
         public void RefreshGridWith(Movie editedMovie)
         {

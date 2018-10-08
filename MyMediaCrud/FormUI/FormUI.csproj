@@ -52,7 +52,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ControlUsage.cs" />
+    <Compile Include="ActorUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ActorUserControl.Designer.cs">
+      <DependentUpon>ActorUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ControlUsage.cs" />
+    <Compile Include="UserControls\DirectorsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\DirectorsUserControl.Designer.cs">
+      <DependentUpon>DirectorsUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\DataGrid.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -89,8 +101,14 @@
     <Compile Include="UserControls\SearchMoviesControl.Designer.cs">
       <DependentUpon>SearchMoviesControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ActorUserControl.resx">
+      <DependentUpon>ActorUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\DirectorsUserControl.resx">
+      <DependentUpon>DirectorsUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\DataGrid.resx">
       <DependentUpon>DataGrid.cs</DependentUpon>

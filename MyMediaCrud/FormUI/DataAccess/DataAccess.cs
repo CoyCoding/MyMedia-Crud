@@ -113,5 +113,18 @@ namespace FormUI
                          });
             }
         }
+
+        public List<Director> SearchDirectors(Director director)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
+            {
+                return connection.Query<Director>("dbo.spSearch_By_Director @FirstName, @LastName",
+                         new
+                         {
+                             director.FirstName,
+                             director.LastName
+                         }).ToList();
+            }
+        }
     }
 }
