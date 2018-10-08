@@ -85,7 +85,9 @@ namespace FormUI
             {
                 if (dataGridView.DataSource.GetType().ToString() == Directors.ToString())
                 {
+                    dataGridView.Update();
                     dataGridView.DataSource = Directors;
+                    
                 }
                 else
                 {
@@ -124,9 +126,34 @@ namespace FormUI
             }
         }
 
-        public DataGridViewRow GetSelectedRow()
+        public void RefreshGridWith(Director editedDirector)
+        {
+            foreach (Director director in Directors)
+            {
+                if (director.id == editedDirector.id)
+                {
+                    if (editedDirector.FirstName != null)
+                    {
+                        director.FirstName = editedDirector.FirstName;
+                    }
+                    if (editedDirector.LastName != null)
+                    {
+                        director.LastName = editedDirector.LastName;
+                    }
+                    dataGridView.Refresh();
+                    break;
+                }
+            }
+        }
+
+        private DataGridViewRow GetSelectedRow()
         {
             return dataGridView.SelectedRows[0];
+        }
+
+        public object GetSelectedGridObject()
+        {
+            return GetSelectedRow().DataBoundItem;
         }
 
         private void dataGridView_RowEnter(object sender, DataGridViewCellEventArgs e)

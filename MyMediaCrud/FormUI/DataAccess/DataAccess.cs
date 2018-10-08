@@ -126,5 +126,36 @@ namespace FormUI
                          }).ToList();
             }
         }
+
+        public void UpdateDirector(Director director)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
+            {
+                connection.Query<Movie>("dbo.spUpdate_Director @id, " +
+                                                              "@FirstName," +
+                                                              "@LastName",
+                         new
+                         {
+                             director.id,
+                             director.FirstName,
+                             director.LastName
+
+                         });
+            }
+        }
+
+        public void AddDirector(Director director)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
+            {
+                connection.Query<Movie>("dbo.spAdd_Director @FirstName, " +
+                                                              "@LastName",
+                         new
+                         {
+                             director.FirstName,
+                             director.LastName
+                         });
+            }
+        }
     }
 }

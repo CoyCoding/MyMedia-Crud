@@ -15,3 +15,4 @@ C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\obj\Debug\FormUI.csproj.CopyCo
 C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\obj\Debug\FormUI.exe
 C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\obj\Debug\FormUI.pdb
 C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\obj\Debug\FormUI.csprojAssemblyReference.cache
+C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\obj\Debug\FormUI.ActorUserControl.resources

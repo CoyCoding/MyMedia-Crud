@@ -42,11 +42,12 @@
             // SearchActorDirlabel
             // 
             this.SearchActorDirlabel.AutoSize = true;
+            this.SearchActorDirlabel.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.SearchActorDirlabel.Location = new System.Drawing.Point(194, 59);
             this.SearchActorDirlabel.Name = "SearchActorDirlabel";
-            this.SearchActorDirlabel.Size = new System.Drawing.Size(126, 13);
+            this.SearchActorDirlabel.Size = new System.Drawing.Size(96, 13);
             this.SearchActorDirlabel.TabIndex = 0;
-            this.SearchActorDirlabel.Text = "Search for Actor/Director";
+            this.SearchActorDirlabel.Text = "Search for Director";
             // 
             // LastNameTextBox
             // 

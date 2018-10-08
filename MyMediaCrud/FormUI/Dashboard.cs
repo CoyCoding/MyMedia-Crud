@@ -192,13 +192,15 @@ namespace FormUI
 
         #endregion
 
+        #region Movie Control Events
+
         private void MovieUpdate_Event(object sender, EventArgs e)
         {
             try
             {
                 Movie editedMovie = editMoviesControl1.BuildMovieFromTextBoxes();
-
-                if (IsUpdateConfirmedDialogResult(GetSelectedMovie(), editedMovie))
+                Movie originaMovie = (Movie)dataGrid1.GetSelectedGridObject();
+                if (IsUpdateConfirmedDialogResult(originaMovie, editedMovie))
                 {
                     
                     DataAccess db = new DataAccess();
@@ -229,29 +231,6 @@ namespace FormUI
             }
         }
 
-        private void SelectRowBtn_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                MessageBox.Show(dataGrid1.Movies[0].Title);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("No Movie Selected");
-            }
-            //if (dataGridView2.SelectedRows.Count == 1)
-            //{
-
-            //    foreach (DataGridViewCell cell in dataGridView2.SelectedCells)
-
-            //    {
-            //        MessageBox.Show(cell.Value.ToString());
-
-            //    }
-            //}
-
-        }
-
         private void MovieSearchEdit_Event(object sender, EventArgs e)
         {
             ActiveUserControl.ActiveUserControl = editMoviesControl1;
@@ -259,53 +238,17 @@ namespace FormUI
             SelectedRowChange_Event(sender, e);
         }
 
-        private void SelectedRowChange_Event(object sender, EventArgs e)
-        {
-            if (editMoviesControl1.Visible == true && editMoviesControl1.GetCurrentUsage() 
-                == (int)MovieControlUsage.EDIT_MOVIE)
-            {
-                editMoviesControl1.SetSelectedMovie(GetSelectedMovie());
-            }
-        }
-
-        private Movie GetSelectedMovie()
-        {
-            return (Movie)dataGrid1.GetSelectedRow().DataBoundItem;
-        }
-
-        private bool IsUpdateConfirmedDialogResult(object original, object update)
-        {
-            DialogResult confirm = MessageBox.Show($"Confirm Update of:\nOriginal: { original.ToString() }\nUpdate: { update.ToString() }",
-             "Confirm", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
-
-            if (confirm == DialogResult.Yes)
-                return true;
-            else
-                return false;
-        }
-
-        private bool IsAddDataConfirmedDialogResult(object dataModel)
-        {
-            DialogResult confirm = MessageBox.Show($"Confirm the addtion of {dataModel.GetType()}:\nOriginal: { dataModel.ToString()}",
-             "Confirm", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
-
-            if (confirm == DialogResult.Yes)
-                return true;
-            else
-                return false;
-        }
-
         private void MovieAdd_Event(object sender, EventArgs e)
         {
-            
+
             try
             {
                 Movie editedMovie = editMoviesControl1.BuildMovieFromTextBoxes();
-                if(editedMovie.IsMovieInfoNull() && editedMovie.IsDirectorInfoNull())
+                if (editedMovie.IsMovieInfoNull() && editedMovie.IsDirectorInfoNull())
                 {
                     throw new Exception("no fields filled out");
                 }
-                else if(editedMovie.IsMovieInfoNull())
+                else if (editedMovie.IsMovieInfoNull())
                 {
                     throw new Exception("No movie info given");
                 }
@@ -328,6 +271,10 @@ namespace FormUI
             }
         }
 
+        #endregion
+
+        #region Search Control Events
+
         private void SearchDirector_Event(object sender, EventArgs e)
         {
             try
@@ -341,6 +288,118 @@ namespace FormUI
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void UpdateDirector_Event(object sender, EventArgs e)
+        {
+            try
+            {
+                Director editedDirector = directorsUserControl.BuildDirectorFromTextBoxes();
+                Director orginalDirector = (Director)dataGrid1.GetSelectedGridObject();
+                if (IsUpdateConfirmedDialogResult(orginalDirector, editedDirector ))
+                {
+
+                    DataAccess db = new DataAccess();
+                    db.UpdateDirector(editedDirector);
+                    dataGrid1.RefreshGridWith(editedDirector);
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void AddDirector_Event(object sender, EventArgs e)
+        {
+            try
+            {
+                Director directorToAdd = directorsUserControl.BuildDirectorFromTextBoxes();
+                if (IsAddDataConfirmedDialogResult(directorToAdd))
+                {
+                    DataAccess db = new DataAccess();
+                    db.AddDirector(directorToAdd);
+                    dataGrid1.LoadAllDirectorsToGrid();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
+
+        private void DeleteDirector_Event(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+        private void SelectedRowChange_Event(object sender, EventArgs e)
+        {
+            if (editMoviesControl1.Visible == true && 
+                editMoviesControl1.GetCurrentUsage()  == (int)MovieControlUsage.EDIT_MOVIE)
+            {
+                editMoviesControl1.SetSelectedMovie((Movie)dataGrid1.GetSelectedGridObject());
+            }
+            else if (directorsUserControl.Visible == true && 
+                     directorsUserControl.GetCurrentUsage() == (int)DirectorControlUsage.EDIT_DIR)
+            {
+                directorsUserControl.SetSelectedDirector((Director)dataGrid1.GetSelectedGridObject());
+            }
+        }
+
+        #region Confirm Update Add Delete Dialog Boxes
+
+        private bool IsUpdateConfirmedDialogResult(object original, object update)
+        {
+            DialogResult confirm = MessageBox.Show($"Confirm Update of:\nOriginal: { original.ToString() }\nUpdate: { update.ToString() }",
+             "Confirm", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+
+            if (confirm == DialogResult.Yes)
+                return true;
+            else
+                return false;
+        }
+
+        private bool IsAddDataConfirmedDialogResult(object dataModel)
+        {
+            DialogResult confirm = MessageBox.Show($"Confirm the addtion of:\n{ dataModel.ToString()}",
+             "Confirm", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+
+            if (confirm == DialogResult.Yes)
+                return true;
+            else
+                return false;
+        }
+
+        #endregion
+
+        #region The Testing Button
+        private void SelectRowBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MessageBox.Show(dataGrid1.Movies[0].Title);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No Movie Selected");
+            }
+            //if (dataGridView2.SelectedRows.Count == 1)
+            //{
+
+            //    foreach (DataGridViewCell cell in dataGridView2.SelectedCells)
+
+            //    {
+            //        MessageBox.Show(cell.Value.ToString());
+
+            //    }
+            //}
+
+        }
+        #endregion
     }
 
 }  

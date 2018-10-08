@@ -24,6 +24,8 @@ namespace FormUI
             InitializeComponent();
         }
 
+        #region New Director From Text Boxes
+
         private string GetFirstName()
         {
             
@@ -59,6 +61,8 @@ namespace FormUI
             }
             return searchableDirector;
         }
+
+        #endregion
 
         #region Buttons
 
@@ -99,15 +103,23 @@ namespace FormUI
         public void SetSelectedDirector(Director director)
         {
             selectedDirector = director;
-            SetSelectedDirector(director);
+            SetTextBoxes(director);
         }
 
         public void SetTextBoxes(Director director)
         {
-            selectedDirector.id = director.id;
-            selectedDirector.FirstName = director.FirstName;
-            selectedDirector.LastName = director.LastName;
+            if (director != null)
+            {
+                FirstNameTextBox.Text = director.FirstName;
+                LastNameTextBox.Text = director.LastName;
+            }
+            else
+            {
+                FirstNameTextBox.Text = "";
+                LastNameTextBox.Text = "";
+            }
         }
+
 
         #region SetForm Add/Edit/Search 
 
@@ -150,6 +162,10 @@ namespace FormUI
             }
         }
 
+        public int GetCurrentUsage()
+        {
+            return CurrentUsage;
+        }
         #endregion
     }
 }

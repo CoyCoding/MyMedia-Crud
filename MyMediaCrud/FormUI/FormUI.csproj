@@ -52,10 +52,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActorUserControl.cs">
+    <Compile Include="UserControls\ActorUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ActorUserControl.Designer.cs">
+    <Compile Include="UserControls\ActorUserControl.Designer.cs">
       <DependentUpon>ActorUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ControlUsage.cs" />
@@ -101,7 +101,7 @@
     <Compile Include="UserControls\SearchMoviesControl.Designer.cs">
       <DependentUpon>SearchMoviesControl.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ActorUserControl.resx">
+    <EmbeddedResource Include="UserControls\ActorUserControl.resx">
       <DependentUpon>ActorUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">

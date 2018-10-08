@@ -448,6 +448,10 @@
             this.directorsUserControl.TabIndex = 101;
             this.directorsUserControl.Visible = false;
             this.directorsUserControl.SearchDirector_Event += new System.EventHandler(this.SearchDirector_Event);
+            this.directorsUserControl.UpdateDirector_Event += new System.EventHandler(this.UpdateDirector_Event);
+            this.directorsUserControl.AddDirector_Event += new System.EventHandler(this.AddDirector_Event);
+            this.directorsUserControl.DeleteDirector_Event += new System.EventHandler(this.DeleteDirector_Event);
+            
 
             // 
             // editMoviesControl1
