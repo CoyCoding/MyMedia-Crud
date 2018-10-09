@@ -68,7 +68,7 @@ namespace FormUI
         {
             ActorDropDownTimer.Start();
             ActiveUserControl.ActiveUserControl = actorUserControl;
-            //dataGrid1.LoadAllActorsToGrid();
+            dataGrid1.LoadAllActorsToGrid();
             actorUserControl.SetControlAsSearch();
         }
 
@@ -76,15 +76,16 @@ namespace FormUI
         {
             ActorDropDownTimer.Start();
             ActiveUserControl.ActiveUserControl = actorUserControl;
-            //dataGrid1.LoadAllActorsToGrid();
+            dataGrid1.LoadAllActorsToGrid();
             actorUserControl.SetControlAsEdit();
+            SelectedRowChange_Event(sender, e);
         }
 
         private void AddActorsBtn_Click(object sender, EventArgs e)
         {
             ActorDropDownTimer.Start();
             ActiveUserControl.ActiveUserControl = actorUserControl;
-            //dataGrid1.LoadAllActorsToGrid();
+            dataGrid1.LoadAllActorsToGrid();
             actorUserControl.SetControlAsAdd();
         }
 
@@ -111,6 +112,7 @@ namespace FormUI
             ActiveUserControl.ActiveUserControl = directorsUserControl;
             dataGrid1.LoadAllDirectorsToGrid();
             directorsUserControl.SetControlAsEdit();
+            SelectedRowChange_Event(sender, e);
         }
 
         private void AddDirectorsBtn_Click(object sender, EventArgs e)
@@ -301,7 +303,7 @@ namespace FormUI
 
         #endregion
 
-        #region Search Control Events
+        #region Director Control Events
 
         private void SearchDirector_Event(object sender, EventArgs e)
         {
@@ -378,8 +380,88 @@ namespace FormUI
             
         }
 
-        
+
         #endregion
+
+        #region Actor Control Events
+
+        private void SearchActor_Event(object sender, EventArgs e)
+        {
+            try
+            {
+                DataAccess db = new DataAccess();
+                dataGrid1.Actors = db.SearchActors(actorUserControl.BuildActorFromTextBoxes());
+                dataGrid1.PopulateGridWithActors();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void UpdateActor_Event(object sender, EventArgs e)
+        {
+            try
+            {
+                Actor editedActor = actorUserControl.BuildActorFromTextBoxes();
+                Actor orginalActor = (Actor)dataGrid1.GetSelectedGridObject();
+                if (IsUpdateConfirmedDialogResult(orginalActor, editedActor))
+                {
+                    DataAccess db = new DataAccess();
+                    db.UpdateActor(editedActor);
+                    dataGrid1.RefreshGridWith(editedActor);
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void DeleteActor_Event(object sender, EventArgs e)
+        {
+            try
+            {
+                Actor orginalActor = (Actor)dataGrid1.GetSelectedGridObject();
+                if (IsDeleteConfirmedDialogResult(orginalActor))
+                {
+                    DataAccess db = new DataAccess();
+                   // db.DeleteActor(orginalActor);
+                    dataGrid1.LoadAllActorsToGrid();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void AddActor_Event(object sender, EventArgs e)
+        {
+            try
+            {
+                Actor actorToAdd = actorUserControl.BuildActorFromTextBoxes();
+                if (IsAddDataConfirmedDialogResult(actorToAdd))
+                {
+                    DataAccess db = new DataAccess();
+                    //db.AddActor(actorToAdd);
+                    dataGrid1.LoadAllDirectorsToGrid();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+
+        #endregion
+
+        #region DataGrid Events
 
         private void SelectedRowChange_Event(object sender, EventArgs e)
         {
@@ -393,7 +475,14 @@ namespace FormUI
             {
                 directorsUserControl.SetSelectedDirector((Director)dataGrid1.GetSelectedGridObject());
             }
+            else if(actorUserControl.Visible == true &&
+                    actorUserControl.GetCurrentUsage() == (int)ControlUsage.EDIT)
+            {
+                actorUserControl.SetSelectedActor((Actor)dataGrid1.GetSelectedGridObject());
+            }
         }
+
+        #endregion
 
         #region Confirm Update Add Delete Dialog Boxes
 

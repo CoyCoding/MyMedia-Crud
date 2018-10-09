@@ -1,3 +1,9 @@
+C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\bin\Debug\FormUI.exe.config
+C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\bin\Debug\FormUI.exe
+C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\bin\Debug\FormUI.pdb
+C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\bin\Debug\Dapper.dll
+C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\bin\Debug\Dapper.xml
+C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\obj\Debug\FormUI.ActorUserControl.resources
 C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\obj\Debug\FormUI.Dashboard.resources
 C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\obj\Debug\FormUI.DirectorsUserControl.resources
 C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\obj\Debug\FormUI.DataGrid.resources
@@ -6,12 +12,7 @@ C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\obj\Debug\FormUI.Properties.Re
 C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\obj\Debug\FormUI.SearchMoviesControl.resources
 C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\obj\Debug\FormUI.csproj.GenerateResource.cache
 C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\obj\Debug\FormUI.csproj.CoreCompileInputs.cache
-C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\bin\Debug\FormUI.exe.config
-C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\bin\Debug\FormUI.exe
-C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\bin\Debug\FormUI.pdb
-C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\bin\Debug\Dapper.dll
-C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\bin\Debug\Dapper.xml
 C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\obj\Debug\FormUI.csproj.CopyComplete
 C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\obj\Debug\FormUI.exe
 C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\obj\Debug\FormUI.pdb
-C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\obj\Debug\FormUI.ActorUserControl.resources
+C:\Users\DickButt\source\repos\MyMediaCrud\FormUI\obj\Debug\FormUI.csprojAssemblyReference.cache

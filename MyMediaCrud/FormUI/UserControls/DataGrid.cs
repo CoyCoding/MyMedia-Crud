@@ -14,6 +14,7 @@ namespace FormUI
     {
         public List<Movie> Movies { get; set; }
         public List<Director> Directors { get; set; }
+        public List<Actor> Actors { get; set; }
 
         public event EventHandler SelectedRowChange_Event;
 
@@ -33,21 +34,8 @@ namespace FormUI
 
         public void PopulateGridWithMovies()
         {
-            if (dataGridView.DataSource == null)
-            {
-                PopulateGrid();
-            }
-            else
-            {
-                if (dataGridView.DataSource.GetType().ToString() == Movies.ToString())
-                {
-                    dataGridView.DataSource = Movies;
-                }
-                else
-                {
-                    PopulateGrid();
-                }
-            }  
+            PopulateGrid();
+
         }
 
         private void PopulateGrid()
@@ -65,7 +53,6 @@ namespace FormUI
 
         #endregion
 
-
         #region Populate Director Grid Logic
 
         public void LoadAllDirectorsToGrid()
@@ -77,23 +64,8 @@ namespace FormUI
 
         public void PopulateGridWithDirectors()
         {
-            if (dataGridView.DataSource == null)
-            {
-                AddDirectorColumns();
-            }
-            else
-            {
-                if (dataGridView.DataSource.GetType().ToString() == Directors.ToString())
-                {
-                    dataGridView.Update();
-                    dataGridView.DataSource = Directors;
-                    
-                }
-                else
-                {
-                    AddDirectorColumns();
-                }
-            }
+            AddDirectorColumns();
+
         }
 
         private void AddDirectorColumns()
@@ -109,6 +81,35 @@ namespace FormUI
 
         #endregion
 
+        #region Populate Actor Grid Logic
+
+        public void LoadAllActorsToGrid()
+        {
+            DataAccess db = new DataAccess();
+            Actors = db.GetActors();
+            PopulateGridWithActors();
+        }
+
+        public void PopulateGridWithActors()
+        {
+            AddActorColumns();
+
+        }
+
+        private void AddActorColumns()
+        {
+            dataGridView.Columns.Clear();
+            dataGridView.DataSource = Actors;
+            dataGridView.Columns.Clear();
+            dataGridView.Columns.Add(idDataGridViewTextBoxColumn);
+            dataGridView.Columns.Add(firstNameDataGridViewTextBoxColumn);
+            dataGridView.Columns.Add(lastNameDataGridViewTextBoxColumn);
+            dataGridView.Columns.Add(genderDataGridViewTextBoxColumn);
+            idDataGridViewTextBoxColumn.Visible = false;
+        }
+        #endregion
+
+        #region Refresh Grid Overloads
 
         public void RefreshGridWith(Movie editedMovie)
         {
@@ -146,6 +147,34 @@ namespace FormUI
             }
         }
 
+        public void RefreshGridWith(Actor editedActor)
+        {
+            foreach (Actor actor in Actors)
+            {
+                if (actor.id == editedActor.id)
+                {
+                    if (editedActor.FirstName != null)
+                    {
+                        actor.FirstName = editedActor.FirstName;
+                    }
+                    if (editedActor.LastName != null)
+                    {
+                        actor.LastName = editedActor.LastName;
+                    }
+                    if (editedActor.Gender != null)
+                    {
+                        actor.Gender = editedActor.Gender;
+                    }
+                    dataGridView.Refresh();
+                    break;
+                }
+            }
+        }
+
+        #endregion
+
+        #region Row Selection Logic/Event
+
         private DataGridViewRow GetSelectedRow()
         {
             return dataGridView.SelectedRows[0];
@@ -160,10 +189,11 @@ namespace FormUI
         {
             if (SelectedRowChange_Event != null && dataGridView.SelectedRows.Count == 1)
             {
-
                 SelectedRowChange_Event(this, new EventArgs());
             }
 
         }
+
+        #endregion
     }
 }

@@ -187,5 +187,79 @@ namespace FormUI
         }
 
         #endregion
+
+        #region DataAccess Actors
+
+        public List<Actor> GetActors()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
+            {
+                var output = connection.Query<Actor>("dbo.spSelect_All_Actors").ToList();
+                return output;
+            }
+        }
+
+        public List<Actor> SearchActors(Actor actor)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
+            {
+                return connection.Query<Actor>("dbo.spSearch_By_Actor @FirstName, @LastName, @Gender",
+                         new
+                         {
+                             actor.FirstName,
+                             actor.LastName,
+                             actor.Gender
+                         }).ToList();
+            }
+        }
+
+        public void UpdateActor(Actor actor)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
+            {
+                connection.Query<Director>("dbo.spUpdate_Actor @id, " +
+                                                              "@FirstName," +
+                                                              "@LastName," + 
+                                                              "@Gender",
+                         new
+                         {
+                             actor.id,
+                             actor.FirstName,
+                             actor.LastName,
+                             actor.Gender
+
+                         });
+            }
+        }
+
+        public void AddActor(Actor actor)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
+            {
+                connection.Query<Actor>("dbo.spAdd_Actor @FirstName, " +
+                                                              "@LastName, " + 
+                                                              "@Gender",
+                         new
+                         {
+                             actor.FirstName,
+                             actor.LastName,
+                             actor.Gender
+                         });
+            }
+        }
+
+        public void DeleteActor(Actor actor)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
+            {
+                connection.Query<Actor>("dbo.spDelete_Actor_And_FK @id",
+                    new
+                    {
+                        actor.id
+                    });
+            }
+        }
+
+        #endregion
     }
 }

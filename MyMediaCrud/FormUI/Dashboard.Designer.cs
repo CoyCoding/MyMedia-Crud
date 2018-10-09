@@ -443,6 +443,7 @@
             // 
             // directorsUserControl
             // 
+            this.directorsUserControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.directorsUserControl.Location = new System.Drawing.Point(606, 33);
             this.directorsUserControl.Name = "directorsUserControl";
             this.directorsUserControl.Size = new System.Drawing.Size(527, 504);
@@ -480,6 +481,7 @@
             // 
             // dataGrid1
             // 
+            this.dataGrid1.Actors = null;
             this.dataGrid1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -493,11 +495,16 @@
             // 
             // actorUserControl
             // 
+            this.actorUserControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.actorUserControl.Location = new System.Drawing.Point(606, 32);
             this.actorUserControl.Name = "actorUserControl";
             this.actorUserControl.Size = new System.Drawing.Size(524, 505);
             this.actorUserControl.TabIndex = 102;
             this.actorUserControl.Visible = false;
+            this.actorUserControl.SearchActor_Event += new System.EventHandler(this.SearchActor_Event);
+            this.actorUserControl.UpdateActor_Event += new System.EventHandler(this.UpdateActor_Event);
+            this.actorUserControl.AddActor_Event += new System.EventHandler(this.AddActor_Event);
+            this.actorUserControl.DeleteActor_Event += new System.EventHandler(this.DeleteActor_Event);
             // 
             // Dashboard
             // 

@@ -52,6 +52,7 @@
             this.DeleteBtn.TabIndex = 16;
             this.DeleteBtn.Text = "Delete";
             this.DeleteBtn.UseVisualStyleBackColor = true;
+            this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
             // AddBtn
             // 
@@ -63,6 +64,7 @@
             this.AddBtn.TabIndex = 17;
             this.AddBtn.Text = "Add";
             this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // LastNameTextBox
             // 
@@ -131,47 +133,51 @@
             // 
             // MaleRadioButton
             // 
+            this.MaleRadioButton.AutoCheck = false;
             this.MaleRadioButton.AutoSize = true;
             this.MaleRadioButton.Location = new System.Drawing.Point(262, 209);
             this.MaleRadioButton.Name = "MaleRadioButton";
             this.MaleRadioButton.Size = new System.Drawing.Size(48, 17);
             this.MaleRadioButton.TabIndex = 20;
-            this.MaleRadioButton.TabStop = true;
             this.MaleRadioButton.Text = "Male";
             this.MaleRadioButton.UseVisualStyleBackColor = true;
+            this.MaleRadioButton.Click += new System.EventHandler(this.MaleRadioButton_Click);
             // 
             // FemaleRadioButton
             // 
+            this.FemaleRadioButton.AutoCheck = false;
             this.FemaleRadioButton.AutoSize = true;
             this.FemaleRadioButton.Location = new System.Drawing.Point(386, 209);
             this.FemaleRadioButton.Name = "FemaleRadioButton";
             this.FemaleRadioButton.Size = new System.Drawing.Size(59, 17);
             this.FemaleRadioButton.TabIndex = 20;
-            this.FemaleRadioButton.TabStop = true;
             this.FemaleRadioButton.Text = "Female";
             this.FemaleRadioButton.UseVisualStyleBackColor = true;
+            this.FemaleRadioButton.Click += new System.EventHandler(this.FemaleRadioButton_Click);
             // 
             // SearchBtn
             // 
             this.SearchBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.SearchBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchBtn.Location = new System.Drawing.Point(262, 285);
+            this.SearchBtn.Location = new System.Drawing.Point(262, 249);
             this.SearchBtn.Name = "SearchBtn";
             this.SearchBtn.Size = new System.Drawing.Size(183, 30);
             this.SearchBtn.TabIndex = 17;
             this.SearchBtn.Text = "Search";
             this.SearchBtn.UseVisualStyleBackColor = true;
+            this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
             // 
             // UpdateBtn
             // 
             this.UpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.UpdateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateBtn.Location = new System.Drawing.Point(262, 321);
+            this.UpdateBtn.Location = new System.Drawing.Point(262, 249);
             this.UpdateBtn.Name = "UpdateBtn";
             this.UpdateBtn.Size = new System.Drawing.Size(183, 30);
             this.UpdateBtn.TabIndex = 17;
             this.UpdateBtn.Text = "Update";
             this.UpdateBtn.UseVisualStyleBackColor = true;
+            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
             // 
             // ActorUserControl
             // 
