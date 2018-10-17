@@ -13,6 +13,8 @@ namespace FormUI
     public partial class DataGrid : UserControl
     {
         public List<Movie> Movies { get; set; }
+        public List<Director> Directors { get; set; }
+        public List<Actor> Actors { get; set; }
 
         public event EventHandler SelectedRowChange_Event;
 
@@ -32,25 +34,13 @@ namespace FormUI
 
         public void PopulateGridWithMovies()
         {
-            if (dataGridView.DataSource == null)
-            {
-                PopulateGrid();
-            }
-            else
-            {
-                if (dataGridView.DataSource.GetType().ToString() == Movies.ToString())
-                {
-                    dataGridView.DataSource = Movies;
-                }
-                else
-                {
-                    PopulateGrid();
-                }
-            }  
+            PopulateGrid();
+
         }
 
         private void PopulateGrid()
         {
+            dataGridView.Columns.Clear();
             dataGridView.DataSource = Movies;
             dataGridView.Columns.Clear();
             dataGridView.Columns.Add(idDataGridViewTextBoxColumn);
@@ -59,26 +49,67 @@ namespace FormUI
             dataGridView.Columns.Add(runtimeDataGridViewTextBoxColumn);
             dataGridView.Columns.Add(yearDataGridViewTextBoxColumn);
             idDataGridViewTextBoxColumn.Visible = false;
-        } 
+        }
 
         #endregion
 
-        private void PopulateGridWithDirectors(List<Director> directors)
+        #region Populate Director Grid Logic
+
+        public void LoadAllDirectorsToGrid()
         {
-            if (dataGridView.DataSource.GetType().ToString() == directors.ToString())
-            {
-                dataGridView.DataSource = directors;
-            }
-            else
-            {
-                dataGridView.DataSource = directors;
-                dataGridView.Columns.Clear();
-                dataGridView.Columns.Add(idDataGridViewTextBoxColumn);
-                dataGridView.Columns.Add(firstNameDataGridViewTextBoxColumn);
-                dataGridView.Columns.Add(lastNameDataGridViewTextBoxColumn);
-                idDataGridViewTextBoxColumn.Visible = false;
-            }
+            DataAccess db = new DataAccess();
+            Directors = db.GetDirectors();
+            PopulateGridWithDirectors();
         }
+
+        public void PopulateGridWithDirectors()
+        {
+            AddDirectorColumns();
+
+        }
+
+        private void AddDirectorColumns()
+        {
+            dataGridView.Columns.Clear();
+            dataGridView.DataSource = Directors;
+            dataGridView.Columns.Clear();
+            dataGridView.Columns.Add(idDataGridViewTextBoxColumn);
+            dataGridView.Columns.Add(firstNameDataGridViewTextBoxColumn);
+            dataGridView.Columns.Add(lastNameDataGridViewTextBoxColumn);
+            idDataGridViewTextBoxColumn.Visible = false;
+        }
+
+        #endregion
+
+        #region Populate Actor Grid Logic
+
+        public void LoadAllActorsToGrid()
+        {
+            DataAccess db = new DataAccess();
+            Actors = db.GetActors();
+            PopulateGridWithActors();
+        }
+
+        public void PopulateGridWithActors()
+        {
+            AddActorColumns();
+
+        }
+
+        private void AddActorColumns()
+        {
+            dataGridView.Columns.Clear();
+            dataGridView.DataSource = Actors;
+            dataGridView.Columns.Clear();
+            dataGridView.Columns.Add(idDataGridViewTextBoxColumn);
+            dataGridView.Columns.Add(firstNameDataGridViewTextBoxColumn);
+            dataGridView.Columns.Add(lastNameDataGridViewTextBoxColumn);
+            dataGridView.Columns.Add(genderDataGridViewTextBoxColumn);
+            idDataGridViewTextBoxColumn.Visible = false;
+        }
+        #endregion
+
+        #region Refresh Grid Overloads
 
         public void RefreshGridWith(Movie editedMovie)
         {
@@ -96,19 +127,73 @@ namespace FormUI
             }
         }
 
-        public DataGridViewRow GetSelectedRow()
+        public void RefreshGridWith(Director editedDirector)
+        {
+            foreach (Director director in Directors)
+            {
+                if (director.id == editedDirector.id)
+                {
+                    if (editedDirector.FirstName != null)
+                    {
+                        director.FirstName = editedDirector.FirstName;
+                    }
+                    if (editedDirector.LastName != null)
+                    {
+                        director.LastName = editedDirector.LastName;
+                    }
+                    dataGridView.Refresh();
+                    break;
+                }
+            }
+        }
+
+        public void RefreshGridWith(Actor editedActor)
+        {
+            foreach (Actor actor in Actors)
+            {
+                if (actor.id == editedActor.id)
+                {
+                    if (editedActor.FirstName != null)
+                    {
+                        actor.FirstName = editedActor.FirstName;
+                    }
+                    if (editedActor.LastName != null)
+                    {
+                        actor.LastName = editedActor.LastName;
+                    }
+                    if (editedActor.Gender != null)
+                    {
+                        actor.Gender = editedActor.Gender;
+                    }
+                    dataGridView.Refresh();
+                    break;
+                }
+            }
+        }
+
+        #endregion
+
+        #region Row Selection Logic/Event
+
+        private DataGridViewRow GetSelectedRow()
         {
             return dataGridView.SelectedRows[0];
+        }
+
+        public object GetSelectedGridObject()
+        {
+            return GetSelectedRow().DataBoundItem;
         }
 
         private void dataGridView_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (SelectedRowChange_Event != null && dataGridView.SelectedRows.Count == 1)
             {
-
                 SelectedRowChange_Event(this, new EventArgs());
             }
 
         }
+
+        #endregion
     }
 }

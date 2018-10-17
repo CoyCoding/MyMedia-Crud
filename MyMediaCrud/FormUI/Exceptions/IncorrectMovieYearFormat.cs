@@ -12,5 +12,11 @@ namespace FormUI
             : base ("Incorrect Year format")
         {
         }
+
+        public IncorrectMovieYearFormat(string message, params object[] args)
+            :base(String.Format(message, args))
+        {
+        }
     }
+    
 }

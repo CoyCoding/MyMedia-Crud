@@ -15,11 +15,11 @@ namespace FormUI
 
         public string LastName { get; set; }
 
-        public char Gender { get; set; }
+        public char? Gender { get; set; }
 
         public override string ToString()
         {
-            return FirstName + ' ' + LastName;
+            return FirstName + ' ' + LastName + ' ' + Gender;
         }
 
         public static implicit operator Actor(string actorString)
@@ -37,12 +37,12 @@ namespace FormUI
             return converted;
         }
 
-        private static void IsValidActorString(string directorString)
+        private static void IsValidActorString(string actorString)
         {
-            Regex directorFormat = new Regex(@"^\d + (\s +\w +) { 2 }");
-            if (directorFormat.IsMatch(directorString))
+            Regex actorFormat = new Regex(@"^\d + (\s +\w +) { 2 }");
+            if (actorFormat.IsMatch(actorString))
             {
-                throw new Exception(); //create new exception?
+                throw new FormatException(); //create new exception?
             }
         }
     }

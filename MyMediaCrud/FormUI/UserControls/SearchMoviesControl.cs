@@ -48,25 +48,6 @@ namespace FormUI
             return movieSearch;
         }
 
-        private void RuntimeTextBox_Click(object sender, EventArgs e)
-        {
-            if (MovieSearchFormValidator.IsDefaultRuntimeValue(RuntimeTextBox.Text))
-            {
-                RuntimeTextBox.Text = "";
-                RuntimeTextBox.ForeColor = Color.Black;
-            }
-            
-        }
-
-        private void YearTextBox_Click(object sender, EventArgs e)
-        {
-            if (MovieSearchFormValidator.IsDefaultYearValue(YearTextBox.Text))
-            {
-                YearTextBox.Text = "";
-                YearTextBox.ForeColor = Color.Black;
-            }
-        }
-
         private string GetMovieTitleFromTextBox()
         {
             return MovieTitleTextBox.Text;
@@ -120,6 +101,22 @@ namespace FormUI
                 MovieSearchEdit_Event(this, new EventArgs());
             }
         }
+
+        #region TextBox Styling
+
+        private void RuntimeTextBox_Click(object sender, EventArgs e)
+        {
+            RuntimeTextBox.Text = "";
+            RuntimeTextBox.ForeColor = Color.Black;
+
+        }
+
+        private void YearTextBox_Click(object sender, EventArgs e)
+        {
+            YearTextBox.Text = "";
+            YearTextBox.ForeColor = Color.Black;
+        }
+
+        #endregion
     }
-    
 }

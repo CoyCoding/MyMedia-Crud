@@ -59,9 +59,11 @@
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.directorsUserControl = new FormUI.DirectorsUserControl();
             this.editMoviesControl1 = new FormUI.EditMoviesControl();
             this.searchMoviesControl = new FormUI.SearchMoviesControl();
             this.dataGrid1 = new FormUI.DataGrid();
+            this.actorUserControl = new FormUI.ActorUserControl();
             this.NavBar.SuspendLayout();
             this.MoviePanel.SuspendLayout();
             this.ActorPanel.SuspendLayout();
@@ -439,6 +441,19 @@
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // directorsUserControl
+            // 
+            this.directorsUserControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.directorsUserControl.Location = new System.Drawing.Point(606, 33);
+            this.directorsUserControl.Name = "directorsUserControl";
+            this.directorsUserControl.Size = new System.Drawing.Size(527, 504);
+            this.directorsUserControl.TabIndex = 101;
+            this.directorsUserControl.Visible = false;
+            this.directorsUserControl.SearchDirector_Event += new System.EventHandler(this.SearchDirector_Event);
+            this.directorsUserControl.UpdateDirector_Event += new System.EventHandler(this.UpdateDirector_Event);
+            this.directorsUserControl.AddDirector_Event += new System.EventHandler(this.AddDirector_Event);
+            this.directorsUserControl.DeleteDirector_Event += new System.EventHandler(this.DeleteDirector_Event);
+            // 
             // editMoviesControl1
             // 
             this.editMoviesControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -448,6 +463,8 @@
             this.editMoviesControl1.TabIndex = 0;
             this.editMoviesControl1.Visible = false;
             this.editMoviesControl1.MovieUpdate_Event += new System.EventHandler(this.MovieUpdate_Event);
+            this.editMoviesControl1.MovieAdd_Event += new System.EventHandler(this.MovieAdd_Event);
+            this.editMoviesControl1.MovieDelete_Event += new System.EventHandler(this.MovieDelete_Event);
             // 
             // searchMoviesControl
             // 
@@ -464,9 +481,11 @@
             // 
             // dataGrid1
             // 
+            this.dataGrid1.Actors = null;
             this.dataGrid1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGrid1.Directors = null;
             this.dataGrid1.Location = new System.Drawing.Point(0, 32);
             this.dataGrid1.Movies = null;
             this.dataGrid1.Name = "dataGrid1";
@@ -474,12 +493,27 @@
             this.dataGrid1.TabIndex = 100;
             this.dataGrid1.SelectedRowChange_Event += new System.EventHandler(this.SelectedRowChange_Event);
             // 
+            // actorUserControl
+            // 
+            this.actorUserControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.actorUserControl.Location = new System.Drawing.Point(606, 32);
+            this.actorUserControl.Name = "actorUserControl";
+            this.actorUserControl.Size = new System.Drawing.Size(524, 505);
+            this.actorUserControl.TabIndex = 102;
+            this.actorUserControl.Visible = false;
+            this.actorUserControl.SearchActor_Event += new System.EventHandler(this.SearchActor_Event);
+            this.actorUserControl.UpdateActor_Event += new System.EventHandler(this.UpdateActor_Event);
+            this.actorUserControl.AddActor_Event += new System.EventHandler(this.AddActor_Event);
+            this.actorUserControl.DeleteActor_Event += new System.EventHandler(this.DeleteActor_Event);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1131, 537);
+            this.Controls.Add(this.actorUserControl);
+            this.Controls.Add(this.directorsUserControl);
             this.Controls.Add(this.editMoviesControl1);
             this.Controls.Add(this.DirectorPanel);
             this.Controls.Add(this.ActorPanel);
@@ -534,6 +568,8 @@
         private SearchMoviesControl searchMoviesControl;
         private EditMoviesControl editMoviesControl1;
         private DataGrid dataGrid1;
+        private DirectorsUserControl directorsUserControl;
+        private ActorUserControl actorUserControl;
     }
 }
 

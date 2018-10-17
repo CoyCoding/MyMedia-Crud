@@ -2,17 +2,9 @@
 
 This is the start to a CRUD application for movies.
 
-As of 10/04-
+As of 10/08-
 
-It selects all and can search all movies by all movie properties
+- Crud is complete -
 
-Has proper form validation on all search properties 
-
-Stored procedures are done, but working on making a clean UI
-
-
-*GOALS*
-Add movies real close too being added 
-
-Once that is done everything else is basicly method reuse to finish the base program
+Extra features may be added in the future. After clean up is done a new repository will be created for the "more finished poject and 
 

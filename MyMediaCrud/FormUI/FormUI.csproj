@@ -52,13 +52,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfirmUpdateForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="MediaUserControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ConfirmUpdateForm.Designer.cs">
-      <DependentUpon>ConfirmUpdateForm.cs</DependentUpon>
+    <Compile Include="UserControls\ActorUserControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DataAccess\DataAccessUpdate.cs" />
+    <Compile Include="UserControls\ActorUserControl.Designer.cs">
+      <DependentUpon>ActorUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ControlUsage.cs" />
+    <Compile Include="UserControls\DirectorsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\DirectorsUserControl.Designer.cs">
+      <DependentUpon>DirectorsUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\DataGrid.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -95,11 +104,14 @@
     <Compile Include="UserControls\SearchMoviesControl.Designer.cs">
       <DependentUpon>SearchMoviesControl.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ConfirmUpdateForm.resx">
-      <DependentUpon>ConfirmUpdateForm.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\ActorUserControl.resx">
+      <DependentUpon>ActorUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\DirectorsUserControl.resx">
+      <DependentUpon>DirectorsUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\DataGrid.resx">
       <DependentUpon>DataGrid.cs</DependentUpon>

@@ -33,7 +33,7 @@ namespace FormUI
             return false;
         }
 
-        private static void IsRuntimeCorrectFormat(string timeSpan)
+        public static void IsRuntimeCorrectFormat(string timeSpan)
         {
             Regex timeSpanFormat = new Regex(@"(^\d{1,2})(\:\d{2}){1,2}|^$");
 

@@ -10,6 +10,7 @@ namespace FormUI
 {
     public class DataAccess
     {
+        #region DataAccess Movies
 
         public List<Movie> GetAllMovies()
         {
@@ -17,15 +18,6 @@ namespace FormUI
             {
                 var output = connection.Query<Movie>("dbo.spSelect_All_Movies");
                 return output.ToList();
-            }
-        }
-
-        public List<Director> GetDirectors()
-        {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
-            {
-                var output = connection.Query<Director>("dbo.spSelect_All_Directors").ToList();
-                return output;
             }
         }
 
@@ -75,5 +67,199 @@ namespace FormUI
                          });
             }
         }
+
+        public void AddMovieWithDirector(Movie movie)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
+            {
+                connection.Query<Movie>("dbo.spAdd_Movie @Title, " +
+                                                        "@Runtime, " +
+                                                        "@Year, " +
+                                                        "@FirstName," +
+                                                        "@LastName",
+                         new
+                         {
+                             movie.Title,
+                             movie.Runtime,
+                             movie.Year,
+                             movie.Director.FirstName,
+                             movie.Director.LastName
+
+                         });
+            }
+        }
+
+        public void AddMovie(Movie movie)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
+            {
+                connection.Query<Movie>("dbo.spCreate_New_Movie @Title, " +
+                                                               "@Runtime, " +
+                                                               "@Year", 
+
+                         new
+                         {
+                             movie.Title,
+                             movie.Runtime,
+                             movie.Year
+                         });
+            }
+        }
+
+        public void DeleteMovie(Movie movie)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
+            {
+                connection.Query<Movie>("dbo.spDelete_Movie_And_FK @id",
+                    new
+                    {
+                        movie.id
+                    });
+            }
+        }
+
+        #endregion
+
+        #region DataAccess Director
+
+        public List<Director> GetDirectors()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
+            {
+                var output = connection.Query<Director>("dbo.spSelect_All_Directors").ToList();
+                return output;
+            }
+        }
+
+        public List<Director> SearchDirectors(Director director)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
+            {
+                return connection.Query<Director>("dbo.spSearch_By_Director @FirstName, @LastName",
+                         new
+                         {
+                             director.FirstName,
+                             director.LastName
+                         }).ToList();
+            }
+        }
+
+        public void UpdateDirector(Director director)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
+            {
+                connection.Query<Director>("dbo.spUpdate_Director @id, " +
+                                                              "@FirstName," +
+                                                              "@LastName",
+                         new
+                         {
+                             director.id,
+                             director.FirstName,
+                             director.LastName
+
+                         });
+            }
+        }
+
+        public void AddDirector(Director director)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
+            {
+                connection.Query<Director>("dbo.spAdd_Director @FirstName, " +
+                                                              "@LastName",
+                         new
+                         {
+                             director.FirstName,
+                             director.LastName
+                         });
+            }
+        }
+
+        public void DeleteDirector(Director director){
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
+            {
+                connection.Query<Director>("dbo.spDelete_Director_And_FK @id",
+                    new
+                    {
+                        director.id
+                    });
+            }
+        }
+
+        #endregion
+
+        #region DataAccess Actors
+
+        public List<Actor> GetActors()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
+            {
+                var output = connection.Query<Actor>("dbo.spSelect_All_Actors").ToList();
+                return output;
+            }
+        }
+
+        public List<Actor> SearchActors(Actor actor)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
+            {
+                return connection.Query<Actor>("dbo.spSearch_By_Actor @FirstName, @LastName, @Gender",
+                         new
+                         {
+                             actor.FirstName,
+                             actor.LastName,
+                             actor.Gender
+                         }).ToList();
+            }
+        }
+
+        public void UpdateActor(Actor actor)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
+            {
+                connection.Query<Director>("dbo.spUpdate_Actor @id, " +
+                                                              "@FirstName," +
+                                                              "@LastName," + 
+                                                              "@Gender",
+                         new
+                         {
+                             actor.id,
+                             actor.FirstName,
+                             actor.LastName,
+                             actor.Gender
+
+                         });
+            }
+        }
+
+        public void AddActor(Actor actor)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
+            {
+                connection.Query<Actor>("dbo.spAdd_Actor @FirstName, " +
+                                                              "@LastName, " + 
+                                                              "@Gender",
+                         new
+                         {
+                             actor.FirstName,
+                             actor.LastName,
+                             actor.Gender
+                         });
+            }
+        }
+
+        public void DeleteActor(Actor actor)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnValue("MyMediaDB")))
+            {
+                connection.Query<Actor>("dbo.spDelete_Actor_And_FK @id",
+                    new
+                    {
+                        actor.id
+                    });
+            }
+        }
+
+        #endregion
     }
 }
